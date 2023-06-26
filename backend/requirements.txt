@@ -1,0 +1,10 @@
+# Requirements for the virtual environment
+
+# Firebase
+firebase-admin
+
+# Google Classroom
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
