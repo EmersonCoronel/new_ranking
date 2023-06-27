@@ -1,5 +1,7 @@
 import firebase_admin
 import os
+import objects
+import Member
 from firebase_admin import credentials, firestore
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -53,11 +55,6 @@ def get_classroom_credentials():
             token.write(creds.to_json())
     return creds
 
-# Recieve classroom credntials
-classroom_credentials = get_classroom_credentials()
-# Build a service for accessing classroom
-service = build('classroom', 'v1', credentials=classroom_credentials)
-
 """
 Recieves course information from google classroom,
 creates student objects in firestore,
@@ -67,8 +64,15 @@ def retrieve_classroom_data():
     # Create courses list
     courses = service.courses().list().execute()
     for course in courses['courses']:
-        course_id = course['id']
         course_name = course['name']
+        course_level = course['section']
+        course_id = course['id']
+        course_ref = db.collection('Courses').document(course_name + ' ' + course_level)
+        course_ref.set({
+            'Name': course_name,
+            'Level': course_level,
+            'ID': course_id
+        })
 
         # Retrieve the students in the course
         students = []
@@ -77,28 +81,55 @@ def retrieve_classroom_data():
             response = service.courses().students().list(courseId=course_id, pageSize=100, pageToken=page_token).execute()
             students.extend(response.get('students', []))
             page_token = response.get('nextPageToken')
-
             if not page_token:
                 break
 
-
         # Create database object for each student
         for student in students:
-            student_id = student['userId']
-            student_name = student['profile']['name']['fullName']
-            trainer = 'Mikal Hagos' # Need to figure out how to automate
+            new_member = Member.Member(
+                id=student['userId'],
+                first_name=student['profile']['name']['givenName'],
+                last_name=student['profile']['name']['familyName'],
+                location=None,
+                phone_number=None,
+                email=student['profile']['emailAddress'],
+                space=None,
+                gender='Update',
+                date_joined='Update',
+                date_of_birth='Update',
+                package='Update',
+                courses=[course_ref],
+                trainer='Update',
+                password='N/A'
+            )
 
             # Store the data in Firestore
-            student_ref = db.collection('Students').document(student_name)
-            student_ref.set({
-                'Classroom ID': student_id,
-                'Courses': [course_name + ' ' + course['section']],
-                'Trainer': trainer,
-                'Motivation': 0,
-                'Behavior': 0,
-                'Coursework Difficulty': 0,
-                'Challenge': 0,
-                'Progress': 0
-            })
+            student_ref = db.collection('Member Information').document(str(new_member.id))
+            student_ref.set(new_member.__dict__)
 
-retrieve_classroom_data()
+# Recieve classroom credntials
+classroom_credentials = get_classroom_credentials()
+# Build a service for accessing classroom
+service = build('classroom', 'v1', credentials=classroom_credentials)
+
+# Get classroom data and upload it to db
+# retrieve_classroom_data()
+
+# Create test student
+Member.create_member(
+    id="Test",
+    first_name='John',
+    last_name='Doe',
+    location='New York',
+    phone_number='1234567890',
+    email='johndoe@example.com',
+    space='Meeting Room',
+    gender='Male',
+    date_joined='2023-06-28',
+    date_of_birth='1990-01-01',
+    package='Gold',
+    courses=['Course A', 'Course B'],
+    trainer='Trainer A',
+    password='password123'
+)
+
