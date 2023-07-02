@@ -1,7 +1,7 @@
 import firebase_admin
 import os
-import objects
 import Member
+import Location
 from firebase_admin import credentials, firestore
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -9,15 +9,13 @@ from google.auth.transport.requests import Request
 
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.errors import HttpError
-
 
 # Connect to firebase
 firebase_credentials = credentials.Certificate("backend/service_account_key.json")
 firebase_admin.initialize_app(firebase_credentials)
 
-# Create firestore database
-db = firestore.client() # db is the database object
+# Connect to firestore database
+db = firestore.client()
 
 """
 get_classroom_credentials defines the scope for communicating between this venv and
@@ -100,7 +98,7 @@ def retrieve_classroom_data():
                 package='Update',
                 courses=[course_ref],
                 trainer='Update',
-                password='N/A'
+                password='N/A',
             )
 
             # Store the data in Firestore
@@ -108,28 +106,29 @@ def retrieve_classroom_data():
             student_ref.set(new_member.__dict__)
 
 # Recieve classroom credntials
-classroom_credentials = get_classroom_credentials()
+# classroom_credentials = get_classroom_credentials()
 # Build a service for accessing classroom
-service = build('classroom', 'v1', credentials=classroom_credentials)
+# service = build('classroom', 'v1', credentials=classroom_credentials)
 
 # Get classroom data and upload it to db
 # retrieve_classroom_data()
 
 # Create test student
-Member.create_member(
-    id="Test",
-    first_name='John',
-    last_name='Doe',
-    location='New York',
-    phone_number='1234567890',
-    email='johndoe@example.com',
-    space='Meeting Room',
-    gender='Male',
-    date_joined='2023-06-28',
-    date_of_birth='1990-01-01',
-    package='Gold',
-    courses=['Course A', 'Course B'],
-    trainer='Trainer A',
-    password='password123'
-)
+# Member.create_member(
+#     id="Test",
+#     first_name='John',
+#     last_name='Doe',
+#     location='New York',
+#     phone_number='1234567890',
+#     email='johndoe@example.com',
+#     space='Meeting Room',
+#     gender='Male',
+#     date_joined='2023-06-28',
+#     date_of_birth='1990-01-01',
+#     package='Gold',
+#     courses=['Course A', 'Course B'],
+#     trainer='Trainer A',
+#     password='password123'
+# )
 
+Location.create_location("Meeting Room", 10)

@@ -1,5 +1,4 @@
-import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import firestore
 
 class Member:
     def __init__(self, id, first_name, last_name, location, phone_number, email, space, gender, date_joined,
@@ -32,7 +31,7 @@ class Member:
 
         # Add the new member to the database
         db = firestore.client()
-        member_ref = db.collection('Member Information').document(str(new_member.id))
+        member_ref = db.collection('Members').document(str(new_member.id))
         member_ref.set(new_member.__dict__)
 
 
