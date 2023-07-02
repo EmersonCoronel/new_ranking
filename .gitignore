@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 backend/.DS_Store
 .DS_Store
+backend/classroom_token.json
