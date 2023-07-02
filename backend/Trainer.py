@@ -1,5 +1,4 @@
-import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import firestore
 
 # Trainer class
 class Trainer:
@@ -27,5 +26,5 @@ class Trainer:
                               date_joined=date_joined, date_of_birth=date_of_birth, password=password)
 
         # Add the new trainer to the database
-        trainer_ref = db.collection('Trainer Information').document(str(new_trainer.id))
+        trainer_ref = db.collection('Trainers').document(str(new_trainer.id))
         trainer_ref.set(new_trainer.__dict__)

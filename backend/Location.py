@@ -1,8 +1,7 @@
 from firebase_admin import firestore
 
 class Location:
-
-    id_counter = 1000
+    id_counter = 10000
 
     def __init__(self, name, spaces):
         self.id = Location.id_counter

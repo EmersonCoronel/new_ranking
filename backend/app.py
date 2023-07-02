@@ -1,7 +1,7 @@
 import firebase_admin
 import os
-import Member
-import Location
+from Member import Member
+from Location import Location
 from firebase_admin import credentials, firestore
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -84,7 +84,7 @@ def retrieve_classroom_data():
 
         # Create database object for each student
         for student in students:
-            new_member = Member.Member(
+            Member.create_member(
                 id=student['userId'],
                 first_name=student['profile']['name']['givenName'],
                 last_name=student['profile']['name']['familyName'],
@@ -101,34 +101,10 @@ def retrieve_classroom_data():
                 password='N/A',
             )
 
-            # Store the data in Firestore
-            student_ref = db.collection('Member Information').document(str(new_member.id))
-            student_ref.set(new_member.__dict__)
-
 # Recieve classroom credntials
-# classroom_credentials = get_classroom_credentials()
+classroom_credentials = get_classroom_credentials()
 # Build a service for accessing classroom
-# service = build('classroom', 'v1', credentials=classroom_credentials)
+service = build('classroom', 'v1', credentials=classroom_credentials)
 
 # Get classroom data and upload it to db
-# retrieve_classroom_data()
-
-# Create test student
-# Member.create_member(
-#     id="Test",
-#     first_name='John',
-#     last_name='Doe',
-#     location='New York',
-#     phone_number='1234567890',
-#     email='johndoe@example.com',
-#     space='Meeting Room',
-#     gender='Male',
-#     date_joined='2023-06-28',
-#     date_of_birth='1990-01-01',
-#     package='Gold',
-#     courses=['Course A', 'Course B'],
-#     trainer='Trainer A',
-#     password='password123'
-# )
-
-Location.create_location("Meeting Room", 10)
+retrieve_classroom_data()
