@@ -1,0 +1,16 @@
+# Requirements for the virtual environment
+
+# Firebase
+firebase
+firebase-admin
+firebaseui
+
+# Google Classroom
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2xq
+
+# Django
+django
+django-admin
