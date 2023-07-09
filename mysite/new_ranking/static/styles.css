@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+body {
+    background-image: url("images/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+  ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #f1f1f1; */
+    justify-content: space-evenly;
+  }
+
+  ul.navbar li {
+    float: right;
+    margin-left: 35px;
+    /* border: 1px solid #ccc;
+    border-radius: 25px; */
+  }
+
+  ul.navbar{
+    margin-right: 35px;
+    margin-top: 60px;
+  }
+
+  ul.navbar li a {
+    /* display: block; */
+    color: #ffffff;
+    background-color: #175C77;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    /* border: 1px solid; */
+    border-radius: 50px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.12px;
+
+    display: flex;
+    width: 125px;
+    height: 50px;
+    padding: 5px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 150ms ease;
+  }
+
+  a#gs-button, button#submit-button{
+
+    /* display: block; */
+    color: #ffffff;
+    background-color: #175C77;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    /* border: 1px solid; */
+    border-radius: 50px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.12px;
+
+    display: flex;
+    width: 125px;
+    height: 50px;
+    padding: 5px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 150ms ease;
+  }
+
+  ul.navbar li a:hover, a#gs-button:hover, button#submit-button:hover {
+    background-color: #175C77;
+    opacity: 50%;
+    transition-delay: 150ms;
+    /* border: 1px solid; */
+    border-radius: 50px;
+
+  }
+
+  li a#signup{
+    display: flex;
+    color: #ffffff;
+    background-color: black;
+    text-align: center;
+    padding: 5px 15px;
+    text-decoration: none;
+    border-radius: 50px;
+
+
+  }
+
+  li a#signup:hover{
+    display: flex;
+    /* color: #ffffff; */
+    background-color: black;
+    transition-delay: 150ms;
+    opacity: 50%;
+    text-align: center;
+    padding: 5px 15px;
+    text-decoration: none;
+    border-radius: 50px;
+
+
+  }
+
+  .topbar{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #f1f1f1; */
+    margin: auto;
+    width: 1424px;
+    height: 200px;
+
+   
+  }
+
+    .logo, img.nr{
+        
+        width: 131px;
+        height: 135px;
+        /* display: inline-block; */
+        position: fixed;
+        top: 0;
+        left: 0;
+        flex: 1; /*Distribute the available space evenly between the divs */
+        padding: 10px; /* Add padding for spacing */
+        margin-left: 35px;
+        margin-top: 35px;
+        /* border: 1px solid #ccc; Add borders for visual separation */
+    }
+
+    .nav_buttons{
+        position: fixed;
+        top: 0;
+        right: 0;
+        /* display: inline-block; */
+        flex: 1; /*Distribute the available space evenly between the divs */
+        padding: 10px; /* Add padding for spacing */
+        /* border: 1px solid #ccc; Add borders for visual separation */
+        }
+
+
+
+    .top-body{
+
+        display: inline-block;
+        
+
+    }
+
+    h2#analytics {
+
+        margin: auto;
+        margin-top: 200px;
+        padding-left: 170px;
+        color: #ffffff;
+        
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -5px;
+    }
+
+
+    h3#nr{
+
+        margin: auto;
+        margin-top: 0px;
+        padding-left: 200px;
+        color: #ffffff;
+        
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.12px;
+    }
+    
+
+    .get-started{
+        width: 1424px;
+        height: 50px;
+
+
+
+    }
+
+    h2#gs{
+        display: flex;
+
+        margin: auto;
+        margin-top:0px;
+        padding-right: 150px;
+        margin-top: 0px;
+        float: right;
+        color: #ffffff;
+        
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.12px;
+
+
+    }
+
+    /** Login Page **/
+
+    #login-container {
+        width: 420px;
+        height: 420px;
+        flex-shrink: 0;
+        margin: 100px auto 0; /* top margin set to 50px, right and left margins set to auto, bottom margin set to 0 */
+    
+        border-radius: 22.5px;
+        background: rgba(23, 92, 119, 0.50);
+    
+        /* Add the following properties to set up a flexbox container. */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+
+    #login-text-container {
+        color: #FFF;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.89px;
+    }
+    
+    
+    /* Style for each form group, including labels and inputs. */
+    .form-group {
+        width: 100%; /* Full width within the container. */
+        margin-bottom: 15px; /* Some space between elements. */
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+    }
+
+    /* Style for labels. */
+    .form-group label {
+        color: #FFF;
+        text-align: left;
+        font-family: Poppins;
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.89px;
+    }
+
+    /* Style for input fields. */
+    .form-group input {
+        width: 316.5px;
+        height: 48.75px;
+        flex-shrink: 0;
+
+        border-radius: 15px;
+        background: rgba(38, 156, 202, 0.50);
+    }
+
+    /* Style for the login button. */
+    #login-button {
+        /* display: block; */
+        color: #ffffff;
+        background-color: #175C77;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-radius: 50px;
+
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.12px;
+
+        display: flex;
+        width: 125px;
+        height: 50px;
+        padding: 5px 15px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        transition: 150ms ease;
+        margin: auto;
+    }
+
+    #login-button:hover {
+        background-color: #175C77;
+        opacity: 50%;
+        transition-delay: 150ms;
+        /* border: 1px solid; */
+        border-radius: 50px;
+    
+      }
+
+    
+    /* Style for the forgot password link. */
+    #forgot-password {
+        color: #FFF;
+        text-align: left;
+        font-family: Poppins;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.12px;
+    }
+    
+    #forgot-password:hover {
+        text-decoration: underline; /* Underline on hover. */
+    }
+
+    /** End of Login Page **/
+    
+    
+
+
+    
+
+
+
+    
+
+    
+
+
