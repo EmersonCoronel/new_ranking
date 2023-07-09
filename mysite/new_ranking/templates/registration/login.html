@@ -36,6 +36,13 @@
             <div class="form-group">
                 <button id="login-button" type="submit">Log in</button>
             </div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="error">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
         </form>
     </div>
 </body>
