@@ -257,7 +257,7 @@ body {
         color: #FFF;
         text-align: center;
         font-family: Poppins;
-        font-size: 22px;
+        font-size: 25px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -352,7 +352,63 @@ body {
     }
 
     /** End of Login Page **/
-    
+
+  #signup-container{
+    width: 350px;
+    height: 500px;
+    border-radius: 22.5px;
+    background: rgba(23, 92, 119, 0.50);
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    /*filter: blur(1.4999998807907104px);*/
+  }
+
+  .input{
+    /*background: rgba(38, 156, 202, 0.50);
+    border-radius: 15px;*/
+    width: 280px;
+    height: 30px;
+    flex-shrink: 0;
+    border:none;
+    border-radius: 15px;
+    background: rgba(38, 156, 202, 0.50);
+    margin:5px;
+
+  }
+
+  #submit-button{
+    border-radius: 35.4px;
+    background: #1C2D3C;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border:none;
+    cursor:pointer;
+  }
+
+  #terms-and-conditions{
+    font-size: 10px;
+  }
+
+  #agreement{
+    height:15px;
+  }
+
+  #logo-container{
+    margin:15px;
+  }
+  
+
+
+  
     /** Dashboard Page **/
 
     #navigation-container {
@@ -395,7 +451,7 @@ body {
         color: #ffffff;
         gap: 20px;
     }
-    
+  
     #dashboard-top-bar {
         display: flex;
         justify-content: space-between;
@@ -418,13 +474,13 @@ body {
         line-height: normal;
         letter-spacing: -1.44px;
     }
-    
+  
     #user-info-container {
         display: flex;
         align-items: center;
         gap: 10px;
     }
-    
+  
     #user-info-button {
         display: flex;
         width: 113px;

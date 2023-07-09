@@ -69,10 +69,3 @@ def editTrainerSpace(trainer, newSpace):
     trainer.space = newSpace
     trainer.save()
     return trainer
-
-
-'''why = Trainer(phone_number="4154501505")
-why.save()
-ap = Member.objects.get(email="jfs1005@gmail.com")
-editEmail(ap, "abc12345@yahoo.com")
-ap.save()'''

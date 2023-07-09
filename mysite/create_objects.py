@@ -7,6 +7,7 @@ from new_ranking.models import Location
 from new_ranking.models import Course
 from new_ranking.models import Member
 from new_ranking.models import Trainer
+from django.contrib.auth.models import User
 
 
 def createLocation(locationName):
@@ -19,9 +20,10 @@ def createCourse(courseName):
     newCourse.save()
     return newCourse
 
-def createMember(first_name, last_name, location, phone_number, email, space, gender, date_joined, date_of_birth, package, courses, trainer, password):
+#def createMember(first_name, last_name, location, phone_number, email, space, gender, date_joined, date_of_birth, package, courses, trainer, password):
+def createMember():
     newMember = Member()
-    newMember.first_name = first_name
+    '''newMember.first_name = first_name
     newMember.last_name = last_name
     newMember.location = location
     newMember.phone_number = phone_number
@@ -33,13 +35,17 @@ def createMember(first_name, last_name, location, phone_number, email, space, ge
     newMember.package = package
     newMember.courses = courses
     newMember.trainer = trainer
-    newMember.password = password
+    newMember.password = password'''
     newMember.save()
     return newMember
 
-def createTrainer(user, first_name, last_name, location, phone_number, email, space, gender, date_joined, date_of_birth):
+#def createTrainer(user, first_name, last_name, location, phone_number, email, space, gender, date_joined, date_of_birth):
+def createTrainer():
     newTrainer = Trainer()
-    newTrainer.user = user
+    trainerUser = User(username=newTrainer.first_name)
+    trainerUser.save()
+    newTrainer.user = trainerUser
+    '''newTrainer.user = user
     newTrainer.first_name = first_name
     newTrainer.last_name = last_name
     newTrainer.location = location
@@ -48,9 +54,9 @@ def createTrainer(user, first_name, last_name, location, phone_number, email, sp
     newTrainer.space = space
     newTrainer.gender = gender
     newTrainer.date_joined = date_joined
-    newTrainer.date_of_birth = date_of_birth
+    newTrainer.date_of_birth = date_of_birth'''
     newTrainer.save()
     return newTrainer
 
 
-print(createCourse("English 3"))
+print(createTrainer())
