@@ -8,6 +8,9 @@ class Package(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=200, default="Default Course Name")
 
+class User(models.Model):
+    name = models.CharField(max_length=200, default="Default Course Name")
+
 class Trainer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100, default="Default First Name")

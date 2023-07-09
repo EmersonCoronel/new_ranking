@@ -1,19 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login Page</title>
     <!-- Link to your CSS file. Update the href value as needed. -->
-    <link rel="stylesheet" href="/mysite/new_ranking/styles/styles.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <!-- Logo -->
     <div id="logo-container">
-        <img src="/mysite/new_ranking/images/NR_logo.svg" alt="Logo" id="logo">
+        <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo">
     </div>
     <!-- Login form -->
     <div id="login-container">
         <form method="post" id="login-form">
             {% csrf_token %}
+            <div id="login-text-container">
+                <h2>Login</h2>
+            </div>
             <!-- Username/Email field -->
             <div class="form-group">
                 <label for="username">Username/Email:</label>
@@ -24,13 +28,13 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
             </div>
-            <!-- Login button -->
-            <div class="form-group">
-                <button id="submit-button" type="submit">Log in</button>
-            </div>
             <!-- Forgot password link -->
             <div class="form-group">
                 <a href="path_to_forgot_password_page" id="forgot-password">Forgot password?</a>
+            </div>
+            <!-- Login button -->
+            <div class="form-group">
+                <button id="login-button" type="submit">Log in</button>
             </div>
         </form>
     </div>
