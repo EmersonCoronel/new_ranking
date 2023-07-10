@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Ranking</title>
 
-  <link rel="stylesheet" type="text/css" href="/mysite/new_ranking/styles/styles.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 
 
 </head>
@@ -16,7 +17,7 @@
   <div class="topbar">
 
   
-      <img class= "nr-logo" src="/mysite/new_ranking/images/NR_logo.svg" alt="Logo" width="100" height="100">
+      <img class= "nr-logo" src="{% static 'images/NR_logo.svg' %}" alt="Logo" width="100" height="100">
   
   
     <!-- HTML for the navigation bar -->
@@ -49,7 +50,7 @@
   <div class= "middle-body">
 
     <h2 id="improv">see your improvement,<br> live.</h2>
-    <img id ="graphic-plholder" src="/mysite/new_ranking/images/graphic_placeholder.svg" alt= "graphic placeholder">
+    <img id ="graphic-plholder" src="{% static 'images/graphic_placeholder.svg' %}" alt= "graphic placeholder">
 
 
   </div>
