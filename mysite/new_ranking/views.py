@@ -3,11 +3,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from .forms import CustomUserCreationForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
@@ -17,16 +18,22 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        try:
+            user = User.objects.get(username=username)
+            print("User exists")
+        except User.DoesNotExist:
+            print("User does not exist")
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            print("Valid")
             login(request, user)
             next_url = request.POST.get('next', 'dashboard')
             return redirect(next_url)
         else:
             print("Invalid")
             messages.error(request, 'Invalid username or password.')
-    next_url = request.GET.get('next', 'dashboard')
-    return render(request, 'login.html', {'next': next_url})
+    next_url = request.GET.get('next', 'dashboard/dashboard.html')
+    return render(request, 'registration/login.html', {'next': next_url})
 
 def signup(request):
     if request.method == 'POST':
@@ -38,7 +45,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('dashboard/dashboard.html')
+            return redirect(reverse('dashboard'))
         else:
             print('invalid form')
     else:

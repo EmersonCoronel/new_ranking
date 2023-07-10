@@ -163,4 +163,4 @@ backend/.DS_Store
 mysite/new_ranking/keys
 
 # Django Model Migration
-mysite/backend/migrations
+mysite/new_ranking/migrations
