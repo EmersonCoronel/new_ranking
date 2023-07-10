@@ -16,14 +16,14 @@ def home(request):
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        userUsername = request.POST['username']
+        userPassword = request.POST['password']
         try:
-            user = User.objects.get(username=username)
+            user = User.objects.get(username = userUsername)
             print("User exists")
         except User.DoesNotExist:
             print("User does not exist")
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, username=userUsername, password=userPassword)
         if user is not None:
             print("Valid")
             login(request, user)
