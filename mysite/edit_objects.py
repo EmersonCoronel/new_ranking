@@ -8,6 +8,17 @@ from new_ranking.models import Course
 from new_ranking.models import Member
 from new_ranking.models import Trainer
 
+def editMemberFirstName(member, newFirstName):
+    member.first_name = newFirstName
+    member.save()
+    return member
+
+def editMemberLastName(member, newLastName):
+    member.last_name = newLastName
+    member.save()
+    return member
+
+
 def editMemberLocation(member, newLocation):
     member.location = newLocation
     member.save()
@@ -25,6 +36,21 @@ def editMemberEmail(member, newEmail):
 
 def editMemberSpace(member, newSpace):
     member.space = newSpace
+    member.save()
+    return member
+
+def editMemberGender(member, newGender):
+    member.gender = newGender
+    member.save()
+    return member
+
+def editMemberDateJoined(member, dateJoined):
+    member.date_joined = dateJoined
+    member.save()
+    return member
+
+def editMemberDateofBirth(member, dateOfBirth):
+    member.date_of_birth = dateOfBirth
     member.save()
     return member
 
@@ -48,7 +74,13 @@ def editMemberTrainer(member, newTrainer):
     member.save()
     return member
 
+def editMemberRanking(member, newRanking):
+    member.ranking = newRanking
+    member.save()
+    return member
 
+def deleteMemeber(member):
+    member.delete()
 
 def editTrainerLocation(trainer, newLocation):
     trainer.location = newLocation
@@ -70,9 +102,20 @@ def editTrainerSpace(trainer, newSpace):
     trainer.save()
     return trainer
 
+def editLocationName(location, newLocationName):
+    location.name = newLocationName
+    location.save()
+    return location
 
-'''why = Trainer(phone_number="4154501505")
-why.save()
-ap = Member.objects.get(email="jfs1005@gmail.com")
-editEmail(ap, "abc12345@yahoo.com")
-ap.save()'''
+
+def deleteTrainer(trainer):
+    trainer.delete()
+
+def deleteCourse(course):
+    course.delete()
+
+def deleteCourseLevel(courseLevel):
+    courseLevel.delete()
+
+def deleteSpace(space):
+    space.delete()

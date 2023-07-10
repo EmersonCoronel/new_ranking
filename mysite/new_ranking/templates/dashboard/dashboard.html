@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-container">
+        <!-- Logo -->
+        <div id="logo-container">
+            <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
+        </div>
+        <button id="create-button" type="button">+ Create</button>
+        <button class="nav-button">Dashboard</button>
+        <button class="nav-button">Members</button>
+        <button class="nav-button">Trainers</button>
+        <button class="nav-button">Locations</button>
+        <button class="nav-button">Collections</button>
+    </div>
+
+    <!-- Top Bar -->
+    <div id="dashboard-top-bar">
+        <!-- Dashboard title -->
+        <div id="dashboard-title-container">
+            <h2>Dashboard</h2>
+        </div>
+        
+        <!-- User info -->
+        <div id="user-info-container">
+            <button id="user-info-button">User's Name</button>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <div id="main-content-container">
+        <!-- Content goes here -->
+    </div>
+</body>
+</html>

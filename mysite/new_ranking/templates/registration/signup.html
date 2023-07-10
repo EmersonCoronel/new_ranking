@@ -1,6 +1,59 @@
-<h2>Sign up</h2>
+{% load static %}
+<!--<h2>Sign up</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Sign up</button>
-</form>
+</form>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign up Page</title>
+    <!-- Link to your CSS file. Update the href value as needed. -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Logo -->
+    <div id="logo-container">
+        <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo">
+    </div>
+    <!-- Login form -->
+    <div id="signup-container">
+        <form method="post" id="login-form">
+            <div id="login-text-container">
+                <h2>Sign up</h2>
+            </div>
+            {% csrf_token %}
+            <!-- Name field -->
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <!-- Username field -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <!-- Email field -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
+            </div>
+            <!-- Password field -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <!-- Terms and Conditions agreement button -->
+            <div id="agreement">
+                <input type="checkbox" id="agreement"></input>
+                <label id="terms-and-conditions">I agree to the terms and conditions</label>
+            </div>
+            
+            <!-- Sign up button -->
+            <div><button onclick="window.location.href='home.html'" id="submit-button" type="submit">Sign up</button></div>
+        </form>
+    </div>
+</body>
+</html>
