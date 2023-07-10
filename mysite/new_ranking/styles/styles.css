@@ -2,35 +2,65 @@
 
 body {
     background-image: url("/mysite/new_ranking/images/bg.png");
+    height: 4000px;
     background-repeat: no-repeat;
     background-size: cover;
 
     font-family: 'Poppins', sans-serif;
   }
 
+  /* css for the div box that holds the nr-logo and navbar */
+ .topbar{
 
+  position: static;
+  margin: auto;
+  width: 1424px;
+  height: 200px;
+
+ }
+
+ /* css for the navbar box positioning */
+ .nav-buttons{
+  position: static;
+  display: inline-flex;
+  float: right;
+  flex: 1; /*Distribute the available space evenly between the divs */
+  padding: 10px; /* Add padding for spacing */
+  /* border: 1px solid #ccc; Add borders for visual separation */
+  }
+
+
+/* css for navbar buttons */
   ul.navbar {
+    
+    position: static;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     /* background-color: #f1f1f1; */
     justify-content: space-evenly;
+
+    margin-right: 35px;
+    margin-top: 60px;
+
+    
   }
 
+  /* spacing inbetween buttons */
   ul.navbar li {
+    position: static;
     float: right;
     margin-left: 35px;
     /* border: 1px solid #ccc;
     border-radius: 25px; */
+    
   }
 
-  ul.navbar{
-    margin-right: 35px;
-    margin-top: 60px;
-  }
-
+  /* css style for the buttons inside the navbar */
   ul.navbar li a {
+
+    position: static;
     /* display: block; */
     color: #ffffff;
     background-color: #175C77;
@@ -58,11 +88,11 @@ body {
 
   a#gs-button{
 
-    /* display: block; */
+  
     color: #ffffff;
     background-color: #175C77;
     text-align: center;
-    padding: 14px 16px;
+    /* padding: 14px 16px; */
     text-decoration: none;
     /* border: 1px solid; */
     border-radius: 50px;
@@ -73,10 +103,14 @@ body {
     line-height: normal;
     letter-spacing: -1.12px;
 
+    margin: 0px;
+
+
     display: flex;
+    /* flex-direction: column; */
     width: 125px;
     height: 50px;
-    padding: 5px 15px;
+    padding: 10px 15px;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -118,58 +152,76 @@ body {
 
   }
 
-  .topbar{
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* background-color: #f1f1f1; */
-    margin: auto;
-    width: 1424px;
-    height: 200px;
-
-   
-  }
-
-    .logo, img.nr{
+    img.nr-logo{
         
         width: 131px;
         height: 135px;
-        /* display: inline-block; */
-        position: fixed;
-        top: 0;
-        left: 0;
-        flex: 1; /*Distribute the available space evenly between the divs */
+
+        position: static;   
+        display: inline-flex;   
         padding: 10px; /* Add padding for spacing */
         margin-left: 35px;
         margin-top: 35px;
         /* border: 1px solid #ccc; Add borders for visual separation */
     }
 
-    .nav_buttons{
-        position: fixed;
-        top: 0;
-        right: 0;
-        /* display: inline-block; */
-        flex: 1; /*Distribute the available space evenly between the divs */
-        padding: 10px; /* Add padding for spacing */
-        /* border: 1px solid #ccc; Add borders for visual separation */
-        }
-
-
+   
 
     .top-body{
 
-        display: inline-block;
+        display: inline-flex;
+
+        width: 1424px;
+        height: 402px;
         
 
     }
 
+    .intro{
+
+      /* margin: auto; */
+
+      width: 712px;
+      height: 400px;
+      /* padding-right: 300px; */
+
+      /* margin-right: 100px; */
+
+      text-align: center;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+
+    }
+
+    .inner-div{
+      flex: 1;
+    }
+
+    .get-started{
+
+      padding-top: 250px;
+
+      width: 712px;
+      
+
+      text-align: center;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+
+  }
+
+
     h2#analytics {
 
-        margin: auto;
-        margin-top: 200px;
-        padding-left: 170px;
+        margin: 0px;
+        /* margin-top: 200px; */
+        /* padding-left: 170px; */
         color: #ffffff;
         
         font-size: 64px;
@@ -180,11 +232,9 @@ body {
     }
 
 
-    h3#nr{
+    h3#h3-intro{
 
-        margin: auto;
-        margin-top: 0px;
-        padding-left: 200px;
+        margin: 0px;
         color: #ffffff;
         
         font-size: 16px;
@@ -193,24 +243,33 @@ body {
         line-height: normal;
         letter-spacing: -1.12px;
     }
+
+    h3{
+
+      margin: 0px;
+      color: #ffffff;
+      
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -1.12px;
+
+      text-align: center;
+  }
+    
     
 
-    .get-started{
-        width: 1424px;
-        height: 50px;
-
-
-
-    }
-
+   
     h2#gs{
-        display: flex;
+        /* display: flex;
+        flex-direction: column; */
 
-        margin: auto;
+        margin: 0px;
         margin-top:0px;
-        padding-right: 150px;
+        /* padding-right: 150px; */
         margin-top: 0px;
-        float: right;
+        /* float: right; */
         color: #ffffff;
         
         font-size: 48px;
@@ -221,6 +280,130 @@ body {
 
 
     }
+
+
+    h2#improv, h2{
+
+      margin: 0px;
+      margin-top:0px;
+      /* padding-right: 150px; */
+      margin-top: 200px;
+      /* float: right; */
+      color: #ffffff;
+      
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -1.12px;
+
+
+      text-align: center;
+
+
+    }
+
+    .middle-body{
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* img#graphic-plholder{
+
+      margin: 0;
+
+    } */
+
+    .lower-body{
+
+      width: 1424px;
+
+
+      text-align: center;
+
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 81px;
+
+
+
+
+
+
+    }
+
+    .sub-box{
+
+      width: 1120px;
+      height: 490px;
+
+      display: flex;
+      align-items: flex-start;
+      
+      gap: 35px;
+    }
+
+
+    .plan{
+
+      width: 350px;
+      height: 470px;
+      flex-shrink: 0;
+
+      border-radius: 35px;
+      border: 10px solid #279CCA;
+      background: rgba(23, 92, 119, 0.35);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      /* filter: blur(2px); */
+    }
+
+    .inside-plan{
+
+      display: flex;
+      width: 310px;
+      padding: 45px 20px 89px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 70px;
+
+      position: absolute;
+      /* right: 9px;
+      bottom: 9px; */
+
+
+
+    }
+
+    h2#light{
+
+      margin: 0px;
+      margin-top:0px;
+      color: #ffffff;
+      
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -1.12px;
+
+
+      text-align: center;
+
+
+    }
+
+
+    ul.inside-plan-details{
+
+      /* list-style-type: none; */
+      font-size: 24px;
+    }
+
+
 
 
     
