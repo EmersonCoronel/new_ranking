@@ -351,24 +351,23 @@ body {
         text-decoration: underline; /* Underline on hover. */
     }
 
-    /** End of Login Page **/
+    /* End of Login Page */
 
-    #signup-container{
+    #signup-container {
         width: 420px;
-        height: 650px;
+        height: 700px;
+        flex-shrink: 0;
+        margin: 0px auto 0; /* top margin set to 50px, right and left margins set to auto, bottom margin set to 0 */
+    
         border-radius: 22.5px;
         background: rgba(23, 92, 119, 0.50);
-        margin-left: auto;
-        margin-right: auto;
-        display:flex;
-        justify-content:center;
+    
+        /* Add the following properties to set up a flexbox container. */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #FFF;
-        /*filter: blur(1.4999998807907104px);*/
+        padding: 20px;
     }
 
     .input{
@@ -405,7 +404,6 @@ body {
     #logo-container{
         margin:15px;
     }
-    
   
     /** Dashboard Page **/
 
