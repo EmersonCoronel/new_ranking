@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
+from .forms import CustomUserCreationForm
 
 # Create your views here.
 def home(request):
@@ -22,9 +23,27 @@ def login_view(request):
             next_url = request.POST.get('next', 'dashboard')
             return redirect(next_url)
         else:
+            print("Invalid")
             messages.error(request, 'Invalid username or password.')
     next_url = request.GET.get('next', 'dashboard')
     return render(request, 'login.html', {'next': next_url})
+
+def signup(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            print('valid form')
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('dashboard/dashboard.html')
+        else:
+            print('invalid form')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
 
 @login_required
 def protected_view(request):
@@ -32,13 +51,7 @@ def protected_view(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
-
-
-class SignUp(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
+    return render(request, 'dashboard/dashboard.html')
 
 class CustomLoginView(auth_views.LoginView):
     success_url = reverse_lazy('dashboard')
