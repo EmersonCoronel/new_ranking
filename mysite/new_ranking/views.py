@@ -68,20 +68,21 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+@login_required
 def create_member(request):
     #newMember = Member()
     #newMember.save()
     edit_objects.MemberFunctions.createMember()
     return redirect(reverse('dashboard'))
 
+@login_required
 def create_location(request):
-    newLocation = Location()
-    newLocation.save()
+    edit_objects.LocationFunctions.createLocation()
     return redirect(reverse('dashboard'))
 
+@login_required
 def create_course(request):
-    newCourse = Course()
-    newCourse.save()
+    edit_objects.CourseFunctions.createCourse()
     return redirect(reverse('dashboard'))
 
 @login_required
@@ -91,3 +92,23 @@ def protected_view(request):
 @login_required
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
+
+@login_required
+def profile(request):
+    return render(request, 'registration/profile.html')
+
+@login_required
+def locations(request):
+    return render(request, 'dashboard/location.html')
+
+@login_required
+def members(request):
+    return render(request, 'dashboard/members.html')
+
+@login_required
+def trainers(request):
+    return render(request, 'dashboard/trainers.html')
+
+@login_required
+def collections(request):
+    return render(request, 'dashboard/collections.html')
