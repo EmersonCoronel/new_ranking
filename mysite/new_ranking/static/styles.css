@@ -2,11 +2,13 @@
 
 body {
     background-image: url("images/bg.png");
-    height: 4000px;
+    height: 100%;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
 
     font-family: 'Poppins', sans-serif;
+    margin: 0;
   }
 
 
@@ -515,7 +517,7 @@ h2#improv, h2{
     opacity: 50%;
     /* border: 1px solid; */
     border-radius: 50px;
-    }
+}
 
 
 /* Style for the forgot password link. */
@@ -541,8 +543,10 @@ h2#improv, h2{
     width: 420px;
     height: 650px;
     flex-shrink: 0;
-    margin: 50px auto 0; /* top margin set to 50px, right and left margins set to auto, bottom margin set to 0 */
-    margin-left: 540px;
+    margin-top: 50px; /* top margin set to 50px, right and left margins set to auto, bottom margin set to 0 */
+    margin-bottom: 0;
+    margin-right: 540px;
+    margin-left: 690px;
 
 
     border-radius: 22.5px;
@@ -600,93 +604,6 @@ h2#improv, h2{
     margin-right: 5px
 }
 
-
-/** Dashboard Page **/
-
-#navigation-container {
-    position: fixed; /* Fix the position of the navigation bar */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 180px;
-    height: 100vh; /* Adjust the height to cover the entire viewport height */
-}
-
-#create-button {
-    display: flex;
-    width: 110px;
-    height: 40px;
-    padding: 5px 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-    border-radius: 25px;
-    background: #175C77;
-    border: none;
-    color: #ffffff;
-}
-
-.nav-button {
-    display: flex;
-    width: 110px;
-    height: 40px;
-    padding: 5px 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-    border-radius: 25px;
-    background: #175C77;
-    border: none;
-    color: #ffffff;
-    gap: 20px;
-}
-
-#dashboard-top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    left: 180px;
-    right: 0;
-    color: #ffffff;
-}
-
-#dashboard-title-container h2 {
-    color: #FFF;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -1.44px;
-}
-
-#user-info-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#user-info-button {
-    display: flex;
-    width: 113px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border: none;
-    color: #ffffff;
-
-    border-radius: 15px;
-    background: #175C77;
-}
-
 #error-container{
     width: 200px;
     height: 200px;
@@ -727,4 +644,134 @@ ul.messages li.error {
     color: red;
     margin-bottom: 5px;
     text-align: center;
+}
+
+
+/** Dashboard Page **/
+
+#logo-dashboard{
+
+    width: 125px;
+    height: 125px;
+    margin: auto;
+}
+
+#dashboard-navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 180px;
+    height: 100vh; /* Adjust the height to cover the entire viewport height */
+    background: rgba(217, 217, 217, 0.05);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#create-button {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.96px;
+    display: flex;
+    width: 110px;
+    height: 40px;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    background-color: #175C77;
+    border: none;
+}
+
+#create-button:hover {
+    background-color: #134A5C;
+    cursor: pointer;
+}
+
+.nav-button {
+    color: rgba(0, 0, 0, 0.50);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.44px;
+    width: 100%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+}
+
+.nav-button:hover {
+    border: 1px solid;
+    border-radius: 0;
+    color: black;  
+    cursor: pointer;
+}
+
+
+#dashboard-topbar {
+    position:fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    top: 0;
+    left: 180px;
+    width: calc(100% - 180px); /* occupy the entire width of the viewport minus the 180px for the nav bar */
+    height: 75px; /* height of the top bar */
+    color: #ffffff;
+    background: rgba(217, 217, 217, 0.05);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#dashboard-title-container h2 {
+    margin: 0;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 28px;
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.44px;
+}
+
+#user-info-button {
+    display: inline-block;
+    padding: 10px;
+    background-color: #175C77;
+    color: #FFF;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Poppins;
+    font-size: 14px;
+    margin-right:15px;
+    transition: background-color 0.3s ease;
+}
+
+#user-info-button:hover {
+    background-color: #134A5C;
+}
+
+/* CSS for the profile page */
+#profile-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
