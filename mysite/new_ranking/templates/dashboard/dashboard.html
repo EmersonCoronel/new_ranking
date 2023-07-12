@@ -12,19 +12,19 @@
         <div id="logo-container">
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
         </div>
-        <form method="post" id="create-location-form">
+            {% csrf_token %}
             <button id="create-button" type="button">+ Create</button>
             <ul class="menu">
-                <li><a href="#">Member</a></li>
-                <li><a href="#">Location</a></li>
-                <li><a href="#">Course</a></li>
+                <!--<form method="POST" id="create-location-form">--> 
+                <li><a href="create_member">Member</a></li>
+                <li><a href="create_location">Location</a></li>
+                <li><a href="create_course">Course</a></li>
             </ul>
             <button class="nav-button">Dashboard</button>
             <button class="nav-button">Members</button>
             <button class="nav-button">Trainers</button>
             <button class="nav-button">Locations</button>
             <button class="nav-button">Collections</button>
-        </form>
     </div>
 
     <!-- Top Bar -->

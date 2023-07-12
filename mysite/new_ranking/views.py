@@ -9,6 +9,11 @@ from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from .forms import CustomUserCreationForm
 from django.contrib.auth.models import User
+from new_ranking.models import Member
+from new_ranking.models import Location
+from new_ranking.models import Course
+from django.http import HttpResponse
+import edit_objects
 
 # Create your views here.
 def home(request):
@@ -51,6 +56,22 @@ def signup(request):
     else:
         form = CustomUserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+def create_member(request):
+    #newMember = Member()
+    #newMember.save()
+    edit_objects.MemberFunctions.createMember()
+    return redirect(reverse('dashboard'))
+
+def create_location(request):
+    newLocation = Location()
+    newLocation.save()
+    return redirect(reverse('dashboard'))
+
+def create_course(request):
+    newCourse = Course()
+    newCourse.save()
+    return redirect(reverse('dashboard'))
 
 @login_required
 def protected_view(request):
