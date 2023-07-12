@@ -12,12 +12,19 @@
         <div id="logo-container">
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
         </div>
-        <button id="create-button" type="button">+ Create</button>
-        <button class="nav-button">Dashboard</button>
-        <button class="nav-button">Members</button>
-        <button class="nav-button">Trainers</button>
-        <button class="nav-button">Locations</button>
-        <button class="nav-button">Collections</button>
+        <form method="post" id="create-location-form">
+            <button id="create-button" type="button">+ Create</button>
+            <ul class="menu">
+                <li><a href="#">Member</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Course</a></li>
+            </ul>
+            <button class="nav-button">Dashboard</button>
+            <button class="nav-button">Members</button>
+            <button class="nav-button">Trainers</button>
+            <button class="nav-button">Locations</button>
+            <button class="nav-button">Collections</button>
+        </form>
     </div>
 
     <!-- Top Bar -->
