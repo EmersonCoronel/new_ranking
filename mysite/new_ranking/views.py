@@ -68,6 +68,22 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+def create_member(request):
+    #newMember = Member()
+    #newMember.save()
+    edit_objects.MemberFunctions.createMember()
+    return redirect(reverse('dashboard'))
+
+def create_location(request):
+    newLocation = Location()
+    newLocation.save()
+    return redirect(reverse('dashboard'))
+
+def create_course(request):
+    newCourse = Course()
+    newCourse.save()
+    return redirect(reverse('dashboard'))
+
 @login_required
 def protected_view(request):
     return render(request, 'registration/login.html')
