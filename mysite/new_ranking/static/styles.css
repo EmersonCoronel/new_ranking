@@ -430,7 +430,7 @@ h2#improv, h2{
     /* Add the following properties to set up a flexbox container. */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     padding: 20px;
 }
@@ -445,13 +445,14 @@ h2#improv, h2{
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.89px;
+    margin-bottom: 15px;
 }
 
 
 /* Style for each form group, including labels and inputs. */
 .form-group {
     width: 100%; /* Full width within the container. */
-    margin-bottom: 15px; /* Some space between elements. */
+    margin-bottom: 10px; /* Some space between elements. */
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -499,7 +500,7 @@ h2#improv, h2{
     display: flex;
     width: 125px;
     height: 50px;
-    padding: 5px 15px;
+    padding: 15px;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -536,57 +537,67 @@ h2#improv, h2{
 
 /** End of Login Page **/
 
-#signup-container{
+#signup-container {
     width: 420px;
     height: 650px;
+    flex-shrink: 0;
+    margin: 50px auto 0; /* top margin set to 50px, right and left margins set to auto, bottom margin set to 0 */
+    margin-left: 540px;
+
+
     border-radius: 22.5px;
     background: rgba(23, 92, 119, 0.50);
-    margin-left: auto;
-    margin-right: auto;
-    display:flex;
-    justify-content:center;
+
+    /* Add the following properties to set up a flexbox container. */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #FFF;
-    /*filter: blur(1.4999998807907104px);*/
-}
-
-.input{
-    /*background: rgba(38, 156, 202, 0.50);
-    border-radius: 15px;*/
-    width: 280px;
-    height: 30px;
-    flex-shrink: 0;
-    border:none;
-    border-radius: 15px;
-    background: rgba(38, 156, 202, 0.50);
-    margin:5px;
-
-}
-
-#submit-button{
-    border-radius: 35.4px;
-    background: #1C2D3C;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    border:none;
-    cursor:pointer;
+    padding: 20px;
 }
 
 #terms-and-conditions{
     font-size: 12px;
+    padding: 15px;
 }
 
 #agreement{
     height:15px;
+    padding: 15px;
 }
 
 #logo-container{
     margin:15px;
+}
+
+/* Style for each form group, including labels and inputs. */
+.agreement-group {
+    width: 100%; /* Full width within the container. */
+    margin-bottom: 10px; /* Some space between elements. */
+    display: flex;
+    align-items: left;
+}
+
+/* Style for labels. */
+.agreement-group label {
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 200;
+    position: relative;
+    top: 3.5px;
+    letter-spacing: 1px;
+}
+
+/* Style for input fields. */
+.agreement-group input {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px
 }
 
 
@@ -676,20 +687,44 @@ h2#improv, h2{
     background: #175C77;
 }
 
+#error-container{
+    width: 200px;
+    height: 200px;
+    float: right;
+    margin-right: 150px;
+    margin-top: 300px;
+    flex-shrink: 0;
+    /* Add the following properties to set up a flexbox container. */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+}
+
 /* CSS for messages section */
 ul.messages {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 ul.messages li.error {
     color: red;
+    font-size: 18px;
+    margin: 5px; /* Adjust this value to change the spacing between messages */
+    text-align: center;
 }
+
 
 /* CSS for error message */
 .error {
     color: red;
-    font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    text-align: center;
 }
