@@ -16,14 +16,13 @@
 
   <div class="topbar">
 
-  
       <img class= "nr-logo" src="{% static 'images/NR_logo.svg' %}" alt="Logo" width="100" height="100">
   
   
     <!-- HTML for the navigation bar -->
     <div class="nav-buttons">
       <ul class="navbar">
-        <li><a href="#">Login</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
         <li><a id= "signup" href="#">Sign up</a></li>
         <li><a href="#">Plans</a></li>
         <li><a href="#">Get Started</a></li>

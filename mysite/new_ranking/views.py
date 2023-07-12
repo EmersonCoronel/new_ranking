@@ -40,17 +40,35 @@ def signup(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             print('valid form')
+            agree_to_terms = form.cleaned_data.get('agree_to_terms')
+            if not agree_to_terms:
+                messages.error(request, 'You must agree to the terms to sign up')
+                return render(request, 'registration/signup.html', {'form': form})
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect(reverse('dashboard'))
+            if user is not None:
+                login(request, user)
+                return redirect(reverse('dashboard'))
+            else:
+                messages.error(request, 'Authentication failed')
+                return render(request, 'registration/signup.html', {'form': form})
         else:
             print('invalid form')
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'{field}: {error}')
     else:
         form = CustomUserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+class CustomLoginView(auth_views.LoginView):
+    success_url = reverse_lazy('dashboard')
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Invalid username or password.')
+        return super().form_invalid(form)
 
 @login_required
 def protected_view(request):
@@ -59,10 +77,3 @@ def protected_view(request):
 @login_required
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
-
-class CustomLoginView(auth_views.LoginView):
-    success_url = reverse_lazy('dashboard')
-
-    def form_invalid(self, form):
-        messages.error(self.request, 'Invalid username or password.')
-        return super().form_invalid(form)

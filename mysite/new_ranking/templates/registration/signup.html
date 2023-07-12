@@ -11,6 +11,16 @@
     <div id="logo-container">
         <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo">
     </div>
+    <!-- Error messages -->
+    <div id="error-container">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="error">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
     <!-- Sign up form -->
     <div id="signup-container">
         <form method="post" id="signup-form">
@@ -21,28 +31,28 @@
             <!-- Full Name field -->
             <div class="form-group">
                 <label for="{{ form.full_name.id_for_label }}">Full Name:</label>
-                <input type="text" id="{{ form.full_name.id_for_label }}" name="{{ form.full_name.html_name }}" class="signup-form-group input">
+                <input type="text" id="{{ form.full_name.id_for_label }}" name="{{ form.full_name.html_name }}" class="form-group input">
             </div>
             <!-- Email field -->
             <div class="form-group">
                 <label for="{{ form.username.id_for_label }}">Email:</label>
-                <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" class="signup-form-group input">
+                <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" class="form-group input">
             </div>
             <!-- Password field -->
             <div class="form-group">
                 <label for="{{ form.password1.id_for_label }}">Password:</label>
-                <input type="password" id="{{ form.password1.id_for_label }}" name="{{ form.password1.html_name }}" class=".signup-form-group input">
+                <input type="password" id="{{ form.password1.id_for_label }}" name="{{ form.password1.html_name }}" class="form-group input">
             </div>
             <!-- Password Confirmation field -->
             <div class="form-group">
                 <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
-                <input type="password" id="{{ form.password2.id_for_label }}" name="{{ form.password2.html_name }}" class=".signup-form-group input">
+                <input type="password" id="{{ form.password2.id_for_label }}" name="{{ form.password2.html_name }}" class="form-group input">
             </div>
-            <div id="agreement">
-                <input type="checkbox" id="agreement"></input>
-                <label id="terms-and-conditions">I agree to the terms and conditions</label>
+            <div class="agreement-group">
+                <input type="checkbox" id="{{ form.agree_to_terms.id_for_label }}" name="{{ form.agree_to_terms.html_name }}" class="agreement-group input">
+                <label for="{{ form.agree_to_terms.id_for_label }}">I agree to the terms and conditions</label>
             </div>
-            <div><button id="submit-button" type="submit">Sign Up</button></div>
+            <div><button id="login-button" type="submit">Sign Up</button></div>
         </form>
     </div>
 </body>
