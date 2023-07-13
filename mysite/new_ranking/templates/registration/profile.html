@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
@@ -10,16 +10,14 @@
     <div id="dashboard-topbar">
         <!-- Dashboard title -->
         <div id="dashboard-title-container">
-            <h2>Dashboard</h2>
+            <h2>Profile</h2>
         </div>
         
         <!-- User info -->
         <div id="user-info-container">
-            <a href="{% url 'profile' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button id="user-info-button">
-                    {{ user.first_name }} {{ user.last_name|slice:"1" }}
-                </button>
-            </a>
+            <button id="user-info-button" href="{% url 'profile' %}">
+                {{ user.first_name }} {{ user.last_name|slice:"1" }}
+            </button>
         </div>
     </div>
     <!-- Navigation -->
@@ -55,15 +53,11 @@
                     Collections
                 </button>
             </a>
-            <!--<button class="nav-button" onclick="location.href = 'trainers';">Trainers</button>
-            <button class="nav-button" onclick="location.href = 'locations';">Locations</button>
-            <button class="nav-button" onclick="location.href = 'colletions';">Collections</button>-->
     </div>
-
-
     <!-- Main Content -->
-    <div id="main-content-container">
+    <div id="profile-content-container">
         <!-- Content goes here -->
+        PROFILE
     </div>
 </body>
 </html>
