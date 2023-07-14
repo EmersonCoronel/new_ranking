@@ -72,7 +72,7 @@ class MemberFunctions:
         return member
 
     def editMemberCourses(member, newCourses):
-        member.courses = newCourses
+        member.courses.set(newCourses)
         member.save()
         return member
     

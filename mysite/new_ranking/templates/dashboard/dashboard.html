@@ -29,7 +29,25 @@
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
         </div>
             {% csrf_token %}
-            <button id="create-button" type="button">+ Create</button>
+            <script>
+                function toggleMenu(){
+                    var popupMenu = document.querySelector(".popup-menu");
+                    popupMenu.classList.toggle("show");
+                }
+            </script>
+            <button id="create-button" onclick="toggleMenu()" type="button">+ Create</button>
+            
+            <div class="popup-menu">
+                <ul>
+                  <li>Member</li>
+                  <li>Trainer</li>
+                  <li>Location</li>
+                  <li>Collection</li>
+                </ul>
+            </div>
+
+
+
             <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
                 <button class="nav-button" id="members-dashboard-button">
                     Dashboard

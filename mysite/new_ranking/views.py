@@ -71,9 +71,48 @@ def signup(request):
 @login_required
 def create_member(request):
     #newMember = Member()
-    #newMember.save()
-    edit_objects.MemberFunctions.createMember()
-    return redirect(reverse('dashboard'))
+    #newMember.save()=
+    newMember = edit_objects.MemberFunctions.createMember()
+    firstName = request.POST.get('first-name')
+    if firstName != '':
+        edit_objects.MemberFunctions.editMemberFirstName(newMember, firstName)
+    lastName = request.POST.get('last-name')
+    if lastName != '':
+        edit_objects.MemberFunctions.editMemberLastName(newMember, lastName)
+    location = request.POST.get('location')
+    if location != '':
+        edit_objects.MemberFunctions.editMemberLocation(newMember, location)
+    phoneNumber = request.POST.get('phone-number')
+    if phoneNumber != '':
+        edit_objects.MemberFunctions.editMemberPhoneNumber(newMember, phoneNumber)
+    email = request.POST.get('email')
+    if email != '':
+        edit_objects.MemberFunctions.editMemberEmail(newMember, email)
+    space = request.POST.get('space')
+    if space != '':
+        edit_objects.MemberFunctions.editMemberSpace(newMember, space)
+    gender = request.POST.get('gender')
+    if gender != '':
+        edit_objects.MemberFunctions.editMemberGender(newMember, gender)
+    dateJoined = request.POST.get('date-joined')
+    if dateJoined != '':
+        edit_objects.MemberFunctions.editMemberDateJoined(newMember, dateJoined)
+    dateOfBirth = request.POST.get('date-of-birth')
+    if dateOfBirth != '':
+        edit_objects.MemberFunctions.editMemberDateofBirth(newMember, dateOfBirth)
+    package = request.POST.get('package')
+    if package != '':
+        edit_objects.MemberFunctions.editMemberPackage(newMember, package)
+    courses = request.POST.get('courses')
+    if courses != '':
+        edit_objects.MemberFunctions.editMemberCourses(newMember, courses)
+    trainer = request.POST.get('trainer')
+    if trainer != '':
+        edit_objects.MemberFunctions.editMemberTrainer(newMember, trainer)
+    password = request.POST.get('password')
+    if password != '':
+        edit_objects.MemberFunctions.editMemberPassword(newMember, password)
+    return redirect(reverse('members'))
 
 @login_required
 def create_location(request):
