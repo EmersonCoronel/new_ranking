@@ -183,7 +183,8 @@ def locations(request):
 
 @login_required
 def members(request):
-    return render(request, 'dashboard/members.html')
+    memberCount = Member.objects.count()
+    return render(request, 'dashboard/members.html', context={'count': memberCount})
 
 @login_required
 def trainers(request):
