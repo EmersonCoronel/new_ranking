@@ -35,9 +35,53 @@
             <button class="nav-button">Collections</button>
     </div>
     <!-- Main Content -->
-    <div id="profile-content-container">
+    <div id="profile-container">
         <!-- Content goes here -->
-        PROFILE
+        <div id="profile-name-text">
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        </div>
+        <!-- Email info -->
+        <div class="profile-info-group">
+            <label for="email-display">Email: {{ user.username }}</label>
+        </div>
+
+        <!-- Password change -->
+        <div class="profile-info-group">
+            <label for="password-change">Change password</label>
+            <!-- Form for changing the password -->
+            <form id="password-change-form" action="{% url 'change_password' %}" method="POST">
+                {% csrf_token %}
+                <div>
+                    <label for="old-password">Old password: </label>
+                    <input type="password" id="old-password" name="old_password" required>
+                </div>
+                <div>
+                    <label for="new-password">New password: </label>
+                    <input type="password" id="new-password" name="new_password" required>
+                </div>
+                <div>
+                    <label for="confirm-password">Confirm password: </label>
+                    <input type="password" id="confirm-password" name="confirm_password" required>
+                </div>
+                <button id="profile-button">Save Password</button>
+            </form>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <li class="success">{{ message }}</li>
+                        {% else %}
+                            <li class="error">{{ message }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <a href="{% url 'logout' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button id="profile-button">
+                    Logout Account
+                </button>
+            </a>
+        </div>
     </div>
 </body>
 </html>

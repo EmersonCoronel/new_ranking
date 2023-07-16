@@ -7,13 +7,15 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
+from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm
 from django.contrib.auth.models import User
 from new_ranking.models import Member
 from new_ranking.models import Location
 from new_ranking.models import Course
-from django.http import HttpResponse
 import edit_objects
+from .forms import CustomPasswordChangeForm
+from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
@@ -68,6 +70,13 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+class CustomLoginView(auth_views.LoginView):
+    success_url = reverse_lazy('dashboard')
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Invalid username or password.')
+        return super().form_invalid(form)
+
 def create_member(request):
     #newMember = Member()
     #newMember.save()
@@ -91,3 +100,35 @@ def protected_view(request):
 @login_required
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
+
+@login_required
+def profile(request):
+    return render(request, 'registration/profile.html')
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        old_password = request.POST.get('old_password')
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('confirm_password')
+
+        # Check if the old password is correct
+        user = authenticate(username=request.user.username, password=old_password)
+        if user is not None:
+            # Check if the new passwords match
+            if new_password == confirm_password:
+                # Change the password
+                user.set_password(new_password)
+                user.save()
+                # Update the user's session with the new password
+                update_session_auth_hash(request, user)
+                messages.success(request, 'Password changed successfully!')
+            else:
+                messages.error(request, 'New passwords do not match.')
+        else:
+            messages.error(request, 'Old password is incorrect.')
+    return redirect('profile')  # Replace 'profile' with the name of your profile view
+
+def logout_view(request):
+    logout(request)
+    return redirect('registration/login')  # Redirect to login page after logout

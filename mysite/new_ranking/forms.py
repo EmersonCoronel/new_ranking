@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordChangeForm as AuthPasswordChangeForm
+from django.contrib.auth import password_validation
 from django.core.validators import validate_email
 
 class CustomUserCreationForm(UserCreationForm):
@@ -30,3 +32,8 @@ class CustomUserCreationForm(UserCreationForm):
         if User.objects.filter(username=username).exists():
             raise forms.ValidationError('This email is already in use.')
         return username
+
+class CustomPasswordChangeForm(AuthPasswordChangeForm):
+    old_password = forms.CharField(label='Old password', strip=False, widget=forms.PasswordInput(attrs={'autofocus': True}))
+    new_password1 = forms.CharField(label='New password', widget=forms.PasswordInput, help_text=password_validation.password_validators_help_text_html())
+    new_password2 = forms.CharField(label='Confirm new password', widget=forms.PasswordInput, help_text='Enter the same password as before, for verification.')
