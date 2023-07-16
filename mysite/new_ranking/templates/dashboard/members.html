@@ -72,20 +72,30 @@
                 </ul>
             </div>
 
-            <a href="{% url 'dashboard' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                Dashboard
+            <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button class="nav-button" id="dashboard-button">
+                    Dashboard
+                </button>
             </a>
-            <a href="{% url 'members' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                Members
+            <a href="{% url 'members' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button class="nav-button" id="members-dashboard-button">
+                    Members
+                </button>
             </a>
-            <a href="{% url 'trainers' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                Trainers
+            <a href="{% url 'trainers' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button class="nav-button" id="trainers-dashboard-button">
+                    Trainers
+                </button>
             </a>
-            <a href="{% url 'locations' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                Locations
+            <a href="{% url 'locations' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button class="nav-button" id="locations-dashboard-button">
+                    Locations
+                </button>
             </a>
-            <a href="{% url 'collections' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                Collections
+            <a href="{% url 'collections' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button class="nav-button" id="collections-dashboard-button">
+                    Collections
+                </button>
             </a>
     </div>
 
