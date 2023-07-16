@@ -27,6 +27,7 @@
         <!-- Logo -->
         <div id="logo-container">
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
+        </div>
             {% csrf_token %}
             <script>
                 function toggleMenu(){
@@ -45,37 +46,21 @@
                 </ul>
             </div>
 
-
-
-            <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
-                    Dashboard
-                </button>
+            <a href="{% url 'dashboard' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                Dashboard
             </a>
-            <a href="{% url 'members' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
-                    Members
-                </button>
+            <a href="{% url 'members' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                Members
             </a>
-            <a href="{% url 'trainers' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="trainers-dashboard-button">
-                    Trainers
-                </button>
+            <a href="{% url 'trainers' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                Trainers
             </a>
-            <a href="{% url 'locations' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="locations-dashboard-button">
-                    Locations
-                </button>
+            <a href="{% url 'locations' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                Locations
             </a>
-            <a href="{% url 'collections' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="collections-dashboard-button">
-                    Collections
-                </button>
+            <a href="{% url 'collections' %}" class="nav-button"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                Collections
             </a>
-            <!--<button class="nav-button" onclick="location.href = 'trainers';">Trainers</button>
-            <button class="nav-button" onclick="location.href = 'locations';">Locations</button>
-            <button class="nav-button" onclick="location.href = 'colletions';">Collections</button>-->
-        </div>
     </div>
 
 
