@@ -936,6 +936,7 @@ ul.messages li.error {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    align-self: stretch;
     width: 180px;
     height: 100vh; /* Adjust the height to cover the entire viewport height */
     background: rgba(217, 217, 217, 0.05);
@@ -985,13 +986,46 @@ ul.messages li.error {
     margin-bottom: 10px;
     background: none;
     border: none;
+
+    padding: 10px 25px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    border: none;
 }
 
 .nav-button:hover {
-    border: 1px solid;
+    /* border: 1px solid;
     border-radius: 0;
     color: black;  
     cursor: pointer;
+    width: 100%;
+    height: 100%; */
+
+    display: flex;
+    height: 56px;
+    padding: 10px 25px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.nav-button:active{
+
+  display: flex;
+  height: 56px;
+  padding: 10px 25px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+
+  background: #175C77;
+  box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Ranking</title>
 
-  <!-- <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> --> <!--Uncomment when depolying-->
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> <!--Uncomment when depolying-->
   <link rel="stylesheet" type="text/css" href="/mysite/new_ranking/static/styles.css">
 
 
@@ -18,15 +18,15 @@
   <div class="topbar">
 
   
-      <!-- <img class= "nr-logo" src="{% static 'images/NR_logo.svg' %}" alt="Logo" width="100" height="100">  -->
-      <img class= "nr-logo" src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" width="100" height="100"> 
+      <img class= "nr-logo" src="{% static 'images/NR_logo.svg' %}" alt="Logo" width="100" height="100"> 
+      <!-- <img class= "nr-logo" src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" width="100" height="100">  -->
   
   
     <!-- HTML for the navigation bar -->
     <div class="nav-buttons">
       <ul class="navbar">
         <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a id= "signup" href="#">Sign up</a></li>
+        <li><a id= "signup" href="{% url 'signup' %}">Sign up</a></li>
         <li><a href="#">Plans</a></li>
         <!-- <li><a href="#">Get Started</a></li> -->
       </ul>
