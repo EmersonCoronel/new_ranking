@@ -1066,7 +1066,7 @@ ul.messages li.error {
   width: 150px;
   position: absolute;
   top: 30px;
-  left: 0;
+  left: 30px;
 }
 
 .popup-menu ul li {
@@ -1080,6 +1080,10 @@ ul.messages li.error {
 
 .popup-menu.show {
   display: block;
+}
+
+#create-member{
+  position: absolute;
 }
 
 #create-member-container{
