@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Locations</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
@@ -10,7 +10,7 @@
     <div id="dashboard-topbar">
         <!-- Dashboard title -->
         <div id="dashboard-title-container">
-            <h2>Dashboard</h2>
+            <h2>Locations</h2>
         </div>
         
         <!-- User info -->
@@ -27,6 +27,7 @@
         <!-- Logo -->
         <div id="logo-container">
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
+        </div>
             {% csrf_token %}
             <script>
                 function toggleMenu(){
@@ -44,8 +45,6 @@
                   <li>Collection</li>
                 </ul>
             </div>
-
-
 
             <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
                 <button class="nav-button" id="members-dashboard-button">
@@ -72,10 +71,6 @@
                     Collections
                 </button>
             </a>
-            <!--<button class="nav-button" onclick="location.href = 'trainers';">Trainers</button>
-            <button class="nav-button" onclick="location.href = 'locations';">Locations</button>
-            <button class="nav-button" onclick="location.href = 'colletions';">Collections</button>-->
-        </div>
     </div>
 
 

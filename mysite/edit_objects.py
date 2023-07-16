@@ -72,7 +72,7 @@ class MemberFunctions:
         return member
 
     def editMemberCourses(member, newCourses):
-        member.courses = newCourses
+        member.courses.set(newCourses)
         member.save()
         return member
     
@@ -160,7 +160,7 @@ class PackageFunctions:
 
 class CourseFunctions:
 
-    def createCourse(courseName):
+    def createCourse(courseName="Default course name"):
         newCourse = Course(name=courseName)
         newCourse.save()
         return newCourse
@@ -183,7 +183,7 @@ class LevelFunctions:
 
 class LocationFunctions:
 
-    def createLocation(locationName):
+    def createLocation(locationName = "Default location name"):
         newLocation = Location(name=locationName)
         newLocation.save()
         return newLocation

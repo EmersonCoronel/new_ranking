@@ -1,3 +1,4 @@
+<!-- {% load static %}  uncomment when depolying -->
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Ranking</title>
 
-  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> --> <!--Uncomment when depolying-->
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
 
 
 </head>
@@ -16,7 +18,9 @@
 
   <div class="topbar">
 
-      <img class= "nr-logo" src="{% static 'images/NR_logo.svg' %}" alt="Logo" width="100" height="100">
+  
+      <!-- <img class= "nr-logo" src="{% static 'images/NR_logo.svg' %}" alt="Logo" width="100" height="100">  -->
+      <img class= "nr-logo" src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" width="100" height="100"> 
   
   
     <!-- HTML for the navigation bar -->
@@ -25,7 +29,7 @@
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a id= "signup" href="#">Sign up</a></li>
         <li><a href="#">Plans</a></li>
-        <li><a href="#">Get Started</a></li>
+        <!-- <li><a href="#">Get Started</a></li> -->
       </ul>
     </div>
 
@@ -66,16 +70,11 @@
 
     <div class="sub-box">
 
-      
-
-
       <div class="plan light">
-
-        
 
         <div class="inside-plan">
 
-          <h2 id="light">Light</h2>
+          <h2 class="plan-title">Light</h2>
 
           <!-- <h3>Have all your powers in one place. <br> Test test test test</h3> -->
           <ul class="inside-plan-details">
@@ -87,26 +86,148 @@
 
         </div>
 
-
       </div>
-
+      
       <div class="plan silver">
 
+        <div class="inside-plan">
+
+          <h2 class="plan-title">Silver</h2>
+
+          <!-- <h3>Have all your powers in one place. <br> Test test test test</h3> -->
+          <ul class="inside-plan-details">
+            <li>Test one. What if i wrote more here?</li>
+            <li>Test one</li>
+            <li>Test one</li>
+            <li>Test one</li>
+          </ul>
+
+        </div>
 
       </div>
 
       <div class="plan premium">
 
+        <div class="inside-plan">
+
+          <h2 class="plan-title">Premium</h2>
+
+          <!-- <h3>Have all your powers in one place. <br> Test test test test</h3> -->
+          <ul class="inside-plan-details">
+            <li>Test one. What if i wrote more here?</li>
+            <li>Test one</li>
+            <li>Test one</li>
+            <li>Test one</li>
+          </ul>
+
+        </div>
 
       </div>
 
+    </div>
+
+    <div class="start-analyzing-box">
+
+      <h2>Start analyzing your<br>growth with New Ranking</h2>
+
+      <a class="for-free-button" href="#">Get started for free</a>
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+
+    <div class="footer-box">
+
+      <div class="logos-n-socials">
+
+        <img class= "nr-logo-footer" src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" width="100" height="100">
+
+        <div class="socials">
+
+          <div class="logo-tag">
+
+            <img src="/mysite/new_ranking/images/IG_ICON.svg">
+            <h3 id="ig-tag">newranking</h3>
+
+          </div>
+
+          <div class="logo-tag">
+
+            <img src="/mysite/new_ranking/images/WhatsApp_ICON.svg">
+            <h3 id="ig-tag">+972-0-00-0000</h3>
+
+          </div>
+
+          <div class="logo-tag">
+
+            <img src="/mysite/new_ranking/images/YT-ICON.svg">
+            <h3 id="ig-tag">newranking</h3>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div class="others">
+
+        <div class="cols">
+
+          <h3>Explore</h3>
+          <div>
+            <h2 class="h2-col">test</h2>
+            <h2 class="h2-col">test</h2>
+            <h2 class="h2-col">test</h2>
+            <h2 class="h2-col">test</h2>
+          </div>
+          
+
+
+
+
+        </div>
+
+        <div class="cols">
+
+          <h3>Creators</h3>
+          
+          <h2 class="h2-col">test</h2>
+          <h2 class="h2-col">test</h2>
+          <h2 class="h2-col">test</h2>
+          <h2 class="h2-col">test</h2>
+
+
+
+
+        </div>
+
+        <div class="cols">
+
+          <h3>Resources</h3>
+          
+          <h2 class="h2-col">test</h2>
+          <h2 class="h2-col">test</h2>
+          <h2 class="h2-col">test</h2>
+          <h2 class="h2-col">test</h2>
+
+
+
+
+        </div>
+
+
+      </div>
+
+      
 
 
 
     </div>
 
-
-
+    
 
 
   </div>
