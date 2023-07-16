@@ -703,21 +703,24 @@ ul.messages li.error {
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    /* line-height: normal; */
     letter-spacing: -1.44px;
     width: 100%;
     height: 5%;
     margin-bottom: 10px;
     background: none;
-    border: none;
+    border: 1px solid transparent; /* Add a transparent border */
+    box-sizing: border-box; /* Add box-sizing */
+    text-decoration: none;
+    vertical-align: bottom;
 }
 
 .nav-button:hover {
-    border: 1px solid;
-    border-radius: 0;
+    border-color: black; /* Change the color of the border on hover */
     color: black;  
     cursor: pointer;
 }
+
 
 
 #dashboard-topbar {
@@ -769,8 +772,8 @@ ul.messages li.error {
 
 /* CSS for the profile page */
 #profile-container {
-    width: 30%;
-    height: 60%;
+    width: 500px;
+    height: 600px;
     margin: auto;
 
     /* Add the following properties to center the container vertically and horizontally. */
@@ -902,61 +905,61 @@ li.success {
 }
 
 .popup-menu {
-    position: relative;
-    display: none;
-  }
-  
-  .popup-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 150px;
-    position: absolute;
-    top: 30px;
-    left: 30px;
-  }
-  
-  .popup-menu ul li {
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-  
-  .popup-menu ul li:hover {
-    background-color: #ccc;
-  }
-  
-  .popup-menu.show {
-    display: block;
-  }
-  
-  #create-member{
-    float: left;
-    height:50px;
-  }
-  
-  #create-member-container{
-    display: none;
-    width: 1128px;
-    height: 604px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: rgba(23, 92, 119, 0.50);
-    position:fixed;
-    padding: 50px;
-  }
-  
-  #create-member-container.show{
-    display: block;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  input[type="text"]::placeholder {
-    color: #999;
-  }
+position: relative;
+display: none;
+}
+
+.popup-menu ul {
+list-style: none;
+padding: 0;
+margin: 0;
+background-color: #f1f1f1;
+border: 1px solid #ccc;
+border-radius: 4px;
+width: 150px;
+position: absolute;
+top: 30px;
+left: 30px;
+}
+
+.popup-menu ul li {
+padding: 8px 12px;
+cursor: pointer;
+}
+
+.popup-menu ul li:hover {
+background-color: #ccc;
+}
+
+.popup-menu.show {
+display: block;
+}
+
+#create-member{
+float: left;
+height:50px;
+}
+
+#create-member-container{
+display: none;
+width: 1128px;
+height: 604px;
+flex-shrink: 0;
+border-radius: 15px;
+background: rgba(23, 92, 119, 0.50);
+position:fixed;
+padding: 50px;
+}
+
+#create-member-container.show{
+display: block;
+}
+
+input[type="text"] {
+padding: 10px;
+font-size: 16px;
+}
+
+input[type="text"]::placeholder {
+color: #999;
+}
