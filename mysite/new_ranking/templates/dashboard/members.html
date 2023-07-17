@@ -4,6 +4,7 @@
 <head>
     <title>Locations</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="/mysite/new_ranking/static/styles.css">
 </head>
 <body>
     <!-- Top Bar -->
@@ -22,6 +23,32 @@
             </a>
         </div>
     </div>
+    <button id="create-member" onclick="toggleCreateMember()" type='button'>+ Create Member</button>
+    <script>
+        function toggleCreateMember(){
+                    var createMemberMenu = document.querySelector("#create-member-container");
+                    createMemberMenu.classList.toggle("show");
+                }
+    </script>
+    <form method="POST" action="create_member/">
+        <div id="create-member-container">
+            {% csrf_token %}
+            <input class='create-member-fields' name='first-name' type="text" placeholder="First Name">
+            <input class='create-member-fields' name='last-name' type="text" placeholder="Last Name">
+            <input class='create-member-fields' name='location' type="text" placeholder="Location">
+            <input class='create-member-fields' name='phone-number' type="text" placeholder="Phone Number">
+            <input class='create-member-fields' name='email' type="text" placeholder="Email">
+            <input class='create-member-fields' name='space' type="text" placeholder="Space">
+            <input class='create-member-fields' name='gender' type="text" placeholder="Gender">
+            <input class='create-member-fields' name='date-joined' type="text" placeholder="Date Joined">
+            <input class='create-member-fields' name='date-of-birth' type="text" placeholder="Date of Birth">
+            <input class='create-member-fields' name='package' type="text" placeholder="Package">
+            <input class='create-member-fields' name='courses' type="text" placeholder="Courses">
+            <input class='create-member-fields' name='trainer' type="text" placeholder="Trainer">
+            <input class='create-member-fields' name='password' type="text" placeholder="Password">
+            <button id='confirm-create-member' type="submit">Create Member</button>
+        </div>
+    </form>
     <!-- Navigation -->
     <div id="dashboard-navbar">
         <!-- Logo -->
@@ -29,9 +56,25 @@
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
         </div>
             {% csrf_token %}
-            <button id="create-button" type="button">+ Create</button>
+            <script>
+                function toggleMenu(){
+                    var popupMenu = document.querySelector(".popup-menu");
+                    popupMenu.classList.toggle("show");
+                }
+            </script>
+            <button id="create-button" onclick="toggleMenu()" type="button">+ Create</button>
+            
+            <div class="popup-menu">
+                <ul>
+                  <li>Member</li>
+                  <li>Trainer</li>
+                  <li>Location</li>
+                  <li>Collection</li>
+                </ul>
+            </div>
+
             <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
+                <button class="nav-button" id="dashboard-button">
                     Dashboard
                 </button>
             </a>

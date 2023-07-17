@@ -7,13 +7,16 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
+from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm
 from django.contrib.auth.models import User
 from new_ranking.models import Member
 from new_ranking.models import Location
 from new_ranking.models import Course
-from django.http import HttpResponse
+
 import edit_objects
+from .forms import CustomPasswordChangeForm
+from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
@@ -68,18 +71,77 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+class CustomLoginView(auth_views.LoginView):
+    success_url = reverse_lazy('dashboard')
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Invalid username or password.')
+        return super().form_invalid(form)
+
 @login_required
 def create_member(request):
     #newMember = Member()
-    #newMember.save()
-    edit_objects.MemberFunctions.createMember()
-    return redirect(reverse('dashboard'))
+    #newMember.save()=
+    newMember = edit_objects.MemberFunctions.createMember()
+    firstName = request.POST.get('first-name')
+    if firstName != '':
+        edit_objects.MemberFunctions.editMemberFirstName(newMember, firstName)
+    lastName = request.POST.get('last-name')
+    if lastName != '':
+        edit_objects.MemberFunctions.editMemberLastName(newMember, lastName)
+    location = request.POST.get('location')
+    if location != '':
+        edit_objects.MemberFunctions.editMemberLocation(newMember, location)
+    phoneNumber = request.POST.get('phone-number')
+    if phoneNumber != '':
+        edit_objects.MemberFunctions.editMemberPhoneNumber(newMember, phoneNumber)
+    email = request.POST.get('email')
+    if email != '':
+        edit_objects.MemberFunctions.editMemberEmail(newMember, email)
+    space = request.POST.get('space')
+    if space != '':
+        edit_objects.MemberFunctions.editMemberSpace(newMember, space)
+    gender = request.POST.get('gender')
+    if gender != '':
+        edit_objects.MemberFunctions.editMemberGender(newMember, gender)
+    dateJoined = request.POST.get('date-joined')
+    if dateJoined != '':
+        edit_objects.MemberFunctions.editMemberDateJoined(newMember, dateJoined)
+    dateOfBirth = request.POST.get('date-of-birth')
+    if dateOfBirth != '':
+        edit_objects.MemberFunctions.editMemberDateofBirth(newMember, dateOfBirth)
+    package = request.POST.get('package')
+    if package != '':
+        edit_objects.MemberFunctions.editMemberPackage(newMember, package)
+    courses = request.POST.get('courses')
+    if courses != '':
+        edit_objects.MemberFunctions.editMemberCourses(newMember, courses)
+    trainer = request.POST.get('trainer')
+    if trainer != '':
+        edit_objects.MemberFunctions.editMemberTrainer(newMember, trainer)
+    password = request.POST.get('password')
+    if password != '':
+        edit_objects.MemberFunctions.editMemberPassword(newMember, password)
+    return redirect(reverse('members'))
 
 @login_required
 def create_location(request):
-    edit_objects.LocationFunctions.createLocation()
-    return redirect(reverse('dashboard'))
 
+    newLocation = edit_objects.LocationFunctions.createLocation()
+
+
+
+    location_name = request.POST.get('location_name')
+    if location_name != '':
+        edit_objects.LocationFunctions.editLocationName(newLocation, location_name)
+    location_space = request.POST.get('space_num')
+    if location_space != '':
+        edit_objects.LocationFunctions.editLocationSpace(newLocation, location_space)
+    return redirect(reverse('locations'))
+
+   
+    
+    
 @login_required
 def create_course(request):
     edit_objects.CourseFunctions.createCourse()
@@ -98,8 +160,47 @@ def profile(request):
     return render(request, 'registration/profile.html')
 
 @login_required
+def change_password(request):
+    if request.method == 'POST':
+        old_password = request.POST.get('old_password')
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('confirm_password')
+
+        # Check if the old password is correct
+        user = authenticate(username=request.user.username, password=old_password)
+        if user is not None:
+            # Check if the new passwords match
+            if new_password == confirm_password:
+                # Change the password
+                user.set_password(new_password)
+                user.save()
+                # Update the user's session with the new password
+                update_session_auth_hash(request, user)
+                messages.success(request, 'Password changed successfully!')
+            else:
+                messages.error(request, 'New passwords do not match.')
+        else:
+            messages.error(request, 'Old password is incorrect.')
+    return redirect('profile')  # Replace 'profile' with the name of your profile view
+
+def logout_view(request):
+    logout(request)
+    return redirect('registration/login')  # Redirect to login page after logout
+
+@login_required
+def profile(request):
+    return render(request, 'registration/profile.html')
+
+@login_required
 def locations(request):
-    return render(request, 'dashboard/location.html')
+
+    locationCount = Location.objects.count()
+
+    context = {
+        'locationCount': locationCount
+        }
+
+    return render(request, 'dashboard/location.html', context)
 
 @login_required
 def members(request):
@@ -112,3 +213,6 @@ def trainers(request):
 @login_required
 def collections(request):
     return render(request, 'dashboard/collections.html')
+
+
+# number of locations function

@@ -1,10 +1,10 @@
-<!-- {% load static %}  --> <!--uncomment for deploment-->
+<!-- {% load static %} -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Dashboard</title>
-    <!-- <link rel="stylesheet" href="{% static 'styles.css' %}"> --> <!--uncomment for deploment-->
-    <link rel="stylesheet" type="text/css" href="/mysite/new_ranking/static/styles.css">
+    <link rel="stylesheet" href="/mysite/new_ranking/static/styles.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <!-- Top Bar -->
@@ -19,7 +19,6 @@
             <a href="{% url 'profile' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
                 <button id="user-info-button">
                     {{ user.first_name }} {{ user.last_name|slice:"1" }}
-                    <img src=""> <!--place django code for uploaded profile pic-->
                 </button>
             </a>
         </div>
@@ -28,13 +27,29 @@
     <div id="dashboard-navbar">
         <!-- Logo -->
         <div id="logo-container">
-            <!-- <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard"> -->       <!--uncomment for deploment-->
-            <img src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" id="logo-dashboard"> 
+            <!-- <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard"> -->
+            <img src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" id="logo-dashboard">
         </div>
-            <!-- {% csrf_token %} -->       <!--uncomment for deploment-->
-            <button id="create-button" type="button">+ Create</button>
+            <!-- {% csrf_token %} -->
+            <script>
+                function toggleMenu(){
+                    var popupMenu = document.querySelector(".popup-menu");
+                    popupMenu.classList.toggle("show");
+                }
+            </script>
+            <button id="create-button" onclick="toggleMenu()" type="button">+ Create</button>
+            
+            <div class="popup-menu">
+                <ul>
+                  <li>Member</li>
+                  <li>Trainer</li>
+                  <li>Location</li>
+                  <li>Collection</li>
+                </ul>
+            </div>
+
             <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
+                <button class="nav-button" id="dashboard-button">
                     Dashboard
                 </button>
             </a>
@@ -45,7 +60,7 @@
             </a>
             <a href="{% url 'trainers' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
                 <button class="nav-button" id="trainers-dashboard-button">
-                    Trainers
+                     Trainers
                 </button>
             </a>
             <a href="{% url 'locations' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
@@ -58,9 +73,6 @@
                     Collections
                 </button>
             </a>
-            <!--<button class="nav-button" onclick="location.href = 'trainers';">Trainers</button>
-            <button class="nav-button" onclick="location.href = 'locations';">Locations</button>
-            <button class="nav-button" onclick="location.href = 'colletions';">Collections</button>-->
     </div>
 
 

@@ -127,6 +127,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'dashboard'  # Redirect to the dashboard page after successful login
 LOGIN_URL = 'login'  # Set the login URL to the login page
+LOGOUT_REDIRECT_URL = 'login'
 
 MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger'

@@ -1,20 +1,18 @@
-/* font import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
-/* Homepage */
-
-  body {
+body {
     background-image: url("images/bg.png");
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow-x: hidden;
-    overflow-y:scroll;
 
     font-family: 'Poppins', sans-serif;
     margin: 0;
   }
+
+
+  /* Homepage */
 
   /* css for the div box that holds the nr-logo and navbar */
  .topbar{
@@ -125,63 +123,6 @@ ul.navbar {
     transition: 150ms ease;
   }
 
-  a.for-free-button{
-
-      position: static;
-      /* display: block; */
-      color: #ffffff;
-      background-color: #175C77;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      /* border: 1px solid; */
-      border-radius: 50px;
-
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: -1.12px;
-
-      display: flex;
-      width: 274px;
-      height: 50px;
-      padding: 5px 15px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      transition: 150ms ease;
-  }
-
-  a.for-free-button:hover{
-
-    position: static;
-    /* display: block; */
-    color: #ffffff;
-    background-color: #175C77;
-    opacity: 50%;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    /* border: 1px solid; */
-    border-radius: 50px;
-
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -1.12px;
-
-    display: flex;
-    width: 274px;
-    height: 50px;
-    padding: 5px 15px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    transition: 150ms ease;
-}
-
   ul.navbar li a:hover, a#gs-button:hover {
     background-color: #175C77;
     opacity: 50%;
@@ -229,17 +170,6 @@ ul.navbar {
     margin-left: 35px;
     margin-top: 35px;
     /* border: 1px solid #ccc; Add borders for visual separation */
-}
-
-img.nr-logo-footer{
-        
-  width: 131px;
-  height: 135px;
-
-  position: static;   
-  display: inline-flex;   
-  
-  /* border: 1px solid #ccc; Add borders for visual separation */
 }
 
 
@@ -334,7 +264,7 @@ h3{
     margin: 0px;
     color: #ffffff;
     
-    font-size: 20px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -343,6 +273,23 @@ h3{
     text-align: center;
 }
 
+h4#locTitle{
+
+    margin: auto;
+    padding-left: 40px;
+    padding-top: 40px;
+    color: #ffffff;
+
+    position: static;
+    
+    
+    font-size: 36px;
+    font-style:normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.12px;
+
+}
 
 h2#gs{
     /* display: flex;
@@ -386,28 +333,6 @@ h2#improv, h2{
 
   }
 
-  .h2-col{
-
-    margin: 0px;
-    /* padding-right: 150px; */
-    margin-top: 30px;
-    /* float: right; */
-    color: #ffffff;
-    
-    font-size: 24px;
-
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -1.12px;
-
-
-    text-align: center;
-
-
-  }
-  
-
 
   .middle-body{
 
@@ -449,7 +374,6 @@ h2#improv, h2{
 
     display: flex;
     align-items: flex-start;
-    justify-content: center;
     
     gap: 35px;
   }
@@ -461,51 +385,18 @@ h2#improv, h2{
     height: 470px;
     flex-shrink: 0;
 
-    display: inline-flex;
-    /* flex: 3; */
-
-
     border-radius: 35px;
     border: 10px solid #279CCA;
     background: rgba(23, 92, 119, 0.35);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-
-    transition: transform 0.2s ease-in-out, background-color 0.15s ease-in-out;
-    /* filter: blur(2px); */
-  }
-
-  .plan:hover{
-
-    width: 350px;
-    height: 470px;
-    flex-shrink: 0;
-
-    display: inline-flex;
-    /* flex: 3; */
-
-
-    border-radius: 35px;
-
-    border: 10px solid #279CCA;
-    
-    
-    transform: scale(1.1);
-    background-color: rgba(0, 0, 0, 0.50);
-    transition-duration: 0.8s;
-    
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     /* filter: blur(2px); */
   }
 
   .inside-plan{
 
-    /* display: inline-flex; */
-   
-    width: 350px;
-    height: 490px;
-    /* padding: 45px 20px 89px 20px; */
-    padding: 25px 0px 0px 0px;
+    display: flex;
+    width: 310px;
+    padding: 45px 20px 89px 20px;
     flex-direction: column;
     align-items: center;
     gap: 70px;
@@ -518,43 +409,7 @@ h2#improv, h2{
 
   }
 
-  .inside-plan:hover{
-
-    /* display: inline-flex; */
-   
-    width: 350px;
-    height: 490px;
-    /* padding: 45px 20px 89px 20px; */
-    padding: 25px 0px 0px 0px;
-    flex-direction: column;
-    align-items: center;
-    gap: 70px;
-    color: #FFF;
-    transition: color .15s ease-in-out;
-
-    position: absolute;
-    /* right: 9px;
-    bottom: 9px; */
-
-
-
-  }
-
-
-  ul.inside-plan-details{
-
-    /* list-style-type: none; */
-    font-size: 24px;
-    padding: 0px 0px 0px 35px;
-
-    height:auto;
-    display: inline-block;
-    align-items:center;
-  }
-
-
-
-  h2.plan-title{
+  h2#light{
 
     margin: 0px;
     margin-top:0px;
@@ -573,124 +428,11 @@ h2#improv, h2{
   }
 
 
-  .start-analyzing-box{
+  ul.inside-plan-details{
 
-    position: absolute;
-    top: 2100px;
-
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 35px;
+    /* list-style-type: none; */
+    font-size: 24px;
   }
-
-
-
-
-  .footer{
-
-    width: 1440px;
-    height: 575px;
-    flex-shrink: 0;
-
-    position: absolute;
-    /* display:flex; */
-    top: 2750px;
-
-    background: rgba(217, 217, 217, 0.06);
-    
-    /* filter: blur(5px); */
-
-
-
-  }
-
-  .footer-box{
-
-    width: 1009px;
-    height: 327px;
-    /* flex-shrink: 0; */
-    margin:0;
-
-    display: inline-flex;
-    align-items: flex-start;
-    
-
-    gap: 100px;
-
-    top: 2874px;
-    bottom: 124px;
-
-    padding: 100px 220px 100px 220px;
-
-    
-    
-    
-
-  
-  }
-
-  .logos-n-socials{
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-
-    width:250px;
-    gap: 24px;
-
-    top: 2874px;
-
-    /* bottom: 2550px; */
-    /* left: 177px; */
-    /* padding-top: 150px;
-    padding-left: 150px; */
-  }
-  .socials{
-
-    display: flex;
-    width: 209px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-
-
-  }
-
-  .logo-tag{
-
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .others{
-
-    display: flex;
-    width: 700px;
-    align-items: flex-start;
-    gap: 178px;
-
-    /* top: 3200px; */
-    left: 177px;
-  }
-
-  #explore{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0px;
-  }
-
-
-
-
-/* -------------------  END OF Homepage CSS ---------------------  */
 
 
 /** Login Page **/
@@ -936,7 +678,7 @@ ul.messages li.error {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    align-self: stretch;
+    float: left;
     width: 180px;
     height: 100vh; /* Adjust the height to cover the entire viewport height */
     background: rgba(217, 217, 217, 0.05);
@@ -979,58 +721,30 @@ ul.messages li.error {
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    /* line-height: normal; */
     letter-spacing: -1.44px;
-    width: 100%;
-    height: 5%;
+    width: 180px;
+    height: 50px;
     margin-bottom: 10px;
     background: none;
-    border: none;
-
-    padding: 10px 25px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+    border: 1px solid transparent; /* Add a transparent border */
+    box-sizing: border-box; /* Add box-sizing */
     text-decoration: none;
-    border: none;
+    vertical-align: center;
 }
 
 .nav-button:hover {
-    /* border: 1px solid;
-    border-radius: 0;
+    border-color: black; /* Change the color of the border on hover */
     color: black;  
     cursor: pointer;
-    width: 100%;
-    height: 100%; */
-
-    display: flex;
-    height: 56px;
-    padding: 10px 25px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: stretch;
-
-    background: rgba(255, 255, 255, 0.10);
 }
 
-.nav-button:active{
-
-  display: flex;
-  height: 56px;
-  padding: 10px 25px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  align-self: stretch;
-
-  background: #175C77;
-  box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
-}
 
 
 #dashboard-topbar {
-    position:fixed;
+    position:static;
+    float: right;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1038,7 +752,7 @@ ul.messages li.error {
     padding: 10px;
     top: 0;
     left: 180px;
-    width: calc(100% - 180px); /* occupy the entire width of the viewport minus the 180px for the nav bar */
+    width: calc(100% ); /* occupy the entire width of the viewport minus the 180px for the nav bar --aviv, took out "-180px" b/c it altered the bar size when I fixed the content space*/
     height: 75px; /* height of the top bar */
     color: #ffffff;
     background: rgba(217, 217, 217, 0.05);
@@ -1078,9 +792,257 @@ ul.messages li.error {
 
 /* CSS for the profile page */
 #profile-container {
-    width: 100%;
-    height: 100vh;
+    width: 500px;
+    height: 600px;
+    margin: auto;
+
+    /* Add the following properties to center the container vertically and horizontally. */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 5%;
+
+    border-radius: 22.5px;
+    background: rgba(23, 92, 119, 0.50);
+
+    /* Add the following properties to set up a flexbox container. */
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+#profile-name-text h2{
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.89px;
+    margin: 0;
+    margin-top: 25px;
+}
+/* Style for each form group, including labels and inputs. */
+/* Style for each form group, including labels and inputs. */
+.profile-info-group {
+    width: 75%; /* Full width within the container. */
+    margin-bottom: 10px; /* Some space between elements. */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally. */
+    justify-content: center; /* Center items vertically. */
+}
+
+
+.profile-info-group form {
+    display: flex;
+    justify-content: center; /* This will put some space between the input and the button. */
+    align-items: center; /* This will align the items vertically. */
+    margin-bottom: 30px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-info-group input {
+    flex-shrink: 0;
+    height: 70%;
+
+    border-radius: 15px;
+    border: none;
+    background: rgba(38, 156, 202, 0.50);
+}
+
+
+/* Style for labels. */
+.profile-info-group label {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.89px;
+    align-items: center;
+    margin-top: 15%;
+}
+
+/* Style for input fields. */
+.profile-info-group button {
+    width: 316.5px;
+    height: 48.75px;
+    flex-shrink: 0;
+
+    border-radius: 15px;
+    border: none;
+    background: rgba(38, 156, 202, 0.50);
+    color: #FFF;
+    align-items: center;
+    margin-top: 8%;
+}
+
+.profile-info-group button:hover {
+    background-color: #134A5C;
+    cursor: pointer;
+}
+
+#email-display {
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.89px;
     align-items: center;
 }
+
+li.success {
+    color: rgb(12, 199, 12);
+}
+
+#profile-button {
+    display: inline-block;
+    background-color: rgba(38, 156, 202, 0.50);
+    color: #FFF;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Poppins;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+#profile-button:hover {
+    background-color: #134A5C;
+}
+
+.popup-menu {
+position: relative;
+display: none;
+}
+
+.popup-menu ul {
+list-style: none;
+padding: 0;
+margin: 0;
+background-color: #f1f1f1;
+border: 1px solid #ccc;
+border-radius: 4px;
+width: 150px;
+position: absolute;
+top: 30px;
+left: 30px;
+}
+
+.popup-menu ul li {
+padding: 8px 12px;
+cursor: pointer;
+}
+
+.popup-menu ul li:hover {
+background-color: #ccc;
+}
+
+.popup-menu.show {
+display: block;
+}
+
+#create-member{
+float: left;
+height:50px;
+}
+
+#create-member-container{
+display: none;
+width: 1128px;
+height: 604px;
+flex-shrink: 0;
+border-radius: 15px;
+background: rgba(23, 92, 119, 0.50);
+position:fixed;
+padding: 50px;
+}
+
+
+
+#create-member-container.show{
+display: block;
+}
+
+input[type="text"] {
+padding: 10px;
+font-size: 16px;
+}
+
+input[type="text"]::placeholder {
+color: #999;
+}
+
+
+/* Location page CSS */
+
+.content{
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    }
+
+#main-content-container{
+
+    flex-grow: 1;
+    /* margin: auto; */
+
+}
+
+#add-location{
+
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.96px;
+    display: flex;
+    width: 150px;
+    height: 40px;
+    /* padding: 5px 10px; */
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    border-radius: 25px;
+    background-color: #175C77;
+    border: none;
+
+
+}
+
+#create-location-container{
+    display: none;
+    width: 1128px;
+    height: 604px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: rgba(23, 92, 119, 0.50);
+    position:fixed;
+    padding: 50px;
+    }
+
+
+    #create-location-container.show{
+        display: block;
+        }

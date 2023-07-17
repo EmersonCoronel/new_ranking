@@ -57,7 +57,4 @@ class Level(models.Model):
 
 class Location(models.Model):
     name = models.CharField(max_length=200, default="Default Location Name")
-
-class Space(models.Model):
-    location = models.ForeignKey(Location, related_name='spaces', on_delete=models.CASCADE)
-    space_data = models.IntegerField(default=0)  # replace with the actual data fields
+    space = models.CharField(max_length=4, default="Default Space Number")
