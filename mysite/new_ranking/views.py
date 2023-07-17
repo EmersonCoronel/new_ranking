@@ -250,6 +250,14 @@ def create_course(request):
     return redirect(reverse('collections'))
 
 @login_required
+def add_level(request, collection_id):
+    collection = get_object_or_404(Course, id=collection_id)
+    if request.method == 'POST':
+        level = request.POST.get('level')
+        edit_objects.LevelFunctions.createCourseLevel(collection, level)
+        return redirect('collections')
+
+@login_required
 def delete_collection(request, collection_id):
     collection = get_object_or_404(Course, id=collection_id)
     if request.method == 'POST':
