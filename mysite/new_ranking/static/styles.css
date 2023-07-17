@@ -543,10 +543,12 @@ h2#improv, h2{
     width: 420px;
     height: 650px;
     flex-shrink: 0;
-    margin-top: 50px; /* top margin set to 50px, right and left margins set to auto, bottom margin set to 0 */
+    margin:auto;
+    margin-left: 37.25%;
+    /* margin-top: 40px;
     margin-bottom: 0;
     margin-right: 540px;
-    margin-left: 690px;
+    margin-left: 690px; */
 
 
     border-radius: 22.5px;
@@ -985,11 +987,11 @@ display: block;
 
 #create-member-container{
 display: none;
-width: 800px;
-height: 400px;
+width: 700px;
+height: 300px;
 flex-shrink: 0;
 border-radius: 40px;
-background: rgba(23, 92, 119, 0.50);
+background: rgba(6, 60, 82, 0.5);
 position:fixed;
 padding: 50px;
 left:350px;
@@ -1112,22 +1114,20 @@ color: #999;
     text-decoration: none;
     border-radius: 50px;
 
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.12px;
-    margin-top: 20px;
 
     display: flex;
-    width: 75px;
-    height: 35px;
-    padding: 15px;
+    width: 90px;
+    height: 25px;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    transition: 150ms ease;
     margin: auto;
+    margin-top: 50px;
     border: none;
     cursor: pointer;
 }
