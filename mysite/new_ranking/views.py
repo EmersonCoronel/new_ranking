@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from new_ranking.models import Member
 from new_ranking.models import Trainer
 from new_ranking.models import Course
+
 import edit_objects
 from .forms import CustomPasswordChangeForm
 from django.http import JsonResponse
@@ -160,9 +161,22 @@ def create_trainer(request):
 
 @login_required
 def create_location(request):
-    edit_objects.LocationFunctions.createLocation()
-    return redirect(reverse('dashboard'))
 
+    newLocation = edit_objects.LocationFunctions.createLocation()
+
+
+
+    location_name = request.POST.get('location_name')
+    if location_name != '':
+        edit_objects.LocationFunctions.editLocationName(newLocation, location_name)
+    location_space = request.POST.get('space_num')
+    if location_space != '':
+        edit_objects.LocationFunctions.editLocationSpace(newLocation, location_space)
+    return redirect(reverse('locations'))
+
+   
+    
+    
 @login_required
 def create_course(request):
     edit_objects.CourseFunctions.createCourse()
@@ -214,7 +228,14 @@ def profile(request):
 
 @login_required
 def locations(request):
-    return render(request, 'dashboard/location.html')
+
+    locationCount = Location.objects.count()
+
+    context = {
+        'locationCount': locationCount
+        }
+
+    return render(request, 'dashboard/location.html', context)
 
 @login_required
 def members(request):
@@ -232,3 +253,6 @@ def trainers(request):
 @login_required
 def collections(request):
     return render(request, 'dashboard/collections.html')
+
+
+# number of locations function

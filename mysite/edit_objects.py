@@ -7,6 +7,7 @@ from new_ranking.models import Course
 from new_ranking.models import Member
 from new_ranking.models import Trainer
 from new_ranking.models import Level
+
 from new_ranking.models import Package
 from new_ranking.models import PastRanking
 
@@ -204,3 +205,8 @@ class LocationFunctions:
         location.space = newSpace
         location.save()
         return location
+
+
+
+
+

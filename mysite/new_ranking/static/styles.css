@@ -273,6 +273,23 @@ h3{
     text-align: center;
 }
 
+h4#locTitle{
+
+    margin: auto;
+    padding-left: 40px;
+    padding-top: 40px;
+    color: #ffffff;
+
+    position: static;
+    
+    
+    font-size: 36px;
+    font-style:normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.12px;
+
+}
 
 h2#gs{
     /* display: flex;
@@ -663,6 +680,7 @@ ul.messages li.error {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    float: left;
     width: 180px;
     height: 100vh; /* Adjust the height to cover the entire viewport height */
     background: rgba(217, 217, 217, 0.05);
@@ -734,7 +752,7 @@ ul.messages li.error {
     padding: 10px;
     top: 0;
     left: 180px;
-    width: calc(100% - 180px); /* occupy the entire width of the viewport minus the 180px for the nav bar */
+    width: calc(100% ); /* occupy the entire width of the viewport minus the 180px for the nav bar --aviv, took out "-180px" b/c it altered the bar size when I fixed the content space*/
     height: 75px; /* height of the top bar */
     color: #ffffff;
     background: rgba(217, 217, 217, 0.05);
@@ -1033,6 +1051,67 @@ font-size: 16px;
 .member-create-fields[type="text"]::placeholder {
 color: #999;
 }
+
+
+/* Location page CSS */
+
+.content{
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    }
+
+#main-content-container{
+
+    flex-grow: 1;
+    /* margin: auto; */
+
+}
+
+#add-location{
+
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.96px;
+    display: flex;
+    width: 150px;
+    height: 40px;
+    /* padding: 5px 10px; */
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    border-radius: 25px;
+    background-color: #175C77;
+    border: none;
+
+
+}
+
+#create-location-container{
+    display: none;
+    width: 1128px;
+    height: 604px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: rgba(23, 92, 119, 0.50);
+    position:fixed;
+    padding: 50px;
+    }
+
+
+    #create-location-container.show{
+        display: block;
+        }
 
 .center-container {
     display: flex;
