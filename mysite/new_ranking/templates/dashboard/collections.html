@@ -85,10 +85,9 @@
             <!--</a>-->
         </div>
         <form method="POST" action="create_course/">
-            <div id="create-member-container">
+            <div id="create-collection-container">
                 {% csrf_token %}
-                <input class='member-create-fields' name='collection-name' type="text" placeholder="Collection">
-                <input class='member-create-fields' name='level' type="text" placeholder="Level">
+                <input class='member-create-fields' name='collection-name' type="text" placeholder="Collection Name">
                 <button id='confirm-create-member' type="submit">Create Collection</button>
             </div>
         </form>
@@ -100,14 +99,14 @@
                         <div id= "collection-level">{{ level.level }}</div>
                     {% endfor %}
                     <!-- Add Level Form -->
-                    <div id="addLevelForm" style="display: none;">
+                    <div id="addLevelForm{{ collection.id }}" style="display: none;">
                         <form method="POST" action="{% url 'add_level' collection.id %}">
                             {% csrf_token %}
                             <input id="level-input" type="text" name="level" placeholder="Enter level">
                             <input id="add-button" type="submit" value="Add">
                         </form>
                     </div>
-                    <button id="plus" onclick="showAddLevelForm();">
+                    <button id="plus" onclick='showAddLevelForm("{{ collection.id }}");'>
                         <img src="{% static 'images/plus_icon.svg' %}" alt="Add">
                     </button>
 
@@ -127,7 +126,7 @@
 
 <script>
     function toggleCreateMember(){
-            var createMemberMenu = document.querySelector("#create-member-container");
+            var createMemberMenu = document.querySelector("#create-collection-container");
             createMemberMenu.classList.toggle("show");
         }
 </script>
@@ -139,12 +138,12 @@
 </script>
 
 <script>
-    function showAddLevelForm() {
-        var form = document.getElementById('addLevelForm');
-        if(form.style.display === 'block') {
-            form.style.display = 'none';
-        } else {
-            form.style.display = 'block';
-        }
+    function showAddLevelForm(collectionId) {
+    var form = document.getElementById('addLevelForm' + collectionId);
+    if(form.style.display === 'block') {
+        form.style.display = 'none';
+    } else {
+        form.style.display = 'block';
     }
+}
 </script>
