@@ -1469,6 +1469,17 @@ color: #999;
     right: 20px;
 }
 
+#trash-space {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    /* float: right; */
+    left:150px;
+    
+    
+}
+
 
 #trash:hover {
     background-color: #175C77;

@@ -182,10 +182,10 @@ def add_space(request, location_id):
 
 
 
-@login_required
-def create_course(request):
-    edit_objects.LocationFunctions.editLocationSpace()
-    return redirect(reverse('dashboard'))
+# @login_required
+# def create_course(request):
+#     edit_objects.LocationFunctions.editLocationSpace()
+#     return redirect(reverse('dashboard'))
 
 @login_required
 def protected_view(request):
@@ -241,6 +241,14 @@ def delete_location(request, location_id):
     location = get_object_or_404(Location, id=location_id)
     if request.method == 'POST':
         location.delete()
+        return redirect('locations')
+    
+
+@login_required
+def delete_space(request, space_id):
+    space = get_object_or_404(Space, id=space_id)
+    if request.method == 'POST':
+        space.delete()
         return redirect('locations')
 
 

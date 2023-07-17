@@ -98,17 +98,24 @@
                     <div id="location-title">{{ location.name }}</div>
                     {% for space in location.spaces.all %}
                     <div id="location-space">{{ space.name }}</div>
+                    <!-- Delete Button -->
+                    <form method="POST" action="{% url 'delete_space' space.id %}">
+                        {% csrf_token %}
+                        <button id="trash-space" onclick="return confirmDeleteSpace();">
+                            <img src="{% static 'images/trash_icon.svg' %}" alt="Delete">
+                        </button>
+                    </form>
                     {% endfor %}
 
                     <!-- Add Space Form -->
-                    <div id="addLevelForm" style="display: none;">
+                    <div id="addSpaceForm{{ location.id }}" style="display: none;">
                         <form method="POST" action="{% url 'add_space' location.id %}">
                             {% csrf_token %}
-                            <input id="level-input" type="text" name="space" placeholder="Enter space"> <!--check for this lines css-->
+                            <input id="level-input" type="text" name="space" placeholder="Enter Space"> <!--check for this lines css-->
                             <input id="add-button" type="submit" value="Add">
                         </form>
                     </div>
-                    <button id="plus" onclick="showAddLevelForm();">
+                    <button id="plus" onclick='showAddSpaceForm("{{ location.id }}");'>
                         <img src="{% static 'images/plus_icon.svg' %}" alt="Add">
                     </button>
 
@@ -119,9 +126,6 @@
                             <img src="{% static 'images/trash_icon.svg' %}" alt="Delete">
                         </button>
                     </form>
-
-
-                   
                 </div>
             {% endfor %}
         </div>
@@ -141,14 +145,20 @@
         return confirm('Are you sure you want to delete this collection?');
     }
 </script>
+<script>
+    function confirmDeleteSpace() {
+        
+        return confirm('Are you sure you want to delete this Space?');
+    }
+</script>
 
 <script>
-    function showAddLevelForm() {
-        var form = document.getElementById('addLevelForm');
-        if(form.style.display === 'block') {
-            form.style.display = 'none';
-        } else {
-            form.style.display = 'block';
-        }
+    function showAddSpaceForm(locationId) {
+    var form = document.getElementById('addSpaceForm' + locationId);
+    if(form.style.display === 'block') {
+        form.style.display = 'none';
+    } else {
+        form.style.display = 'block';
     }
+}
 </script>
