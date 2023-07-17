@@ -7,7 +7,6 @@ from new_ranking.models import Course
 from new_ranking.models import Member
 from new_ranking.models import Trainer
 from new_ranking.models import Level
-from new_ranking.models import Space
 from new_ranking.models import Package
 from new_ranking.models import PastRanking
 
@@ -95,8 +94,8 @@ class MemberFunctions:
 
 class TrainerFunctions:
 
-    def createTrainer(trainerUser):
-        newTrainer = Trainer(user = trainerUser)
+    def createTrainer():
+        newTrainer = Trainer()
         newTrainer.save()
         return newTrainer
     
@@ -148,6 +147,11 @@ class TrainerFunctions:
         trainer.save()
         return trainer
     
+    def editTrainerPassword(trainer, password):
+        trainer.password = password
+        trainer.save()
+        return trainer
+    
 class PackageFunctions:
 
     def createPackage(packagePlan):
@@ -195,17 +199,8 @@ class LocationFunctions:
         location.name = newLocationName
         location.save()
         return location
-
-class SpaceFunctions:
-
-    def createSpace(spaceLocation):
-        newSpace = Space(location = spaceLocation)
-        newSpace.save()
-        return newSpace
-
-    def deleteSpace(space):
-        space.delete()
-
-
-
-
+    
+    def editLocationSpace(location, newSpace):
+        location.space = newSpace
+        location.save()
+        return location

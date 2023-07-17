@@ -22,6 +22,12 @@
             </a>
         </div>
     </div>
+    <script>
+        function toggleCreateMember(){
+                    var createMemberMenu = document.querySelector("#create-member-container");
+                    createMemberMenu.classList.toggle("show");
+                }
+    </script>
     <!-- Navigation -->
     <div id="dashboard-navbar">
         <!-- Logo -->
@@ -75,8 +81,48 @@
 
 
     <!-- Main Content -->
-    <div id="main-content-container">
-        <!-- Content goes here -->
+    <div class="center-container">
+        <div id="member-actions-container">
+            <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Trainer</button>
+            {% csrf_token %}
+                <div id="member-count">({{ count }})</div>
+            <!--</a>-->
+        </div>
+        <form method="POST" action="create_trainer/">
+            <div id="create-member-container">
+                {% csrf_token %}
+                <input class='member-create-fields' name='first-name' type="text" placeholder="First Name">
+                <input class='member-create-fields' name='last-name' type="text" placeholder="Last Name">
+                <input class='member-create-fields' name='location' type="text" placeholder="Location">
+                <input class='member-create-fields' name='phone-number' type="text" placeholder="Phone Number">
+                <input class='member-create-fields' name='email' type="text" placeholder="Email">
+                <input class='member-create-fields' name='space' type="text" placeholder="Space">
+                <input class='member-create-fields' name='gender' type="text" placeholder="Gender">
+                <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined">
+                <input class='member-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth">
+                <input class='member-create-fields' name='courses' type="text" placeholder="Courses">
+                <input class='member-create-fields' name='password' type="text" placeholder="Password">
+                <button id='confirm-create-member' type="submit">Create Trainer</button>
+            </div>
+        </form>
+        <div id="trainers-main-container">
+            <div class="trainer-heading-container">
+                <!-- Your content here -->
+                <div class="trainers-main-heading" id="trainers-name-heading">
+                    Name
+                </div>
+                <div class="trainers-main-heading" id="trainers-locations-heading">
+                    Location
+                </div>
+            </div>
+            {% for trainer in trainers %}
+                <div class="trainer-item">
+                    <h2 id="trainer-name-name">{{ trainer.first_name }} {{ trainer.last_name }}</h2>
+                    <h2 id="trainer-location-name">{{ trainer.location }}</h2>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+      
 </body>
 </html>

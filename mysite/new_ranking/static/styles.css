@@ -474,8 +474,8 @@ h2#improv, h2{
 
 /* Style for input fields. */
 .form-group input {
-    width: 316.5px;
-    height: 48.75px;
+    width: 320px;
+    height: 50px;
     flex-shrink: 0;
 
     border-radius: 15px;
@@ -940,14 +940,15 @@ display: block;
 /* members dashboard */
 
 #member-actions-container{
-  position: absolute;
-  width:200px;
-  height:50px;
-  top:100px;
-  left:200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: fixed;
+    top: 100px;
+    left: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* You can adjust the width as needed */
+    width: 175px;
+    z-index: 10;
 }
 
 #member-create-button{
@@ -958,27 +959,44 @@ display: block;
   color: white;
   border-radius: 30px;
   border: none;
-  margin: 10px;
+  z-index: 1;
+}
+
+#member-create-button:hover{
+    background-color: #175C77;
+    opacity: 50%;
+    /* border: 1px solid; */
+    border-radius: 50px;
+    cursor: pointer;
 }
 
 #member-count{
-  color:white;
+    color: #FFF;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.89px;
+    /* Removed align-items and margin-top */
 }
 
 
 #create-member-container{
-display: none;
-width: 800px;
-height: 400px;
-flex-shrink: 0;
-border-radius: 40px;
-background: rgba(23, 92, 119, 0.50);
-position:fixed;
-padding: 50px;
-left:350px;
-top:100px;
-align-items: center;
-justify-content: center;
+    display: none;
+    width: 800px;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #1583ae;
+    position:fixed;
+    padding: 50px;
+    left:350px;
+    top:100px;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
 
 .member-create-fields{
@@ -1015,20 +1033,149 @@ font-size: 16px;
 color: #999;
 }
 
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 75px); /* account for your topbar height */
+    width: calc(100vw - 180px); /* account for your navbar width */
+    position: absolute;
+    top: 75px; /* position below the topbar */
+    left: 180px; /* position right to the navbar */
+}
+
+#trainers-main-container {
+    /* Remove the position: fixed */
+    /* width: 1128px; Remove this if you want the container width to adjust based on the content */
+    height: 70%; /* Adjust this if you want a fixed height */
+    width: 80%;
+    border-radius: 15px;
+    background: #175C77;
+    overflow-y: auto;
+}
+
+.trainer-heading-container {
+    display: flex;  /* This makes the children of .heading-container align horizontally */
+    justify-content:space-between;  /* This spreads the children out evenly */
+    padding: 15px;
+    background-color:#134A5C;
+}
+
+
+.trainers-main-heading{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.96px;
+    
+}
+#trainers-name-heading{
+    position: relative;
+    left:40px;
+}
+#trainers-locations-heading{
+    position: relative;
+    left:-150px;
+}
+
+.trainer-item {
+    display: flex;
+    flex-direction: row;
+    align-items: start; /* Align items to the start of the flex container */
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    border-top: 3px solid #034863;  /* Only top border */
+    border-right: none;  /* No right border */
+    border-bottom: none;  /* No bottom border */
+    border-left: none;  /* No left border */
+    width: 98%;
+}
+
+#trainer-name-name{
+    font-size: 23px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 45px;
+    padding: 0;
+}
+
+#trainer-location-name{
+    position: absolute;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 555px;
+    padding: 0;  /* Add this line to remove any padding */
+}
+
+
+.trainer-item-name {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 120px;
+    padding: 0;  /* Add this line to remove any padding */
+}
+
+
+.trainer-item-description {
+    font-size: 16px;
+}
+
+#login-page-signup {
+    /* display: block; */
+    color: #ffffff;
+    background-color: #175C77;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 50px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.12px;
+    margin-top: 20px;
+
+    display: flex;
+    width: 75px;
+    height: 35px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 150ms ease;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+}
+
+#login-page-signup:hover {
+    background-color: #175C77;
+    opacity: 50%;
+    /* border: 1px solid; */
+    border-radius: 50px;
+}
+
 /* member dashboard list */
 
 
 #member-list-container{
-  position: absolute;
-  width: 800px;
-  height: 500px;
-  top:200px;
-  left:400px;
-  border-radius: 25px;
-  background:#279CCA;
-  display:inline-block;
-  align-items: center;
-  justify-content: center;
+    height: 70%;
+    width: 80%;
+    border-radius: 15px;
+    background: #175C77;
+    overflow-y: auto;
+    position: absolute;
+    top:170px;
+    left:230px;
 }
 
 
@@ -1037,4 +1184,80 @@ color: #999;
   width: 200px;
   height: 10px;
   margin: 10px;
+}
+
+.member-heading-container {
+    display:flex;  /* This makes the children of .heading-container align horizontally */
+    justify-content:space-between;  /* This spreads the children out evenly */
+    left:230px;
+    color: white;
+    padding: 15px;
+    background-color:#134A5C;
+}
+
+.member-item {
+    display: flex;
+    flex-direction: row;
+    align-items: start; /* Align items to the start of the flex container */
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    border-top: 3px solid #034863;  /* Only top border */
+    border-right: none;  /* No right border */
+    border-bottom: none;  /* No bottom border */
+    border-left: none;  /* No left border */
+    width: 98%;
+}
+
+#member-name-name{
+    
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 50px;
+    padding: 0;
+}
+
+#member-trainer-name{
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 580px;
+    padding: 0;  /* Add this line to remove any padding */
+}
+
+#member-ranking-name{
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 1015px;
+    padding: 0;  /* Add this line to remove any padding */
+}
+
+
+.member-main-heading{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.96px;
+}
+
+#members-name-heading{
+    position: relative;
+    left:50px;
+}
+#members-trainer-heading{
+    position: relative;
+    left:50px;
+}
+#members-ranking-heading{
+    position: relative;
+    left:-50px;
 }
