@@ -19,7 +19,7 @@ body {
 
     position: static;
     margin: auto;
-    width: 1424px;
+    width: 70%;
     height: 200px;
   
    }
@@ -752,7 +752,7 @@ ul.messages li.error {
     padding: 10px;
     top: 0;
     left: 180px;
-    width: calc(100% ); /* occupy the entire width of the viewport minus the 180px for the nav bar --aviv, took out "-180px" b/c it altered the bar size when I fixed the content space*/
+    width: calc(100% - 180px); /* occupy the entire width of the viewport minus the 180px for the nav bar --aviv, took out "-180px" b/c it altered the bar size when I fixed the content space*/
     height: 75px; /* height of the top bar */
     color: #ffffff;
     background: rgba(217, 217, 217, 0.05);
@@ -1016,6 +1016,7 @@ left:350px;
 top:100px;
 align-items: center;
 justify-content: center;
+z-index: 10;
 }
 
 .member-create-fields{
@@ -1241,3 +1242,58 @@ color: #999;
   height: 10px;
   margin: 10px;
 }
+
+.location-container {
+    background-color: #034863;
+    position: absolute;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+.location-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+    height: 80%;
+    width: 80%;
+    margin: 0 auto;
+    background: none; 
+}
+
+.location-item {
+    padding: 20px;
+    height: 300px; 
+    width: 300px;
+    overflow: auto; 
+    border-radius: 15px;
+    background: #175C77;
+    box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#location-title {
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -2.16px;
+}
+
+#location-space {
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -2.16px;
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
+

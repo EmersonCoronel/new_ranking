@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/mysite/new_ranking/static/styles.css">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
@@ -28,7 +27,7 @@
         <!-- Logo -->
         <div id="logo-container">
             <!-- <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard"> -->
-            <img src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" id="logo-dashboard">
+            <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
         </div>
             <!-- {% csrf_token %} -->
             <script>
@@ -74,7 +73,6 @@
                 </button>
             </a>
     </div>
-
 
     <!-- Main Content -->
     <div id="main-content-container">

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Locations</title>
+    <title>Trainers</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
@@ -22,12 +22,6 @@
             </a>
         </div>
     </div>
-    <script>
-        function toggleCreateMember(){
-                    var createMemberMenu = document.querySelector("#create-member-container");
-                    createMemberMenu.classList.toggle("show");
-                }
-    </script>
     <!-- Navigation -->
     <div id="dashboard-navbar">
         <!-- Logo -->
@@ -125,3 +119,10 @@
       
 </body>
 </html>
+
+<script>
+    function toggleCreateMember(){
+                var createMemberMenu = document.querySelector("#create-member-container");
+                createMemberMenu.classList.toggle("show");
+            }
+</script>
