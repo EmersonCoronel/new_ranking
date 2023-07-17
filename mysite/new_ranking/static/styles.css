@@ -724,7 +724,7 @@ ul.messages li.error {
 
 
 #dashboard-topbar {
-    position:fixed;
+    position:absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -904,6 +904,8 @@ li.success {
     background-color: #134A5C;
 }
 
+/* dashboard create pop up menu */
+
 .popup-menu {
 position: relative;
 display: none;
@@ -934,6 +936,8 @@ background-color: #ccc;
 .popup-menu.show {
 display: block;
 }
+
+/* members dashboard */
 
 #member-actions-container{
     position: fixed;
@@ -1133,4 +1137,28 @@ color: #999;
     opacity: 50%;
     /* border: 1px solid; */
     border-radius: 50px;
+}
+
+/* member dashboard list */
+
+
+#member-list-container{
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  top:200px;
+  left:400px;
+  border-radius: 25px;
+  background:#279CCA;
+  display:inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.member-list-member{
+  background-color: red;
+  width: 200px;
+  height: 10px;
+  margin: 10px;
 }

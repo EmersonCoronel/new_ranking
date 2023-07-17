@@ -219,7 +219,10 @@ def locations(request):
 @login_required
 def members(request):
     memberCount = Member.objects.count()
-    return render(request, 'dashboard/members.html', context={'count': memberCount})
+    context={'count': memberCount}
+    for i, member in enumerate(Member.objects.all()):
+        context[member.first_name] = (member.first_name, member.ranking, member.trainer, member.location)
+    return render(request, 'dashboard/members.html', context)
 
 @login_required
 def trainers(request):

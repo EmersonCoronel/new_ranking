@@ -37,11 +37,11 @@
     <form method="POST" action="create_member/">
         <div id="create-member-container">
             {% csrf_token %}
-            <input class='member-create-fields' name='first-name' type="text" placeholder="First Name">
+            <input class='member-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
             <input class='member-create-fields' name='last-name' type="text" placeholder="Last Name">
             <input class='member-create-fields' name='location' type="text" placeholder="Location">
             <input class='member-create-fields' name='phone-number' type="text" placeholder="Phone Number">
-            <input class='member-create-fields' name='email' type="text" placeholder="Email">
+            <input class='member-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
             <input class='member-create-fields' name='space' type="text" placeholder="Space">
             <input class='member-create-fields' name='gender' type="text" placeholder="Gender">
             <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined">
@@ -106,7 +106,6 @@
     <!-- Main Content -->
     <div id="trainers-main-container">
         <!-- Content goes here -->
-        <p class="trainers-main-heading">Status</p>
     </div>
 </body>
 </html>
