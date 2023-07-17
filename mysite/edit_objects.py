@@ -3,6 +3,7 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 django.setup()
 from new_ranking.models import Location
+from new_ranking.models import Space
 from new_ranking.models import Course
 from new_ranking.models import Member
 from new_ranking.models import Trainer
@@ -201,11 +202,22 @@ class LocationFunctions:
         location.save()
         return location
     
-    def editLocationSpace(location, newSpace):
-        location.space = newSpace
-        location.save()
-        return location
+    # def editLocationSpace(location, newSpace):
+    #     location.space = newSpace
+    #     location.save()
+    #     return location
 
+
+class SpaceFunctions:
+
+    def createSpace(location, spaceNumber = "Default Space Number"):
+        newSpace = Space(location = location, name=spaceNumber)
+        newSpace.save()
+        return newSpace
+    
+    def deleteSpace(spaceNumber):
+        spaceNumber.delete()
+        
 
 
 

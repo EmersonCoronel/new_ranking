@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Locations</title>
+    <title>Trainers</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
@@ -22,12 +22,6 @@
             </a>
         </div>
     </div>
-    <script>
-        function toggleCreateMember(){
-                    var createMemberMenu = document.querySelector("#create-member-container");
-                    createMemberMenu.classList.toggle("show");
-                }
-    </script>
     <!-- Navigation -->
     <div id="dashboard-navbar">
         <!-- Logo -->
@@ -108,16 +102,17 @@
         <div id="trainers-main-container">
             <div class="trainer-heading-container">
                 <!-- Your content here -->
-                <div class="trainers-main-heading">
-                    Status
-                </div>
-                <div class="trainers-main-heading">
+                <div class="trainers-main-heading" id="trainers-name-heading">
                     Name
+                </div>
+                <div class="trainers-main-heading" id="trainers-locations-heading">
+                    Location
                 </div>
             </div>
             {% for trainer in trainers %}
                 <div class="trainer-item">
-                    <h2 class="trainer-item-name">{{ trainer.first_name }} {{ trainer.last_name }}</h2>
+                    <h2 id="trainer-name-name">{{ trainer.first_name }} {{ trainer.last_name }}</h2>
+                    <h2 id="trainer-location-name">{{ trainer.location }}</h2>
                 </div>
             {% endfor %}
         </div>
@@ -125,3 +120,10 @@
       
 </body>
 </html>
+
+<script>
+    function toggleCreateMember(){
+                var createMemberMenu = document.querySelector("#create-member-container");
+                createMemberMenu.classList.toggle("show");
+            }
+</script>

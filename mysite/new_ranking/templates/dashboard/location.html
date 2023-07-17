@@ -4,10 +4,8 @@
 <head>
     <title>Locations</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="stylesheet" href="/mysite/new_ranking/static/styles.css">
 </head>
 <body>
-   
     <!-- Navigation -->
     <div id="dashboard-navbar">
         <!-- Logo -->
@@ -79,40 +77,39 @@
         </div>
     </div>
     <!-- Main Content -->
-    <div id="main-content-container">
-        <!-- Content goes here -->
-        <h4 id="locTitle">Locations</h4>
-        <div id="member-count"> ({{ locationCount }})</div>
-
-
-        <div class="title-and-add">
-            <!-- <h4 id="locTitle">Locations (2)</h4> placeholder -->
-
-            <button id="create-member" onclick="toggleCreateLocation()" type='button'>+ Create Location</button>
-            <script>
-                function toggleCreateLocation(){
-                            var createLocationMenu = document.querySelector("#create-member-container");
-                            createLocationMenu.classList.toggle("show");
-                        }
-            </script>
-            <form method="POST" action="create_location/">
-                <div id="create-member-container">
-                    {% csrf_token %}
-                    <input class='create-member-fields' name='location_name' type="text" placeholder="Location">
-                    <input class='create-member-fields' name='space_num' type="text" placeholder="Space">
-                    <button id='confirm-member-location' type="submit">Create Location</button>
-                </div>
-            </form>
-
-
+    <div class="center-container">
+        <div id="member-actions-container">
+            <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Location</button>
+            {% csrf_token %}
+                <div id="member-count">({{ count }})</div>
+            <!--</a>-->
         </div>
-        
+        <form method="POST" action="create_location/">
+            <div id="create-member-container">
+                {% csrf_token %}
+                <input class='member-create-fields' name='location-name' type="text" placeholder="Location">
+                <input class='member-create-fields' name='space-num' type="text" placeholder="Space">
+                <button id='confirm-create-member' type="submit">Create Location</button>
+            </div>
+        </form>
+        <div class="location-container">
+            {% for location in locations %}
+                <div class="location-item">
+                    <div id="location-title">{{ location.name }}</div>
+                    {% for space in location.spaces.all %}
+                    <div id="location-space">{{ space.name }}</div>
+                    {% endfor %}
+                   
+                </div>
+            {% endfor %}
+        </div>
     </div>
-
-
-
-
-    </div>
-     
 </body>
 </html>
+
+<script>
+    function toggleCreateMember(){
+                var createMemberMenu = document.querySelector("#create-member-container");
+                createMemberMenu.classList.toggle("show");
+            }
+</script>
