@@ -229,13 +229,14 @@ def profile(request):
 @login_required
 def locations(request):
 
-    locationCount = Location.objects.count()
+#     locationCount = Location.objects.count()
 
-    context = {
-        'locationCount': locationCount
-        }
+#     context = {
+#         'locationCount': locationCount
+#         }
 
-    return render(request, 'dashboard/location.html', context)
+#     return render(request, 'dashboard/location.html', context)
+    return render(request, 'dashboard/locations.html')
 
 @login_required
 def members(request):
