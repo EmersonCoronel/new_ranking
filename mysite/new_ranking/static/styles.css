@@ -724,7 +724,7 @@ ul.messages li.error {
 
 
 #dashboard-topbar {
-    position:fixed;
+    position:absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -904,6 +904,8 @@ li.success {
     background-color: #134A5C;
 }
 
+/* dashboard create pop up menu */
+
 .popup-menu {
 position: relative;
 display: none;
@@ -935,13 +937,17 @@ background-color: #ccc;
 display: block;
 }
 
+/* members dashboard */
+
 #member-actions-container{
-  position: fixed;
-  width:20px;
+  position: absolute;
+  width:200px;
   height:50px;
   top:100px;
   left:200px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #member-create-button{
@@ -952,7 +958,13 @@ display: block;
   color: white;
   border-radius: 30px;
   border: none;
+  margin: 10px;
 }
+
+#member-count{
+  color:white;
+}
+
 
 #create-member-container{
 display: none;
@@ -994,11 +1006,35 @@ justify-content: center;
 display: block;
 }
 
-input[type="text"] {
+.member-create-fields[type="text"] {
 padding: 10px;
 font-size: 16px;
 }
 
-input[type="text"]::placeholder {
+.member-create-fields[type="text"]::placeholder {
 color: #999;
+}
+
+/* member dashboard list */
+
+
+#member-list-container{
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  top:200px;
+  left:400px;
+  border-radius: 25px;
+  background:#279CCA;
+  display:inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.member-list-member{
+  background-color: red;
+  width: 200px;
+  height: 10px;
+  margin: 10px;
 }

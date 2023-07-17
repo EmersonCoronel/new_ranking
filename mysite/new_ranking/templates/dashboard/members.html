@@ -23,29 +23,15 @@
         </div>
     </div>
 
-    <div id="member-actions-container">
-
-        <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
     
-        {% csrf_token %}
-            <div id="member-count">({{ count }})</div>
-        <!--</a>-->
-    
-    </div>
-    <script>
-        function toggleCreateMember(){
-                    var createMemberMenu = document.querySelector("#create-member-container");
-                    createMemberMenu.classList.toggle("show");
-                }
-    </script>
     <form method="POST" action="create_member/">
         <div id="create-member-container">
             {% csrf_token %}
-            <input class='member-create-fields' name='first-name' type="text" placeholder="First Name">
+            <input class='member-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
             <input class='member-create-fields' name='last-name' type="text" placeholder="Last Name">
             <input class='member-create-fields' name='location' type="text" placeholder="Location">
             <input class='member-create-fields' name='phone-number' type="text" placeholder="Phone Number">
-            <input class='member-create-fields' name='email' type="text" placeholder="Email">
+            <input class='member-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
             <input class='member-create-fields' name='space' type="text" placeholder="Space">
             <input class='member-create-fields' name='gender' type="text" placeholder="Gender">
             <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined">
@@ -112,6 +98,44 @@
     <!-- Main Content -->
     <div id="main-content-container">
         <!-- Content goes here -->
+        <div id="member-actions-container">
+
+            <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
+        
+            {% csrf_token %}
+                <div id="member-count">({{Default First Name}})</div>
+            <!--</a>-->
+        
+        </div>
+        <script>
+            function toggleCreateMember(){
+                        var createMemberMenu = document.querySelector("#create-member-container");
+                        createMemberMenu.classList.toggle("show");
+                    }
+        </script>
+        <div id="member-list-container">
+        </div>
+        <script>
+           
+            document.addEventListener('DOMContentLoaded', function() {
+                
+                console.log(7);
+                numMembers = document.querySelector("#member-count").innerHTML
+                numMembers = numMembers.substr(1)
+                numMembers.slice(-1)
+                numMembers = parseInt(numMembers)
+                for (let i = 0; i < numMembers; ++i){
+                    var member = document.createElement("div");
+                    member.innerHTML = "j";
+                    member.classList.add("member-list-member");
+                    memberListContainer = document.querySelector("#member-list-container")
+                    memberListContainer.append(member)
+                }
+                
+
+            })
+
+        </script>
     </div>
 </body>
 </html>
