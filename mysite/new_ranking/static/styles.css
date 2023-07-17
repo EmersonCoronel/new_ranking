@@ -129,7 +129,6 @@ ul.navbar {
     transition-delay: 150ms;
     /* border: 1px solid; */
     border-radius: 50px;
-
   }
 
   li a#signup{
@@ -1369,6 +1368,7 @@ color: #999;
     border-radius: 15px;
     background: #175C77;
     box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
 }
 
 #location-title {
@@ -1395,4 +1395,30 @@ color: #999;
     margin-left: 15%;
 }
 
+#collection-level {
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -2.16px;
+    margin-top: 5%;
+    margin-left: 15%;
+}
 
+#trash {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+#trash:hover {
+    background-color: #175C77;
+    opacity: 50%;
+}

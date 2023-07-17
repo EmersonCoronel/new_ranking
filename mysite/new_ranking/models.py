@@ -8,6 +8,10 @@ class Package(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=200, default="Default Course Name")
 
+class Level(models.Model):
+    course = models.ForeignKey(Course, related_name='levels', on_delete=models.CASCADE)
+    level = models.CharField(max_length=200, default="Default Level Data")
+
 class Trainer(models.Model):
     first_name = models.CharField(max_length=100, default="Default First Name")
     last_name = models.CharField(max_length=100, default="Default Last Name")
@@ -51,10 +55,6 @@ class PastRanking(models.Model):
     ranking = models.IntegerField(default=0)
     date = models.DateField(auto_now_add=True)
     
-class Level(models.Model):
-    course = models.ForeignKey(Course, related_name='levels', on_delete=models.CASCADE)
-    level_data = models.CharField(max_length=200, default="Default Level Data")  # replace with the actual data fields of a level
-
 class Location(models.Model):
     name = models.CharField(max_length=200, default="Default Location Name")
     space = models.CharField(max_length=4, default="Default Space Number")

@@ -170,6 +170,11 @@ class CourseFunctions:
         newCourse.save()
         return newCourse
     
+    def editCourseName(course, newCourseName):
+        course.name = newCourseName
+        course.save()
+        return course
+    
     def deleteCourse(course):
         course.delete()
 
@@ -178,8 +183,8 @@ class PastRankingFunctions:
 
 class LevelFunctions:
 
-    def createCourseLevel(levelCourse, levelName):
-        newLevel = Level(course=levelCourse, name=levelName)
+    def createCourseLevel(course, levelName):
+        newLevel = Level(course=course, level=levelName)
         newLevel.save()
         return newLevel
 
