@@ -173,16 +173,15 @@ def create_location(request):
     return redirect(reverse('locations'))
 
 @login_required
-def create_space(request):
-    
-    locationName = request.POST.get('location-name')
-    spaceNum = request.POST.get('space-num')
-    newSpace = edit_objects.SpaceFunctions.createSpace(locationName,newSpace)
-    newSpace.save()
-    
+def add_space(request, location_id):
+    location = get_object_or_404(Location, id=location_id)
+    if request.method == 'POST':
+        space = request.POST.get('space')
+        edit_objects.SpaceFunctions.createSpace(location, space)
+        return redirect('locations')
 
-    # return render(request, 'dashboard/location.html', context={'count': locatinCount, 'locations': Location.objects.all()})
-    
+
+
 @login_required
 def create_course(request):
     edit_objects.LocationFunctions.editLocationSpace()
@@ -274,6 +273,14 @@ def create_course(request):
     edit_objects.LevelFunctions.createCourseLevel(newCourse, level)
     newCourse.save()
     return redirect(reverse('collections'))
+
+@login_required
+def add_level(request, collection_id):
+    collection = get_object_or_404(Course, id=collection_id)
+    if request.method == 'POST':
+        level = request.POST.get('level')
+        edit_objects.LevelFunctions.createCourseLevel(collection, level)
+        return redirect('collections')
 
 @login_required
 def delete_collection(request, collection_id):

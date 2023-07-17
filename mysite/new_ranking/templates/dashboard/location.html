@@ -100,6 +100,18 @@
                     <div id="location-space">{{ space.name }}</div>
                     {% endfor %}
 
+                    <!-- Add Space Form -->
+                    <div id="addLevelForm" style="display: none;">
+                        <form method="POST" action="{% url 'add_space' location.id %}">
+                            {% csrf_token %}
+                            <input id="level-input" type="text" name="space" placeholder="Enter space"> <!--check for this lines css-->
+                            <input id="add-button" type="submit" value="Add">
+                        </form>
+                    </div>
+                    <button id="plus" onclick="showAddLevelForm();">
+                        <img src="{% static 'images/plus_icon.svg' %}" alt="Add">
+                    </button>
+
                      <!-- Delete Button -->
                      <form method="POST" action="{% url 'delete_location' location.id %}">
                         {% csrf_token %}
@@ -127,5 +139,16 @@
 <script>
     function confirmDelete() {
         return confirm('Are you sure you want to delete this collection?');
+    }
+</script>
+
+<script>
+    function showAddLevelForm() {
+        var form = document.getElementById('addLevelForm');
+        if(form.style.display === 'block') {
+            form.style.display = 'none';
+        } else {
+            form.style.display = 'block';
+        }
     }
 </script>

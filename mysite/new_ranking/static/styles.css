@@ -1482,3 +1482,76 @@ color: #999;
     background-color: #175C77;
     opacity: 50%;
 }
+
+#plus {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 105px;
+}
+
+
+#plus:hover {
+    background-color: #175C77;
+    opacity: 50%;
+}
+
+#add-level-container{
+    display: none;
+    width: 200px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #1583ae;
+    position:fixed;
+    padding: 50px;
+    left:350px;
+    top:100px;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#level-input {
+    width: 120px;
+    height: 25px;
+    flex-shrink: 0;
+
+    border-radius: 15px;
+    border: none;
+    background: rgba(38, 156, 202, 0.50);
+    color: white; /* This will change the color of the text */
+    padding-left: 10px;
+}
+
+#level-input::placeholder {
+    color: white;
+}
+
+/* Style for the login button. */
+#add-button {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 25px;
+    padding: 0;
+    color: white;
+    background-color: rgba(38, 156, 202, 0.50);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.12px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+#add-button:hover {
+    opacity: 0.5;
+}
