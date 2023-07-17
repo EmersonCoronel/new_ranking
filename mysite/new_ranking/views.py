@@ -268,9 +268,7 @@ def collections(request):
 def create_course(request):
     newCourse = edit_objects.CourseFunctions.createCourse()
     collection_name = request.POST.get('collection-name')
-    level = request.POST.get('level')
     edit_objects.CourseFunctions.editCourseName(newCourse, collection_name)
-    edit_objects.LevelFunctions.createCourseLevel(newCourse, level)
     newCourse.save()
     return redirect(reverse('collections'))
 
