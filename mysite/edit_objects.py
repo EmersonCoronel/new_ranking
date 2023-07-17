@@ -95,8 +95,8 @@ class MemberFunctions:
 
 class TrainerFunctions:
 
-    def createTrainer(trainerUser):
-        newTrainer = Trainer(user = trainerUser)
+    def createTrainer():
+        newTrainer = Trainer()
         newTrainer.save()
         return newTrainer
     
@@ -148,6 +148,11 @@ class TrainerFunctions:
         trainer.save()
         return trainer
     
+    def editTrainerPassword(trainer, password):
+        trainer.password = password
+        trainer.save()
+        return trainer
+    
 class PackageFunctions:
 
     def createPackage(packagePlan):
@@ -195,7 +200,7 @@ class LocationFunctions:
         location.name = newLocationName
         location.save()
         return location
-
+    
     def editLocationSpace(location, newSpace):
         location.space = newSpace
         location.save()

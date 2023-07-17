@@ -9,7 +9,6 @@ class Course(models.Model):
     name = models.CharField(max_length=200, default="Default Course Name")
 
 class Trainer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100, default="Default First Name")
     last_name = models.CharField(max_length=100, default="Default Last Name")
     location = models.CharField(max_length=100, default="Default Location")
@@ -19,6 +18,7 @@ class Trainer(models.Model):
     gender = models.CharField(max_length=10, default="Other")
     date_joined = models.DateField(auto_now_add=True)
     date_of_birth = models.DateField(default="2000-01-01")
+    password = models.CharField(max_length=100, default="password")
 
     @property
     def name(self):
