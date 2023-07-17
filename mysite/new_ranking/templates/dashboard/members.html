@@ -104,8 +104,45 @@
             </a>
     </div>
     <!-- Main Content -->
-    <div id="trainers-main-container">
+    <div id="members-main-container">
         <!-- Content goes here -->
+        <div id="member-actions-container">
+
+            <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
+        
+            {% csrf_token %}
+                <div id="member-count">({{count}})</div>
+            <!--</a>-->
+        
+        </div>
+        <div id="member-list-container">
+            <div class="member-heading-container">
+                <!-- Your content here -->
+                <div class="members-main-heading" id ='members-name-heading'>
+                    Name
+                </div>
+                <div class="members-main-heading" id ='members-trainer-heading'>
+                    Trainer
+                </div>
+                <div class="members-main-heading" id ='members-ranking-heading'>
+                    Ranking
+                </div>
+            </div>
+            {% for member in data %}
+                <div class="member-item">
+                    <h2 id="member-name-name">{{ member.first_name }} {{ member.last_name }}</h2>
+                    <h2 id="member-trainer-name">{{ member.trainer }}</h2>
+                    <h2 id="member-ranking-name">{{ member.ranking }}</h2>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>
+
+<script>
+    function toggleCreateMember(){
+                var createMemberMenu = document.querySelector("#create-member-container");
+                createMemberMenu.classList.toggle("show");
+            }
+</script>
