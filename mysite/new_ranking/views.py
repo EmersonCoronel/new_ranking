@@ -11,7 +11,7 @@ from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm
 from django.contrib.auth.models import User
 from new_ranking.models import Member
-from new_ranking.models import Location
+from new_ranking.models import Trainer
 from new_ranking.models import Course
 import edit_objects
 from .forms import CustomPasswordChangeForm
@@ -124,6 +124,41 @@ def create_member(request):
     return redirect(reverse('members'))
 
 @login_required
+def create_trainer(request):
+    newTrainer = edit_objects.TrainerFunctions.createTrainer()
+    firstName = request.POST.get('first-name')
+    if firstName != '':
+        edit_objects.TrainerFunctions.editTrainerFirstName(newTrainer, firstName)
+    lastName = request.POST.get('last-name')
+    if lastName != '':
+        edit_objects.TrainerFunctions.editTrainerLastName(newTrainer, lastName)
+    location = request.POST.get('location')
+    if location != '':
+        edit_objects.TrainerFunctions.editTrainerLocation(newTrainer, location)
+    phoneNumber = request.POST.get('phone-number')
+    if phoneNumber != '':
+        edit_objects.TrainerFunctions.editTrainerPhoneNumber(newTrainer, phoneNumber)
+    email = request.POST.get('email')
+    if email != '':
+        edit_objects.TrainerFunctions.editTrainerEmail(newTrainer, email)
+    space = request.POST.get('space')
+    if space != '':
+        edit_objects.TrainerFunctions.editTrainerSpace(newTrainer, space)
+    gender = request.POST.get('gender')
+    if gender != '':
+        edit_objects.TrainerFunctions.editTrainerGender(newTrainer, gender)
+    dateJoined = request.POST.get('date-joined')
+    if dateJoined != '':
+        edit_objects.TrainerFunctions.editTrainerDateJoined(newTrainer, dateJoined)
+    dateOfBirth = request.POST.get('date-of-birth')
+    if dateOfBirth != '':
+        edit_objects.TrainerFunctions.editTrainerDateofBirth(newTrainer, dateOfBirth)
+    password = request.POST.get('password')
+    if password != '':
+        edit_objects.TrainerFunctions.editTrainerPassword(newTrainer, password)
+    return redirect(reverse('trainers'))
+
+@login_required
 def create_location(request):
     edit_objects.LocationFunctions.createLocation()
     return redirect(reverse('dashboard'))
@@ -188,7 +223,8 @@ def members(request):
 
 @login_required
 def trainers(request):
-    return render(request, 'dashboard/trainers.html')
+    trainerCount = Trainer.objects.count()
+    return render(request, 'dashboard/trainers.html', context={'count': trainerCount, 'trainers': Trainer.objects.all()})
 
 @login_required
 def collections(request):

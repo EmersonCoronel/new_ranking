@@ -22,15 +22,11 @@
             </a>
         </div>
     </div>
-
     <div id="member-actions-container">
-
         <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
-    
         {% csrf_token %}
             <div id="member-count">({{ count }})</div>
         <!--</a>-->
-    
     </div>
     <script>
         function toggleCreateMember(){
@@ -107,11 +103,10 @@
                 </button>
             </a>
     </div>
-
-
     <!-- Main Content -->
-    <div id="main-content-container">
+    <div id="trainers-main-container">
         <!-- Content goes here -->
+        <p class="trainers-main-heading">Status</p>
     </div>
 </body>
 </html>

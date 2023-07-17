@@ -474,8 +474,8 @@ h2#improv, h2{
 
 /* Style for input fields. */
 .form-group input {
-    width: 316.5px;
-    height: 48.75px;
+    width: 320px;
+    height: 50px;
     flex-shrink: 0;
 
     border-radius: 15px;
@@ -936,12 +936,15 @@ display: block;
 }
 
 #member-actions-container{
-  position: fixed;
-  width:20px;
-  height:50px;
-  top:100px;
-  left:200px;
-
+    position: fixed;
+    top: 100px;
+    left: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* You can adjust the width as needed */
+    width: 175px;
+    z-index: 10;
 }
 
 #member-create-button{
@@ -952,7 +955,29 @@ display: block;
   color: white;
   border-radius: 30px;
   border: none;
+  z-index: 1;
 }
+
+#member-create-button:hover{
+    background-color: #175C77;
+    opacity: 50%;
+    /* border: 1px solid; */
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#member-count{
+    color: #FFF;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.89px;
+    /* Removed align-items and margin-top */
+}
+
 
 #create-member-container{
 display: none;
@@ -994,11 +1019,118 @@ justify-content: center;
 display: block;
 }
 
-input[type="text"] {
+.member-create-fields[type="text"] {
 padding: 10px;
 font-size: 16px;
 }
 
-input[type="text"]::placeholder {
+.member-create-fields[type="text"]::placeholder {
 color: #999;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 75px); /* account for your topbar height */
+    width: calc(100vw - 180px); /* account for your navbar width */
+    position: absolute;
+    top: 75px; /* position below the topbar */
+    left: 180px; /* position right to the navbar */
+}
+
+#trainers-main-container {
+    /* Remove the position: fixed */
+    /* width: 1128px; Remove this if you want the container width to adjust based on the content */
+    height: 70%; /* Adjust this if you want a fixed height */
+    width: 80%;
+    border-radius: 15px;
+    background: #175C77;
+    overflow-y: auto;
+}
+
+.trainer-heading-container {
+    display: flex;  /* This makes the children of .heading-container align horizontally */
+    justify-content:space-between;  /* This spreads the children out evenly */
+    padding: 15px;
+    margin-left: 10px;
+    margin-right: 1050px;
+}
+
+
+.trainers-main-heading{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.96px;
+}
+
+.trainer-item {
+    display: flex;
+    flex-direction: row;
+    align-items: start; /* Align items to the start of the flex container */
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    border-top: 3px solid #034863;  /* Only top border */
+    border-right: none;  /* No right border */
+    border-bottom: none;  /* No bottom border */
+    border-left: none;  /* No left border */
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+
+.trainer-item-name {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 120px;
+    padding: 0;  /* Add this line to remove any padding */
+}
+
+
+.trainer-item-description {
+    font-size: 16px;
+}
+
+#login-page-signup {
+    /* display: block; */
+    color: #ffffff;
+    background-color: #175C77;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 50px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.12px;
+    margin-top: 20px;
+
+    display: flex;
+    width: 75px;
+    height: 35px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 150ms ease;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+}
+
+#login-page-signup:hover {
+    background-color: #175C77;
+    opacity: 50%;
+    /* border: 1px solid; */
+    border-radius: 50px;
 }
