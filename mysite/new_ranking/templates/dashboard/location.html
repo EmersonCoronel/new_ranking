@@ -32,7 +32,7 @@
             </div>
 
             <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="dashboard-button">
+                <button class="nav-button" id="dashboard-button" >
                     Dashboard
                 </button>
             </a>
@@ -99,6 +99,16 @@
                     {% for space in location.spaces.all %}
                     <div id="location-space">{{ space.name }}</div>
                     {% endfor %}
+
+                     <!-- Delete Button -->
+                     <form method="POST" action="{% url 'delete_location' location.id %}">
+                        {% csrf_token %}
+                        <button id="trash" onclick="return confirmDelete();">
+                            <img src="{% static 'images/trash_icon.svg' %}" alt="Delete">
+                        </button>
+                    </form>
+
+
                    
                 </div>
             {% endfor %}
@@ -112,4 +122,10 @@
                 var createMemberMenu = document.querySelector("#create-member-container");
                 createMemberMenu.classList.toggle("show");
             }
+</script>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this collection?');
+    }
 </script>
