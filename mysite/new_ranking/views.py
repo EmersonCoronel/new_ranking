@@ -239,7 +239,7 @@ def locations(request):
 
 @login_required
 def delete_location(request, location_id):
-    location = get_object_or_404(Course, id=location_id)
+    location = get_object_or_404(Location, id=location_id)
     if request.method == 'POST':
         location.delete()
         return redirect('locations')

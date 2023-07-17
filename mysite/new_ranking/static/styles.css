@@ -740,6 +740,66 @@ ul.messages li.error {
     cursor: pointer;
 }
 
+.nav-button {
+    color: rgba(0, 0, 0, 0.50);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    /* line-height: normal; */
+    letter-spacing: -1.44px;
+    width: 180px;
+    height: 50px;
+    margin-bottom: 10px;
+    background: none;
+    border: 1px solid transparent; /* Add a transparent border */
+    box-sizing: border-box; /* Add box-sizing */
+    text-decoration: none;
+    vertical-align: center;
+}
+
+
+
+
+.nav-button {
+    color: rgba(0, 0, 0, 0.50);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    /* line-height: normal; */
+    letter-spacing: -1.44px;
+    width: 180px;
+    height: 50px;
+    margin-bottom: 10px;
+    background: none;
+    border: 1px solid transparent; /* Add a transparent border */
+    box-sizing: border-box; /* Add box-sizing */
+    text-decoration: none;
+    vertical-align: center;
+}
+
+.nav-button:hover {
+    border-color: black; /* Change the color of the border on hover */
+    color: black;  
+    cursor: pointer;
+}
+
+.nav-button:active {
+    
+    background: #175C77;
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border-color: black; /* Change the color of the border on hover */
+    color: black;  
+    cursor: pointer;
+}
+
+
+
+
+
 
 
 #dashboard-topbar {
