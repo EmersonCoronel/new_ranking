@@ -103,7 +103,7 @@
             <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
         
             {% csrf_token %}
-                <div id="member-count">({{Default First Name}})</div>
+                <div id="member-count">({{count}})</div>
             <!--</a>-->
         
         </div>
@@ -114,6 +114,8 @@
                     }
         </script>
         <div id="member-list-container">
+        </div>
+        <div>
         </div>
         <script>
            

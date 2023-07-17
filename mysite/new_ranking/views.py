@@ -184,9 +184,11 @@ def locations(request):
 @login_required
 def members(request):
     memberCount = Member.objects.count()
-    context={'count': memberCount}
-    for i, member in enumerate(Member.objects.all()):
-        context[member.first_name] = (member.first_name, member.ranking, member.trainer, member.location)
+    data = Member.objects.all()
+    context={'count': memberCount, 'data':data}
+    
+    #for i, member in enumerate(Member.objects.all()):
+        #context[str(i)] = (member.first_name, member.ranking, member.trainer, member.location)
     return render(request, 'dashboard/members.html', context)
 
 @login_required
