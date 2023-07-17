@@ -57,4 +57,4 @@ class Level(models.Model):
 
 class Location(models.Model):
     name = models.CharField(max_length=200, default="Default Location Name")
-    space = models.CharField(max_length=200, default="Default Space")
+    space = models.CharField(max_length=4, default="Default Space Number")

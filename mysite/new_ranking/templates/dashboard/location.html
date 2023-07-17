@@ -4,29 +4,16 @@
 <head>
     <title>Locations</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="/mysite/new_ranking/static/styles.css">
 </head>
 <body>
-    <!-- Top Bar -->
-    <div id="dashboard-topbar">
-        <!-- Dashboard title -->
-        <div id="dashboard-title-container">
-            <h2>Locations</h2>
-        </div>
-        
-        <!-- User info -->
-        <div id="user-info-container">
-            <a href="{% url 'profile' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button id="user-info-button">
-                    {{ user.first_name }} {{ user.last_name|slice:"1" }}
-                </button>
-            </a>
-        </div>
-    </div>
+   
     <!-- Navigation -->
     <div id="dashboard-navbar">
         <!-- Logo -->
         <div id="logo-container">
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
+            <!-- <img src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" id="logo-dashboard"> -->
         </div>
             {% csrf_token %}
             <script>
@@ -71,11 +58,61 @@
                     Collections
                 </button>
             </a>
+    </div>  
+    
+    <div class="content">
 
-
+        <!-- Top Bar -->
+     <div id="dashboard-topbar">
+        <!-- Dashboard title -->
+        <div id="dashboard-title-container">
+            <h2>Locations</h2>
+        </div>
+        
+        <!-- User info -->
+        <div id="user-info-container">
+            <a href="{% url 'profile' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button id="user-info-button">
+                    {{ user.first_name }} {{ user.last_name|slice:"1" }}
+                </button>
+            </a>
+        </div>
+    </div>
     <!-- Main Content -->
     <div id="main-content-container">
         <!-- Content goes here -->
+        <h4 id="locTitle">Locations</h4>
+        <div id="member-count"> ({{ locationCount }})</div>
+
+
+        <div class="title-and-add">
+            <!-- <h4 id="locTitle">Locations (2)</h4> placeholder -->
+
+            <button id="create-member" onclick="toggleCreateLocation()" type='button'>+ Create Location</button>
+            <script>
+                function toggleCreateLocation(){
+                            var createLocationMenu = document.querySelector("#create-member-container");
+                            createLocationMenu.classList.toggle("show");
+                        }
+            </script>
+            <form method="POST" action="create_location/">
+                <div id="create-member-container">
+                    {% csrf_token %}
+                    <input class='create-member-fields' name='location_name' type="text" placeholder="Location">
+                    <input class='create-member-fields' name='space_num' type="text" placeholder="Space">
+                    <button id='confirm-member-location' type="submit">Create Location</button>
+                </div>
+            </form>
+
+
+        </div>
+        
     </div>
+
+
+
+
+    </div>
+     
 </body>
 </html>
