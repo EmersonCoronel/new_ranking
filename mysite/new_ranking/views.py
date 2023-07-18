@@ -14,6 +14,7 @@ from new_ranking.models import Member
 from new_ranking.models import Trainer
 from new_ranking.models import Course
 from new_ranking.models import Location
+from django.db import models
 
 import edit_objects
 from .forms import CustomPasswordChangeForm
@@ -106,10 +107,10 @@ def create_member(request):
     if gender != '':
         edit_objects.MemberFunctions.editMemberGender(newMember, gender)
     dateJoined = request.POST.get('date-joined')
-    if dateJoined != '':
+    if dateJoined != '' and dateJoined == models.DateField:
         edit_objects.MemberFunctions.editMemberDateJoined(newMember, dateJoined)
     dateOfBirth = request.POST.get('date-of-birth')
-    if dateOfBirth != '':
+    if dateOfBirth != '' and dateOfBirth == models.DateField:
         edit_objects.MemberFunctions.editMemberDateofBirth(newMember, dateOfBirth)
     package = request.POST.get('package')
     if package != '':
@@ -150,10 +151,10 @@ def create_trainer(request):
     if gender != '':
         edit_objects.TrainerFunctions.editTrainerGender(newTrainer, gender)
     dateJoined = request.POST.get('date-joined')
-    if dateJoined != '':
+    if dateJoined != '' and dateJoined == models.DateField:
         edit_objects.TrainerFunctions.editTrainerDateJoined(newTrainer, dateJoined)
     dateOfBirth = request.POST.get('date-of-birth')
-    if dateOfBirth != '':
+    if dateOfBirth != '' and dateOfBirth == models.DateField:
         edit_objects.TrainerFunctions.editTrainerDateofBirth(newTrainer, dateOfBirth)
     password = request.POST.get('password')
     if password != '':
