@@ -32,7 +32,7 @@
             </div>
 
             <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="dashboard-button">
+                <button class="nav-button" id="dashboard-button" >
                     Dashboard
                 </button>
             </a>
@@ -140,7 +140,36 @@
             {% for location in locations %}
                 <div class="location-item">
                     <div id="location-title">{{ location.name }}</div>
-                    <div id="location-space">{{ location.space }}</div>
+                    {% for space in location.spaces.all %}
+                    <div id="location-space">{{ space.name }}</div>
+                    <!-- Delete Button -->
+                    <form method="POST" action="{% url 'delete_space' space.id %}">
+                        {% csrf_token %}
+                        <button id="trash-space" onclick="return confirmDeleteSpace();">
+                            <img src="{% static 'images/trash_icon.svg' %}" alt="Delete">
+                        </button>
+                    </form>
+                    {% endfor %}
+
+                    <!-- Add Space Form -->
+                    <div id="addSpaceForm{{ location.id }}" style="display: none;">
+                        <form method="POST" action="{% url 'add_space' location.id %}">
+                            {% csrf_token %}
+                            <input id="level-input" type="text" name="space" placeholder="Enter Space"> <!--check for this lines css-->
+                            <input id="add-button" type="submit" value="Add">
+                        </form>
+                    </div>
+                    <button id="plus" onclick='showAddSpaceForm("{{ location.id }}");'>
+                        <img src="{% static 'images/plus_icon.svg' %}" alt="Add">
+                    </button>
+
+                     <!-- Delete Button -->
+                     <form method="POST" action="{% url 'delete_location' location.id %}">
+                        {% csrf_token %}
+                        <button id="trash" onclick="return confirmDelete();">
+                            <img src="{% static 'images/trash_icon.svg' %}" alt="Delete">
+                        </button>
+                    </form>
                 </div>
             {% endfor %}
         </div>
@@ -154,6 +183,7 @@
                 createMemberMenu.classList.toggle("show");
             }
 </script>
+<<<<<<< HEAD
 <script>
     function toggleCreateMember(){
                 var createMemberMenu = document.querySelector("#create-member-container");
@@ -185,4 +215,28 @@
         }
         
   });
+=======
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this collection?');
+    }
+</script>
+<script>
+    function confirmDeleteSpace() {
+        
+        return confirm('Are you sure you want to delete this Space?');
+    }
+</script>
+
+<script>
+    function showAddSpaceForm(locationId) {
+    var form = document.getElementById('addSpaceForm' + locationId);
+    if(form.style.display === 'block') {
+        form.style.display = 'none';
+    } else {
+        form.style.display = 'block';
+    }
+}
+>>>>>>> be4f2cc69dc5146d756471fcb90ceef2cecfb5c7
 </script>

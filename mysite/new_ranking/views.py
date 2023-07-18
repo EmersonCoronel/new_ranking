@@ -14,11 +14,15 @@ from new_ranking.models import Member
 from new_ranking.models import Trainer
 from new_ranking.models import Course
 from new_ranking.models import Location
+<<<<<<< HEAD
 from django.db import models
+=======
+from new_ranking.models import Space
+>>>>>>> be4f2cc69dc5146d756471fcb90ceef2cecfb5c7
 
 import edit_objects
-from .forms import CustomPasswordChangeForm
-from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, redirect
+
 
 # Create your views here.
 def home(request):
@@ -169,13 +173,23 @@ def create_location(request):
         edit_objects.LocationFunctions.editLocationName(newLocation, location_name)
     space = request.POST.get('space-num')
     if space != '':
-        edit_objects.LocationFunctions.editLocationSpace(newLocation, space)
+        edit_objects.SpaceFunctions.createSpace(newLocation,space)
     return redirect(reverse('locations'))
-    
+
 @login_required
-def create_course(request):
-    edit_objects.CourseFunctions.createCourse()
-    return redirect(reverse('dashboard'))
+def add_space(request, location_id):
+    location = get_object_or_404(Location, id=location_id)
+    if request.method == 'POST':
+        space = request.POST.get('space')
+        edit_objects.SpaceFunctions.createSpace(location, space)
+        return redirect('locations')
+
+
+
+# @login_required
+# def create_course(request):
+#     edit_objects.LocationFunctions.editLocationSpace()
+#     return redirect(reverse('dashboard'))
 
 @login_required
 def protected_view(request):
@@ -227,6 +241,22 @@ def locations(request):
     return render(request, 'dashboard/location.html', context={'count': locationCount, 'locations': Location.objects.all()})
 
 @login_required
+def delete_location(request, location_id):
+    location = get_object_or_404(Location, id=location_id)
+    if request.method == 'POST':
+        location.delete()
+        return redirect('locations')
+    
+
+@login_required
+def delete_space(request, space_id):
+    space = get_object_or_404(Space, id=space_id)
+    if request.method == 'POST':
+        space.delete()
+        return redirect('locations')
+
+
+@login_required
 def members(request):
     memberCount = Member.objects.count()
     data = Member.objects.all()
@@ -243,7 +273,28 @@ def trainers(request):
 
 @login_required
 def collections(request):
-    return render(request, 'dashboard/collections.html')
+    collectionCount = Course.objects.count()
+    return render(request, 'dashboard/collections.html', context={'count': collectionCount, 'collections': Course.objects.all()})
 
+@login_required
+def create_course(request):
+    newCourse = edit_objects.CourseFunctions.createCourse()
+    collection_name = request.POST.get('collection-name')
+    edit_objects.CourseFunctions.editCourseName(newCourse, collection_name)
+    newCourse.save()
+    return redirect(reverse('collections'))
 
-# number of locations function
+@login_required
+def add_level(request, collection_id):
+    collection = get_object_or_404(Course, id=collection_id)
+    if request.method == 'POST':
+        level = request.POST.get('level')
+        edit_objects.LevelFunctions.createCourseLevel(collection, level)
+        return redirect('collections')
+
+@login_required
+def delete_collection(request, collection_id):
+    collection = get_object_or_404(Course, id=collection_id)
+    if request.method == 'POST':
+        collection.delete()
+        return redirect('collections')
