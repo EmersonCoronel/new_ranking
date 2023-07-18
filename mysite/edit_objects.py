@@ -68,18 +68,24 @@ class MemberFunctions:
         return member
 
     def editMemberPackage(member, newPackage):
-        member.package = newPackage
-        member.save()
+        packages = Package.objects.all()
+        if newPackage in packages:
+            member.package = newPackage
+            member.save()
         return member
 
     def editMemberCourses(member, newCourses):
-        member.courses.set(newCourses)
-        member.save()
+        courses = Course.objects.all()
+        if newCourses in courses:
+            member.courses.set(newCourses)
+            member.save()
         return member
     
     def editMemberTrainer(member, newTrainer):
-        member.trainer = newTrainer
-        member.save()
+        trainers = Trainer.objects.all()
+        if newTrainer in trainers:
+            member.trainer = newTrainer
+            member.save()
         return member
 
     def editMemberPassword(member, newPassword):
@@ -194,8 +200,8 @@ class LevelFunctions:
 
 class LocationFunctions:
 
-    def createLocation(locationName = "Default location name"):
-        newLocation = Location(name=locationName)
+    def createLocation():
+        newLocation = Location()
         newLocation.save()
         return newLocation
 

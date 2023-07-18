@@ -140,7 +140,7 @@
             {% for location in locations %}
                 <div class="location-item">
                     <div id="location-title">{{ location.name }}</div>
-                    {% for space in location.spaces.all %}
+                    {% for space in location.space.all %}
                     <div id="location-space">{{ space.name }}</div>
                     <!-- Delete Button -->
                     <form method="POST" action="{% url 'delete_space' space.id %}">
@@ -183,7 +183,6 @@
                 createMemberMenu.classList.toggle("show");
             }
 </script>
-<<<<<<< HEAD
 <script>
     function toggleCreateMember(){
                 var createMemberMenu = document.querySelector("#create-member-container");
@@ -215,8 +214,7 @@
         }
         
   });
-=======
-
+</script>
 <script>
     function confirmDelete() {
         return confirm('Are you sure you want to delete this collection?');
@@ -238,5 +236,4 @@
         form.style.display = 'block';
     }
 }
->>>>>>> be4f2cc69dc5146d756471fcb90ceef2cecfb5c7
 </script>

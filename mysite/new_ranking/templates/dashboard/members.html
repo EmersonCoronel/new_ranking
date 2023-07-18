@@ -22,12 +22,7 @@
             </a>
         </div>
     </div>
-    <div id="member-actions-container">
-        <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
-        {% csrf_token %}
-            <div id="member-count">({{ count }})</div>
-        <!--</a>-->
-    </div>
+    
     <script>
         function toggleCreateMember(){
                     var createMemberMenu = document.querySelector("#create-member-container");
@@ -115,8 +110,8 @@
                 <input class='member-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
                 <input class='member-create-fields' name='space' type="text" placeholder="Space">
                 <input class='member-create-fields' name='gender' type="text" placeholder="Gender">
-                <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined">
-                <input class='member-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth">
+                <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined (YYYY-MM-DD)">
+                <input class='member-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth (YYYY-MM-DD)">
                 <input class='member-create-fields' name='package' type="text" placeholder="Package">
                 <input class='member-create-fields' name='courses' type="text" placeholder="Courses">
                 <input class='member-create-fields' name='trainer' type="text" placeholder="Trainer">
@@ -134,8 +129,8 @@
                 <input class='trainer-create-fields' name='email' type="text" placeholder="Email">
                 <input class='trainer-create-fields' name='space' type="text" placeholder="Space">
                 <input class='trainer-create-fields' name='gender' type="text" placeholder="Gender">
-                <input class='trainer-create-fields' name='date-joined' type="text" placeholder="Date Joined">
-                <input class='trainer-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth">
+                <input class='trainer-create-fields' name='date-joined' type="text" placeholder="Date Joined (YYYY-MM-DD)">
+                <input class='trainer-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth (YYYY-MM-DD)">
                 <input class='trainer-create-fields' name='courses' type="text" placeholder="Courses">
                 <input class='trainer-create-fields' name='password' type="text" placeholder="Password">
                 <button id='confirm-create-trainer' type="submit">Create Trainer</button>
@@ -173,19 +168,28 @@
                 <div class="members-main-heading" id ='members-ranking-heading'>
                     Ranking
                 </div>
+                <div class="members-main-heading" id ='new-rank-heading'>
+                    New Rank
+                </div>
             </div>
             {% for member in data %}
-                <div class="member-item">
+                <div class="list-item">
                     <h2 id="member-name-name">{{ member.first_name }} {{ member.last_name }}</h2>
                     <h2 id="member-trainer-name">{{ member.trainer }}</h2>
                     <h2 id="member-ranking-name">{{ member.ranking }}</h2>
+                    <h2 id="new-rank-name">+</h2>
                 </div>
             {% endfor %}
         </div>
     </div>
 </body>
 </html>
-
+<script>
+    function firstLetter(name){
+        strName = String(name)
+        return strName[0]
+    }
+</script>
 <script>
     function toggleCreateMember(){
                 var createMemberMenu = document.querySelector("#create-member-container");

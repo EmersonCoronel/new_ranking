@@ -25,7 +25,6 @@ urlpatterns = [
     path('locations/create_trainer/', views.create_trainer, name='create_trainer'),
 
     path('locations/create_location/', views.create_location, name='create_location'),
-<<<<<<< HEAD
     path('dashboard/create_location/', views.create_location, name='create_location'),
     path('members/create_location/', views.create_location, name='create_location'),
     path('trainers/create_location/', views.create_location, name='create_location'),
@@ -35,18 +34,14 @@ urlpatterns = [
     path('trainers/create_course/', views.create_course, name='create_course'),
     path('locations/create_course/', views.create_course, name='create_course'),
 
-=======
-    path('locations/add_space/<int:location_id>/', views.add_space, name='add_space'),
-    path('collections/create_course/', views.create_course, name='create_course'),
-    path('collections/add_level/<int:collection_id>/', views.add_level, name='add_level'),
-    path('delete_collection/<int:collection_id>/', views.delete_collection, name='delete_collection'),
-    path('delete_location/<int:location_id>/', views.delete_location, name='delete_location'),
-    path('delete_space/<int:space_id>/', views.delete_space, name='delete_space'),
->>>>>>> be4f2cc69dc5146d756471fcb90ceef2cecfb5c7
     path('change_password/', views.change_password, name='change_password'),
     path('logout/', views.logout_view, name='logout'),
     path('locations/', views.locations, name='locations'),
     path('members/', views.members, name='members'),
     path('trainers/', views.trainers, name='trainers'),
     path('collections/', views.collections, name='collections'),
+
+    path('locations/<int:location_id>/', views.add_space, name='add_space'),
+    path('locations/<int:location_id>/', views.delete_location, name='delete_location'),
 ]
+

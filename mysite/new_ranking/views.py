@@ -14,11 +14,8 @@ from new_ranking.models import Member
 from new_ranking.models import Trainer
 from new_ranking.models import Course
 from new_ranking.models import Location
-<<<<<<< HEAD
 from django.db import models
-=======
 from new_ranking.models import Space
->>>>>>> be4f2cc69dc5146d756471fcb90ceef2cecfb5c7
 
 import edit_objects
 from django.shortcuts import get_object_or_404, redirect
@@ -173,7 +170,7 @@ def create_location(request):
         edit_objects.LocationFunctions.editLocationName(newLocation, location_name)
     space = request.POST.get('space-num')
     if space != '':
-        edit_objects.SpaceFunctions.createSpace(newLocation,space)
+        edit_objects.SpaceFunctions.createSpace(newLocation, space)
     return redirect(reverse('locations'))
 
 @login_required
@@ -261,9 +258,6 @@ def members(request):
     memberCount = Member.objects.count()
     data = Member.objects.all()
     context={'count': memberCount, 'data':data}
-    
-    #for i, member in enumerate(Member.objects.all()):
-        #context[str(i)] = (member.first_name, member.ranking, member.trainer, member.location)
     return render(request, 'dashboard/members.html', context)
 
 @login_required
