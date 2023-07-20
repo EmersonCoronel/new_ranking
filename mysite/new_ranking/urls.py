@@ -17,6 +17,7 @@ urlpatterns = [
     path('profile-trainer/', views.profileTrainer, name='profile-trainer'),
 
     path('members/create_member/', views.create_member, name='create_member'),
+    path('members-trainer/create_member/', views.create_member, name='create_member'),
     path('dashboard/create_member/', views.create_member, name='create_member'),
     path('trainers/create_member/', views.create_member, name='create_member'),
     path('locations/create_member/', views.create_member, name='create_member'),
