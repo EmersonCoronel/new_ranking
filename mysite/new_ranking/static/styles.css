@@ -1241,18 +1241,6 @@ color: #999;
     margin-left: 750px;
     padding: 0;  /* Add this line to remove any padding */
 }
-#new-rank-name{
-    position: absolute;
-    font-size: 23px;
-    font-weight: bold;
-    margin: 0;
-    margin-left: 1050px;
-    padding: 0;  /* Add this line to remove any padding */
-}
-#new-rank-name:hover{
-    color: #bcbcbc;
-    cursor:pointer
-}
 
 .trainer-item-name {
     font-size: 25px;
@@ -1346,6 +1334,25 @@ color: #999;
     margin: 0;
     margin-left: 55px;
     padding: 0;
+    background-color: transparent;
+    border:none;
+    color:white;
+    font-family: Poppins;
+}
+
+#member-name-name:hover{
+    color: #bcbcbc;
+    cursor:pointer
+}
+
+#member-analytics-container{
+    width:70%;
+    height:60%;
+    top:15%;
+    left:30%;
+    background-color: #175C77;
+    position: absolute;
+    visibility: visible;
 }
 
 #member-trainer-name{
@@ -1366,6 +1373,18 @@ color: #999;
     padding: 0;  /* Add this line to remove any padding */
 }
 
+#member-new-rank-name{
+    position: absolute;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 1050px;
+    padding: 0;  /* Add this line to remove any padding */
+}
+#member-new-rank-name:hover{
+    color: #bcbcbc;
+    cursor:pointer
+}
 
 
 .member-main-heading{

@@ -292,3 +292,7 @@ def delete_collection(request, collection_id):
     if request.method == 'POST':
         collection.delete()
         return redirect('collections')
+    
+@login_required
+def member_analytics(request):
+    return render(request, 'dashboard/member_analytics.html')

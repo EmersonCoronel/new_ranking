@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Locations</title>
+    <title>Member Analytics</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
@@ -23,31 +23,8 @@
         </div>
     </div>
     
-    <script>
-        function toggleCreateMember(){
-                    var createMemberMenu = document.querySelector("#create-member-container");
-                    createMemberMenu.classList.toggle("show");
-                }
-    </script>
-    <form method="POST" action="create_member/">
-        <div id="create-member-container">
-            {% csrf_token %}
-            <input class='member-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
-            <input class='member-create-fields' name='last-name' type="text" placeholder="Last Name">
-            <input class='member-create-fields' name='location' type="text" placeholder="Location">
-            <input class='member-create-fields' name='phone-number' type="text" placeholder="Phone Number">
-            <input class='member-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
-            <input class='member-create-fields' name='space' type="text" placeholder="Space">
-            <input class='member-create-fields' name='gender' type="text" placeholder="Gender">
-            <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined">
-            <input class='member-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth">
-            <input class='member-create-fields' name='package' type="text" placeholder="Package">
-            <input class='member-create-fields' name='courses' type="text" placeholder="Courses">
-            <input class='member-create-fields' name='trainer' type="text" placeholder="Trainer">
-            <input class='member-create-fields' name='password' type="text" placeholder="Password">
-            <button id='confirm-create-member' type="submit">Create Member</button>
-        </div>
-    </form>
+    
+   
     <!-- Navigation -->
     <div id="dashboard-navbar">
         <!-- Logo -->
@@ -145,46 +122,19 @@
             </div>
         </form>
 
-
-        <!-- Content goes here -->
-        <div id="member-actions-container">
-
-            <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
-        
-            {% csrf_token %}
-                <div id="member-count">({{count}})</div>
-            <!--</a>-->
-        
-        </div>
-        <div id="member-list-container">
-            <div class="member-heading-container">
-                <!-- Your content here -->
-                <div class="members-main-heading" id ='members-name-heading'>
-                    Name
-                </div>
-                <div class="members-main-heading" id ='members-trainer-heading'>
-                    Trainer
-                </div>
-                <div class="members-main-heading" id ='members-ranking-heading'>
-                    Ranking
-                </div>
-                <div class="members-main-heading" id ='new-rank-heading'>
-                    New Rank
-                </div>
-            </div>
-            {% for member in data %}
-            <form method="POST" action="member_analytics/">
-                <div class="list-item">
-                    {% csrf_token %}
-                    <button id="member-name-name" type="submit">{{ member.first_name }} {{ member.last_name }}</button>
-                    <h2 id="member-trainer-name">{{ member.trainer }}</h2>
-                    <h2 id="member-ranking-name">{{ member.ranking }}</h2>
-                    <h2 id="member-new-rank-name">+</h2>
-                </div>
-            </form>
-            {% endfor %}
-        </div>
     </div>
+    <!-- Content goes here -->
+    <div id="member-analytics-container">
+        <div id="member-analytics-ranking"></div>
+        <div id="member-analytics-profile-pic"></div>
+        <div id="member-analytics-name"></div>
+        <div id="member-analytics-age"></div>
+        <div id="member-analytics-courses"></div>
+        <div id="member-analytics-location"></div>
+        <div id="member-analytics-space"></div>
+    </div>
+        
+    
 </body>
 </html>
 <script>
