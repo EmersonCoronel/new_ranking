@@ -1081,6 +1081,10 @@ display: block;
 }
 
 .member-create-fields, .trainer-create-fields{
+    display: block;
+}
+
+.member-create-fields{
   border-radius: 15px;
   width:170px;
   height:25px;

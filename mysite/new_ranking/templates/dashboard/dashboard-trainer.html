@@ -1,0 +1,105 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div id="dashboard-topbar">
+        <!-- Dashboard title -->
+        <div id="dashboard-title-container">
+            <h2>Dashboard</h2>
+        </div>
+        
+        <!-- User info -->
+        <div id="user-info-container">
+            <a href="{% url 'profile-trainer' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button id="user-info-button">
+                    {{ user.first_name }} {{ user.last_name|slice:"1" }}
+                </button>
+            </a>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <div id="dashboard-navbar">
+        <!-- Logo -->
+        <div id="logo-container">
+            <!-- <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard"> -->
+            <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
+        </div>
+            <!-- {% csrf_token %} -->
+            <script>
+                function toggleMenu(){
+                    var popupMenu = document.querySelector(".popup-menu");
+                    popupMenu.classList.toggle("show");
+                }
+            </script>
+            <button id="create-button" onclick="toggleMenu()" type="button">+ Create</button>
+            
+            <div class="popup-menu">
+                <ul>
+                  <li onclick="toggleCreateMember()">Member</li>
+                </ul>
+            </div>
+
+            <a href="{% url 'dashboard-trainer' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button class="nav-button" id="dashboard-button">
+                    Dashboard
+                </button>
+            </a>
+            <a href="{% url 'members-trainer' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button class="nav-button" id="members-dashboard-button">
+                    Members
+                </button>
+            </a>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content-container">
+        <form method="POST" action="create_member/">
+            <div id="create-member-container">
+                {% csrf_token %}
+                <input class='member-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
+                <input class='member-create-fields' name='last-name' type="text" placeholder="Last Name">
+                <input class='member-create-fields' name='location' type="text" placeholder="Location">
+                <input class='member-create-fields' name='phone-number' type="text" placeholder="Phone Number">
+                <input class='member-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
+                <input class='member-create-fields' name='space' type="text" placeholder="Space">
+                <input class='member-create-fields' name='gender' type="text" placeholder="Gender">
+                <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined">
+                <input class='member-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth">
+                <input class='member-create-fields' name='package' type="text" placeholder="Package">
+                <input class='member-create-fields' name='courses' type="text" placeholder="Courses">
+                <input class='member-create-fields' name='trainer' type="text" placeholder="Trainer">
+                <input class='member-create-fields' name='password' type="text" placeholder="Password">
+                <button id='confirm-create-member' type="submit">Create Member</button>
+            </div>
+        </form>
+        <!-- Content goes here -->
+    </div>
+</body>
+
+</html>
+<script>
+    function toggleCreateMember(){
+                var createMemberMenu = document.querySelector("#create-member-container");
+                createMemberMenu.classList.toggle("show");
+            }
+</script>
+
+<script>
+    document.addEventListener("click", function(event) {
+        var popupMenu = document.querySelector(".popup-menu");
+        var style = window.getComputedStyle(popupMenu);
+        var display = style.getPropertyValue("display");
+        if (display != "none"){
+            var popupButton = document.querySelector("#create-button");
+            if (!popupMenu.contains(event.target) && event.target !== popupButton) {
+                popupMenu.classList.toggle("show");
+            }
+        }
+        
+  });
+</script>
