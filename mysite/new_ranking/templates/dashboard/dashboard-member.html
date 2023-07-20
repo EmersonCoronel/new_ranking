@@ -1,0 +1,43 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div id="dashboard-topbar">
+        <!-- Dashboard title -->
+        <div id="dashboard-title-container">
+            <h2>Dashboard</h2>
+        </div>
+        
+        <!-- User info -->
+        <div id="user-info-container">
+            <a href="{% url 'profile-member' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button id="user-info-button">
+                    {{ user.first_name }} {{ user.last_name|slice:"1" }}
+                </button>
+            </a>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <div id="dashboard-navbar">
+        <!-- Logo -->
+        <div id="logo-container">
+            <!-- <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard"> -->
+            <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
+        </div>
+            <a href="{% url 'dashboard-member' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+                <button class="nav-button" id="dashboard-button">
+                    Dashboard
+                </button>
+            </a>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content-container">
+        <!-- Content goes here -->
+    </div>
+</body>

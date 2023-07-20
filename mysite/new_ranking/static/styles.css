@@ -1080,15 +1080,11 @@ display: block;
     z-index: 100;
 }
 
-<<<<<<< HEAD
 .member-create-fields, .trainer-create-fields{
-=======
-#create-member-container.show{
     display: block;
 }
 
 .member-create-fields{
->>>>>>> be4f2cc69dc5146d756471fcb90ceef2cecfb5c7
   border-radius: 15px;
   width:170px;
   height:25px;
@@ -1108,14 +1104,11 @@ display: block;
   color:white
 }
 
-<<<<<<< HEAD
 
 #create-member-container.show, #create-trainer-container.show, #create-location-container.show{
 display: block;
 }
 
-=======
->>>>>>> be4f2cc69dc5146d756471fcb90ceef2cecfb5c7
 .member-create-fields[type="text"] {
 padding: 10px;
 font-size: 16px;

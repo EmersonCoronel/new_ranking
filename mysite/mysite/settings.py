@@ -132,3 +132,5 @@ LOGOUT_REDIRECT_URL = 'login'
 MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger'
 }
+
+AUTH_USER_MODEL = 'new_ranking.User'

@@ -104,7 +104,7 @@
         <form method="POST" action="create_trainer/">
             <div id="create-trainer-container">
                 {% csrf_token %}
-                <input class='trainer-create-fields' name='first-name' autocomplete=" " "text" placeholder="First Name">
+                <input class='trainer-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
                 <input class='trainer-create-fields' name='last-name' type="text" placeholder="Last Name">
                 <input class='trainer-create-fields' name='location' type="text" placeholder="Location">
                 <input class='trainer-create-fields' name='phone-number' type="text" placeholder="Phone Number">

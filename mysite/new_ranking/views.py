@@ -1,28 +1,32 @@
 from django.shortcuts import render, redirect
 # from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy, reverse
-from django.views import generic
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm
-from django.contrib.auth.models import User
+from new_ranking.models import User
 from new_ranking.models import Member
 from new_ranking.models import Trainer
 from new_ranking.models import Course
 from new_ranking.models import Location
-<<<<<<< HEAD
 from django.db import models
-=======
 from new_ranking.models import Space
->>>>>>> be4f2cc69dc5146d756471fcb90ceef2cecfb5c7
+from new_ranking.models import Admin
 
 import edit_objects
 from django.shortcuts import get_object_or_404, redirect
 
+def admin_check(user):
+    return user.is_authenticated and user.is_admin
+
+def trainer_check(user):
+    return user.is_authenticated and user.is_trainer
+
+def member_check(user):
+    return user.is_authenticated and user.is_member
 
 # Create your views here.
 def home(request):
@@ -41,41 +45,50 @@ def login_view(request):
         if user is not None:
             print("Valid")
             login(request, user)
-            next_url = request.POST.get('next', 'dashboard')
+            if user.is_admin:
+                next_url = reverse('dashboard')  # replace 'dashboard' with the name of your dashboard view
+            elif user.is_trainer:
+                next_url = reverse('dashboard-trainer')  # replace 'dashboard-trainer' with the name of your trainer dashboard view
+            else:
+                next_url = reverse('dashboard-member')  # replace 'dashboard-member' with the name of your member dashboard view
             return redirect(next_url)
         else:
             print("Invalid")
             messages.error(request, 'Invalid username or password.')
-    next_url = request.GET.get('next', 'dashboard/dashboard.html')
-    return render(request, 'registration/login.html', {'next': next_url})
+    return render(request, 'registration/login.html')
 
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            print('valid form')
-            agree_to_terms = form.cleaned_data.get('agree_to_terms')
-            if not agree_to_terms:
-                messages.error(request, 'You must agree to the terms to sign up')
-                return render(request, 'registration/signup.html', {'form': form})
-            form.save()
+            user = form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             if user is not None:
+                user.is_trainer = True  # Set the user as an admin
+                user.save()  # Save the change to the User object
+                Trainer.objects.create(user=user)  # Create the corresponding Admin object
                 login(request, user)
-                return redirect(reverse('dashboard'))
+                if user.is_admin:
+                    next_url = reverse('dashboard')  # replace 'dashboard' with the name of your dashboard view
+                elif user.is_trainer:
+                    next_url = reverse('dashboard-trainer')  # replace 'dashboard-trainer' with the name of your trainer dashboard view
+                else:
+                    next_url = reverse('dashboard-member')  # replace 'dashboard-member' with the name of your member dashboard view
+                return redirect(next_url)
             else:
                 messages.error(request, 'Authentication failed')
                 return render(request, 'registration/signup.html', {'form': form})
         else:
-            print('invalid form')
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, f'{field}: {error}')
     else:
         form = CustomUserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
 
 class CustomLoginView(auth_views.LoginView):
     success_url = reverse_lazy('dashboard')
@@ -85,6 +98,7 @@ class CustomLoginView(auth_views.LoginView):
         return super().form_invalid(form)
 
 @login_required
+@user_passes_test(admin_check)
 def create_member(request):
     #newMember = Member()
     #newMember.save()=
@@ -131,6 +145,7 @@ def create_member(request):
     return redirect(reverse('members'))
 
 @login_required
+@user_passes_test(admin_check)
 def create_trainer(request):
     newTrainer = edit_objects.TrainerFunctions.createTrainer()
     firstName = request.POST.get('first-name')
@@ -166,6 +181,7 @@ def create_trainer(request):
     return redirect(reverse('trainers'))
 
 @login_required
+@user_passes_test(admin_check)
 def create_location(request):
     newLocation = edit_objects.LocationFunctions.createLocation()
     location_name = request.POST.get('location-name')
@@ -177,31 +193,47 @@ def create_location(request):
     return redirect(reverse('locations'))
 
 @login_required
+@user_passes_test(admin_check)
 def add_space(request, location_id):
     location = get_object_or_404(Location, id=location_id)
     if request.method == 'POST':
         space = request.POST.get('space')
         edit_objects.SpaceFunctions.createSpace(location, space)
         return redirect('locations')
-
-
-
-# @login_required
-# def create_course(request):
-#     edit_objects.LocationFunctions.editLocationSpace()
-#     return redirect(reverse('dashboard'))
-
+    
 @login_required
 def protected_view(request):
     return render(request, 'registration/login.html')
 
 @login_required
+@user_passes_test(admin_check)
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
 
 @login_required
+@user_passes_test(member_check)
+def dashboardMember(request):
+    return render(request, 'dashboard/dashboard-member.html')
+
+@login_required
+@user_passes_test(trainer_check)
+def dashboardTrainer(request):
+    return render(request, 'dashboard/dashboard-trainer.html')
+
+@login_required
+@user_passes_test(admin_check)
 def profile(request):
     return render(request, 'registration/profile.html')
+
+@login_required
+@user_passes_test(member_check)
+def profileMember(request):
+    return render(request, 'registration/profile-member.html')
+
+@login_required
+@user_passes_test(trainer_check)
+def profileTrainer(request):
+    return render(request, 'registration/profile-trainer.html')
 
 @login_required
 def change_password(request):
@@ -227,36 +259,35 @@ def change_password(request):
             messages.error(request, 'Old password is incorrect.')
     return redirect('profile')  # Replace 'profile' with the name of your profile view
 
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('registration/login')  # Redirect to login page after logout
 
 @login_required
-def profile(request):
-    return render(request, 'registration/profile.html')
-
-@login_required
+@user_passes_test(admin_check)
 def locations(request):
     locationCount = Location.objects.count()
     return render(request, 'dashboard/location.html', context={'count': locationCount, 'locations': Location.objects.all()})
 
 @login_required
+@user_passes_test(admin_check)
 def delete_location(request, location_id):
     location = get_object_or_404(Location, id=location_id)
     if request.method == 'POST':
         location.delete()
         return redirect('locations')
     
-
 @login_required
+@user_passes_test(admin_check)
 def delete_space(request, space_id):
     space = get_object_or_404(Space, id=space_id)
     if request.method == 'POST':
         space.delete()
         return redirect('locations')
 
-
 @login_required
+@user_passes_test(admin_check)
 def members(request):
     memberCount = Member.objects.count()
     data = Member.objects.all()
@@ -267,16 +298,30 @@ def members(request):
     return render(request, 'dashboard/members.html', context)
 
 @login_required
+@user_passes_test(trainer_check)
+def membersTrainer(request):
+    memberCount = Member.objects.count()
+    data = Member.objects.all()
+    context={'count': memberCount, 'data':data}
+    
+    #for i, member in enumerate(Member.objects.all()):
+        #context[str(i)] = (member.first_name, member.ranking, member.trainer, member.location)
+    return render(request, 'dashboard/members-trainer.html', context)
+
+@login_required
+@user_passes_test(admin_check)
 def trainers(request):
     trainerCount = Trainer.objects.count()
     return render(request, 'dashboard/trainers.html', context={'count': trainerCount, 'trainers': Trainer.objects.all()})
 
 @login_required
+@user_passes_test(admin_check)
 def collections(request):
     collectionCount = Course.objects.count()
     return render(request, 'dashboard/collections.html', context={'count': collectionCount, 'collections': Course.objects.all()})
 
 @login_required
+@user_passes_test(admin_check)
 def create_course(request):
     newCourse = edit_objects.CourseFunctions.createCourse()
     collection_name = request.POST.get('collection-name')
@@ -285,6 +330,7 @@ def create_course(request):
     return redirect(reverse('collections'))
 
 @login_required
+@user_passes_test(admin_check)
 def add_level(request, collection_id):
     collection = get_object_or_404(Course, id=collection_id)
     if request.method == 'POST':
@@ -293,6 +339,7 @@ def add_level(request, collection_id):
         return redirect('collections')
 
 @login_required
+@user_passes_test(admin_check)
 def delete_collection(request, collection_id):
     collection = get_object_or_404(Course, id=collection_id)
     if request.method == 'POST':
