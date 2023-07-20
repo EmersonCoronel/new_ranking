@@ -1357,6 +1357,12 @@ color: #999;
     color:white;
 }
 
+#member-info-analytics{
+    border: 2px solid white;
+    height: 100px;
+    width: 400px;
+}
+
 #member-analytics-name{
     font-size: 30px;
     position: absolute;
