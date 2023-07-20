@@ -140,7 +140,7 @@
             {% for location in locations %}
                 <div class="location-item">
                     <div id="location-title">{{ location.name }}</div>
-                    {% for space in location.spaces.all %}
+                    {% for space in location.space.all %}
                     <div id="location-space">{{ space.name }}</div>
                     <!-- Delete Button -->
                     <form method="POST" action="{% url 'delete_space' space.id %}">

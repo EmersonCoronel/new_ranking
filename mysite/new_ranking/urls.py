@@ -49,4 +49,8 @@ urlpatterns = [
     path('members-trainer/', views.membersTrainer, name='members-trainer'),
     path('trainers/', views.trainers, name='trainers'),
     path('collections/', views.collections, name='collections'),
+
+    path('locations/<int:location_id>/', views.add_space, name='add_space'),
+    path('locations/<int:location_id>/', views.delete_location, name='delete_location'),
 ]
+

@@ -189,7 +189,7 @@ def create_location(request):
         edit_objects.LocationFunctions.editLocationName(newLocation, location_name)
     space = request.POST.get('space-num')
     if space != '':
-        edit_objects.SpaceFunctions.createSpace(newLocation,space)
+        edit_objects.SpaceFunctions.createSpace(newLocation, space)
     return redirect(reverse('locations'))
 
 @login_required
@@ -292,9 +292,6 @@ def members(request):
     memberCount = Member.objects.count()
     data = Member.objects.all()
     context={'count': memberCount, 'data':data}
-    
-    #for i, member in enumerate(Member.objects.all()):
-        #context[str(i)] = (member.first_name, member.ranking, member.trainer, member.location)
     return render(request, 'dashboard/members.html', context)
 
 @login_required

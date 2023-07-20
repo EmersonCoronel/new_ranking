@@ -1021,9 +1021,9 @@ display: block;
 /* members dashboard */
 
 #member-actions-container{
-    position: fixed;
+    position: absolute;
     top: 100px;
-    left: 200px;
+    left: 230px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1065,7 +1065,7 @@ display: block;
 
 
 #create-member-container, #create-trainer-container, #create-location-container{
-    display: none;
+    display:none;
     width: 800px;
     height: 400px;
     flex-shrink: 0;
@@ -1074,7 +1074,7 @@ display: block;
     position:fixed;
     padding: 50px;
     left:350px;
-    top:100px;
+    top:150px;
     align-items: center;
     justify-content: center;
     z-index: 100;
@@ -1089,6 +1089,7 @@ display: block;
   width:170px;
   height:25px;
   border:none;
+  padding:10px;
   background-color: #175C77;
   margin:15px;
   -webkit-text-fill-color:lightgray;
@@ -1174,7 +1175,7 @@ color: #999;
     left: 180px; /* position right to the navbar */
 }
 
-#trainers-main-container,  #members-main-container{
+#trainers-main-container,  #members-main-container, #collections-main-container{
     /* Remove the position: fixed */
     /* width: 1128px; Remove this if you want the container width to adjust based on the content */
     height: 70%; /* Adjust this if you want a fixed height */
@@ -1184,7 +1185,7 @@ color: #999;
     overflow-y: auto;
 }
 
-.trainer-heading-container {
+.trainer-heading-container, .member-heading-container {
     display: flex;  /* This makes the children of .heading-container align horizontally */
     justify-content:space-between;  /* This spreads the children out evenly */
     padding: 15px;
@@ -1192,7 +1193,7 @@ color: #999;
 }
 
 
-.trainers-main-heading{
+.trainers-main-heading, .members-main-heading{
     color: #FFF;
     text-align: center;
     font-family: Poppins;
@@ -1209,29 +1210,22 @@ color: #999;
 }
 #trainers-locations-heading{
     position: relative;
-    left:-150px;
+    left:150px;
 }
-
-.trainer-item {
-    display: flex;
-    flex-direction: row;
-    align-items: start; /* Align items to the start of the flex container */
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 10px;
-    height: 30px;
-    border-top: 3px solid #034863;  /* Only top border */
-    border-right: none;  /* No right border */
-    border-bottom: none;  /* No bottom border */
-    border-left: none;  /* No left border */
-    width: 98%;
+#trainers-space-heading{
+    position: relative;
+    left:60px;
+}
+#new-rank-heading{
+    position: relative;
+    left:-15px;
 }
 
 #trainer-name-name{
     font-size: 23px;
     font-weight: bold;
     margin: 0;
-    margin-left: 45px;
+    margin-left: 46px;
     padding: 0;
 }
 
@@ -1240,10 +1234,29 @@ color: #999;
     font-size: 23px;
     font-weight: bold;
     margin: 0;
-    margin-left: 555px;
+    margin-left: 485px;
     padding: 0;  /* Add this line to remove any padding */
 }
-
+#trainer-space-name{
+    position: absolute;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 750px;
+    padding: 0;  /* Add this line to remove any padding */
+}
+#new-rank-name{
+    position: absolute;
+    font-size: 23px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 1050px;
+    padding: 0;  /* Add this line to remove any padding */
+}
+#new-rank-name:hover{
+    color: #bcbcbc;
+    cursor:pointer
+}
 
 .trainer-item-name {
     font-size: 25px;
@@ -1295,7 +1308,7 @@ color: #999;
 /* member dashboard list */
 
 
-#member-list-container{
+#member-list-container, #trainer-list-container{
     height: 70%;
     width: 80%;
     border-radius: 15px;
@@ -1314,16 +1327,8 @@ color: #999;
   margin: 10px;
 }
 
-.member-heading-container {
-    display:flex;  /* This makes the children of .heading-container align horizontally */
-    justify-content:space-between;  /* This spreads the children out evenly */
-    left:230px;
-    color: white;
-    padding: 15px;
-    background-color:#134A5C;
-}
 
-.member-item {
+.list-item {
     display: flex;
     flex-direction: row;
     align-items: start; /* Align items to the start of the flex container */
@@ -1343,7 +1348,7 @@ color: #999;
     font-size: 25px;
     font-weight: bold;
     margin: 0;
-    margin-left: 50px;
+    margin-left: 55px;
     padding: 0;
 }
 
@@ -1352,7 +1357,7 @@ color: #999;
     font-size: 25px;
     font-weight: bold;
     margin: 0;
-    margin-left: 580px;
+    margin-left: 600px;
     padding: 0;  /* Add this line to remove any padding */
 }
 
@@ -1361,9 +1366,10 @@ color: #999;
     font-size: 25px;
     font-weight: bold;
     margin: 0;
-    margin-left: 1015px;
+    margin-left: 830px;
     padding: 0;  /* Add this line to remove any padding */
 }
+
 
 
 .member-main-heading{
@@ -1381,13 +1387,14 @@ color: #999;
     position: relative;
     left:50px;
 }
-#members-trainer-heading{
-    position: relative;
-    left:50px;
-}
+
 #members-ranking-heading{
     position: relative;
-    left:-50px;
+    left:-75px;
+}
+#members-trainer-heading{
+    position: relative;
+    left:488px;
 }
 
 
