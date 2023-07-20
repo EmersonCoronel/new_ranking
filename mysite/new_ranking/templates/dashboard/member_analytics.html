@@ -125,14 +125,34 @@
     </div>
     <!-- Content goes here -->
     <div id="member-analytics-container">
+        
         <div id="member-info-analytics">
+            {% csrf_token %}
             <div id="member-analytics-ranking">4.8</div>
-            <div id="member-analytics-profile-pic">O</div>
-            <div id="member-analytics-name">Aviv Y.</div>
-            <div id="member-analytics-age">17</div>
-            <div id="member-analytics-courses">English</div>
-            <div id="member-analytics-location">Tel Aviv</div>
-            <div id="member-analytics-space">101</div>
+            <div id="member-analytics-profile-pic"></div>
+            <div id="member-analytics-name">{{memberName}}</div>
+            <div id="member-analytics-courses">{{memberCourses}}</div>
+            <div id="member-analytics-location">{{memberLocation}}</div>
+            <div id="member-analytics-space">{{memberSpace}}</div>
+        </div>
+        <div id="member-stats-analytics">
+            <div class="member-stats-section">
+                <div id="hours-completed-title">Hours Completed</div>
+                <div class="member-stat" id="hours-completed">127</div>
+            </div>
+            <div class="member-stats-section">
+                <div id="subjects-done-title">Subjects Done</div>
+                <div class="member-stat" id="subjects-done">4</div>
+            </div>
+            <div class="member-stats-section">
+                <div id="levels-done-title">Levels Done</div>
+                <div class="member-stat" id="levels-done">18</div>
+            </div>
+        </div>
+        <div id="member-stats">Stats</div>
+        <div id="member-past-rankings">Past Rankings</div>
+        <div id="data-graphs-container">
+
         </div>
     </div>
         

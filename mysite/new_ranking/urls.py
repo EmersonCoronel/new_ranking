@@ -53,6 +53,6 @@ urlpatterns = [
     path('locations/<int:location_id>/', views.add_space, name='add_space'),
     path('locations/<int:location_id>/', views.delete_location, name='delete_location'),
 
-    path('members/member_analytics/', views.member_analytics, name='member_analytics'),
+    path('member_analytics/', views.member_analytics, name='member_analytics'),
 ]
 

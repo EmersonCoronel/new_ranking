@@ -29,25 +29,6 @@
                     createMemberMenu.classList.toggle("show");
                 }
     </script>
-    <form method="POST" action="create_member/">
-        <div id="create-member-container">
-            {% csrf_token %}
-            <input class='member-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
-            <input class='member-create-fields' name='last-name' type="text" placeholder="Last Name">
-            <input class='member-create-fields' name='location' type="text" placeholder="Location">
-            <input class='member-create-fields' name='phone-number' type="text" placeholder="Phone Number">
-            <input class='member-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
-            <input class='member-create-fields' name='space' type="text" placeholder="Space">
-            <input class='member-create-fields' name='gender' type="text" placeholder="Gender">
-            <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined">
-            <input class='member-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth">
-            <input class='member-create-fields' name='package' type="text" placeholder="Package">
-            <input class='member-create-fields' name='courses' type="text" placeholder="Courses">
-            <input class='member-create-fields' name='trainer' type="text" placeholder="Trainer">
-            <input class='member-create-fields' name='password' type="text" placeholder="Password">
-            <button id='confirm-create-member' type="submit">Create Member</button>
-        </div>
-    </form>
     <!-- Navigation -->
     <div id="dashboard-navbar">
         <!-- Logo -->
@@ -122,11 +103,11 @@
         <form method="POST" action="create_trainer/">
             <div id="create-trainer-container">
                 {% csrf_token %}
-                <input class='trainer-create-fields' name='first-name' type="text" placeholder="First Name">
+                <input class='trainer-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
                 <input class='trainer-create-fields' name='last-name' type="text" placeholder="Last Name">
                 <input class='trainer-create-fields' name='location' type="text" placeholder="Location">
                 <input class='trainer-create-fields' name='phone-number' type="text" placeholder="Phone Number">
-                <input class='trainer-create-fields' name='email' type="text" placeholder="Email">
+                <input class='trainer-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
                 <input class='trainer-create-fields' name='space' type="text" placeholder="Space">
                 <input class='trainer-create-fields' name='gender' type="text" placeholder="Gender">
                 <input class='trainer-create-fields' name='date-joined' type="text" placeholder="Date Joined (YYYY-MM-DD)">
@@ -173,9 +154,14 @@
                 </div>
             </div>
             {% for member in data %}
-            <form method="POST" action="member_analytics/">
+            <form method="POST" action="{% url 'member_analytics' %}">
+            <!--action="member_analytics/"-->
                 <div class="list-item">
                     {% csrf_token %}
+                    <input type="hidden" name="member-name" value="{{ member.first_name }}">
+                    <input type="hidden" name="member-courses" value="{{ member.courses }}">
+                    <input type="hidden" name="member-location" value="{{ member.location }}">
+                    <input type="hidden" name="member-space" value="{{ member.space }}">
                     <button id="member-name-name" type="submit">{{ member.first_name }} {{ member.last_name }}</button>
                     <h2 id="member-trainer-name">{{ member.trainer }}</h2>
                     <h2 id="member-ranking-name">{{ member.ranking }}</h2>

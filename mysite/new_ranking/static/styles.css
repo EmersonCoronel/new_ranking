@@ -1353,14 +1353,13 @@ color: #999;
     left: 221px;
     position: absolute;
     visibility: visible;
-    border:2px solid blue;
     color:white;
 }
 
 #member-info-analytics{
-    border: 2px solid white;
     height: 100px;
     width: 400px;
+    margin:none;
 }
 
 #member-analytics-name{
@@ -1368,6 +1367,149 @@ color: #999;
     position: absolute;
     left: 100px;
     top: 10px;
+}
+
+#member-analytics-ranking{
+    font-size: 28px;
+    top: 11px;
+    left: 235px;
+    position: absolute;
+}
+
+#member-analytics-profile-pic{
+    top: 17px;
+    left: 12px;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color:#034863;
+    border-radius: 35px;
+
+}
+
+#member-analytics-age{
+    top: 60px;
+    left: 100px;
+    width:100px;
+    position: relative;
+
+}
+
+#member-analytics-courses{
+    top: 60px;
+    left: 130px;
+    width:100px;
+    position: relative;
+
+}
+
+#member-analytics-location{
+    top: 60px;
+    left: 200px;
+    width:100px;
+    position: relative;
+
+}
+
+#member-analytics-space{
+    top: 60px;
+    left: 280px;
+    position: absolute;
+
+}
+
+#member-stats-analytics{
+    height: 100px;
+    width: 400px;
+    left: 777px;
+    top: -104px;
+    justify-content: space-between;
+    position: relative;
+    display:flex;
+}
+
+
+
+.member-stats-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member-stat{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#member-stats{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    background-color: darkblue;
+    height: 40px;
+    width: 130px;
+    position: absolute;
+    top:80px;
+    left: 850px;
+}
+
+#member-stats::before{
+    content: ""; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 40px; /* Adjust the width and height to control the size of the rounded corner */
+    height: 40px;
+    background-color: darkblue; /* Adjust the color as needed */
+    border-radius: 30%
+
+}
+
+#member-stats:hover{
+    color: #bcbcbc;
+    cursor:pointer;
+}
+
+
+#member-past-rankings{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    background-color:#175C77;
+    height: 40px;
+    width: 130px;
+    position: absolute;
+    left: 980px;
+    top:80px;
+}
+
+#member-past-rankings::after{
+    content: ""; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    width: 40px; /* Adjust the width and height to control the size of the rounded corner */
+    height: 40px;
+    background-color:#175C77; /* Adjust the color as needed */
+    border-radius: 30%;
+    z-index:-100;
+}
+
+#member-past-rankings:hover{
+    color: #bcbcbc;
+    cursor:pointer;
+}
+
+
+#data-graphs-container{
+    border: 2px solid black;
+    height: 460px;
+    width: 1100px;
+    position: absolute;
+    top:140px;
+    left:50px;
 }
 
 
@@ -1389,7 +1531,8 @@ color: #999;
     padding: 0;  /* Add this line to remove any padding */
 }
 
-#member-new-rank-name{
+#trainer-new-rank-name, #member-new-rank-name{
+    color: white;
     position: absolute;
     font-size: 23px;
     font-weight: bold;
@@ -1397,7 +1540,7 @@ color: #999;
     margin-left: 1050px;
     padding: 0;  /* Add this line to remove any padding */
 }
-#member-new-rank-name:hover{
+#trainer-new-rank-name:hover, #member-new-rank-name:hover{
     color: #bcbcbc;
     cursor:pointer
 }
