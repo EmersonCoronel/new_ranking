@@ -1080,11 +1080,8 @@ display: block;
     z-index: 100;
 }
 
-.member-create-fields, .trainer-create-fields{
-    display: block;
-}
 
-.member-create-fields{
+.member-create-fields, .trainer-create-fields{
   border-radius: 15px;
   width:170px;
   height:25px;
@@ -1175,7 +1172,7 @@ color: #999;
     left: 180px; /* position right to the navbar */
 }
 
-#trainers-main-container,  #members-main-container, #collections-main-container{
+#trainers-main-container,  #members-main-container, #collections-main-container, #locations-main-container{
     /* Remove the position: fixed */
     /* width: 1128px; Remove this if you want the container width to adjust based on the content */
     height: 70%; /* Adjust this if you want a fixed height */
@@ -1350,14 +1347,23 @@ color: #999;
 }
 
 #member-analytics-container{
-    width:70%;
-    height:60%;
-    top:15%;
-    left:30%;
-    background-color: #175C77;
+    width: 82%;
+    height: 80%;
+    top: 115px;
+    left: 221px;
     position: absolute;
     visibility: visible;
+    border:2px solid blue;
+    color:white;
 }
+
+#member-analytics-name{
+    font-size: 30px;
+    position: absolute;
+    left: 100px;
+    top: 10px;
+}
+
 
 #member-trainer-name{
     position: absolute;

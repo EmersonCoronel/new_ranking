@@ -66,9 +66,9 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             if user is not None:
-                user.is_trainer = True  # Set the user as an admin
+                user.is_admin = True  # Set the user as an admin
                 user.save()  # Save the change to the User object
-                Trainer.objects.create(user=user)  # Create the corresponding Admin object
+                Admin.objects.create(user=user)  # Create the corresponding Admin object
                 login(request, user)
                 if user.is_admin:
                     next_url = reverse('dashboard')  # replace 'dashboard' with the name of your dashboard view
