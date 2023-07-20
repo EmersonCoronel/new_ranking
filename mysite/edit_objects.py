@@ -22,6 +22,11 @@ class MemberFunctions:
     def deleteMemeber(member):
         member.delete()
 
+    def editMemberUser(member, newUser):
+        member.user = newUser
+        member.save()
+        return member
+
     def editMemberFirstName(member, newFirstName):
         member.first_name = newFirstName
         member.save()
@@ -109,6 +114,11 @@ class TrainerFunctions:
     
     def deleteTrainer(trainer):
         trainer.delete()
+
+    def editTrainerUser(trainer, newUser):
+        trainer.user = newUser
+        trainer.save()
+        return trainer
 
     def editTrainerFirstName(trainer, newFirstName):
         trainer.first_name = newFirstName

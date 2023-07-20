@@ -1064,7 +1064,7 @@ display: block;
 }
 
 
-#create-member-container, #create-trainer-container, #create-location-container{
+#create-member-container, #create-trainer-container{
     display:none;
     width: 800px;
     height: 400px;
@@ -1588,10 +1588,10 @@ color: #999;
     opacity: 0.5;
 }
 
-#create-collection-container{
+#create-collection-container, #create-location-container{
     display: none;
     width: 220px;
-    height: 150px;
+    height: 200px;
     flex-shrink: 0;
     border-radius: 40px;
     background: #1583ae;

@@ -15,12 +15,16 @@ from new_ranking.models import Location
 from django.db import models
 from new_ranking.models import Space
 from new_ranking.models import Admin
+from django.contrib.auth.hashers import make_password
 
 import edit_objects
 from django.shortcuts import get_object_or_404, redirect
 
 def admin_check(user):
     return user.is_authenticated and user.is_admin
+
+def admin_or_trainer_check(user):
+    return user.is_authenticated and (user.is_admin or user.is_trainer)
 
 def trainer_check(user):
     return user.is_authenticated and user.is_trainer
@@ -45,12 +49,13 @@ def login_view(request):
         if user is not None:
             print("Valid")
             login(request, user)
+            request.session['next'] = None 
             if user.is_admin:
-                next_url = reverse('dashboard')  # replace 'dashboard' with the name of your dashboard view
+                next_url = reverse('dashboard')
             elif user.is_trainer:
-                next_url = reverse('dashboard-trainer')  # replace 'dashboard-trainer' with the name of your trainer dashboard view
+                next_url = reverse('dashboard-trainer') 
             else:
-                next_url = reverse('dashboard-member')  # replace 'dashboard-member' with the name of your member dashboard view
+                next_url = reverse('dashboard-member') 
             return redirect(next_url)
         else:
             print("Invalid")
@@ -98,17 +103,29 @@ class CustomLoginView(auth_views.LoginView):
         return super().form_invalid(form)
 
 @login_required
-@user_passes_test(admin_check)
+@user_passes_test(admin_or_trainer_check)
 def create_member(request):
-    #newMember = Member()
-    #newMember.save()=
+    # Create a User instance
     newMember = edit_objects.MemberFunctions.createMember()
+
+    username = request.POST.get('email')
+    password = request.POST.get('password')
+    user = User(username=username, password=make_password(password))
+    user.save()
+    user.is_member = True
+    user.save()
+    edit_objects.MemberFunctions.editMemberUser(newMember, user)
+
     firstName = request.POST.get('first-name')
     if firstName != '':
         edit_objects.MemberFunctions.editMemberFirstName(newMember, firstName)
+        newMember.user.first_name = firstName
+        newMember.user.save()
     lastName = request.POST.get('last-name')
     if lastName != '':
         edit_objects.MemberFunctions.editMemberLastName(newMember, lastName)
+        newMember.user.lastName = lastName
+        newMember.user.save()
     location = request.POST.get('location')
     if location != '':
         edit_objects.MemberFunctions.editMemberLocation(newMember, location)
@@ -142,18 +159,36 @@ def create_member(request):
     password = request.POST.get('password')
     if password != '':
         edit_objects.MemberFunctions.editMemberPassword(newMember, password)
-    return redirect(reverse('members'))
+    newMember.save()
+    if request.user.is_trainer:
+        return redirect(reverse('members-trainer'))
+    else:
+        return redirect(reverse('members'))
 
 @login_required
 @user_passes_test(admin_check)
 def create_trainer(request):
+    
     newTrainer = edit_objects.TrainerFunctions.createTrainer()
+
+    username = request.POST.get('email')
+    password = request.POST.get('password')
+    user = User(username=username, password=make_password(password))
+    user.save()
+    user.is_trainer = True
+    user.save()
+    edit_objects.TrainerFunctions.editTrainerUser(newTrainer, user)
+    
     firstName = request.POST.get('first-name')
     if firstName != '':
         edit_objects.TrainerFunctions.editTrainerFirstName(newTrainer, firstName)
+        newTrainer.user.first_name = firstName
+        newTrainer.user.save()
     lastName = request.POST.get('last-name')
     if lastName != '':
         edit_objects.TrainerFunctions.editTrainerLastName(newTrainer, lastName)
+        newTrainer.user.last_name = lastName
+        newTrainer.user.save()
     location = request.POST.get('location')
     if location != '':
         edit_objects.TrainerFunctions.editTrainerLocation(newTrainer, location)
@@ -178,6 +213,7 @@ def create_trainer(request):
     password = request.POST.get('password')
     if password != '':
         edit_objects.TrainerFunctions.editTrainerPassword(newTrainer, password)
+    newTrainer.save()
     return redirect(reverse('trainers'))
 
 @login_required
@@ -257,8 +293,13 @@ def change_password(request):
                 messages.error(request, 'New passwords do not match.')
         else:
             messages.error(request, 'Old password is incorrect.')
-    return redirect('profile')  # Replace 'profile' with the name of your profile view
-
+    if request.user.is_admin:
+        return redirect('profile')
+    elif request.user.is_trainer:
+        return redirect('profile-trainer')
+    else:
+        return redirect('profile-member')
+    
 @login_required
 def logout_view(request):
     logout(request)
