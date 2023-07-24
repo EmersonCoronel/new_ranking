@@ -1347,10 +1347,10 @@ color: #999;
 }
 
 #member-analytics-container{
-    width: 82%;
+    width: 95%;
     height: 80%;
-    top: 115px;
-    left: 221px;
+    top: 10%;
+    left: 12%;
     position: absolute;
     visibility: visible;
     color:white;
@@ -1358,21 +1358,22 @@ color: #999;
 
 #member-info-analytics{
     height: 100px;
-    width: 400px;
+    width: 50%;
+    justify-content: center;
     margin:none;
 }
 
 #member-analytics-name{
-    font-size: 30px;
+    font-size: 35px;
     position: absolute;
-    left: 100px;
+    left: 6%;
     top: 10px;
 }
 
 #member-analytics-ranking{
-    font-size: 28px;
-    top: 11px;
-    left: 235px;
+    font-size: 32px;
+    top: 10px;
+    left: 37.5%;
     position: absolute;
 }
 
@@ -1387,53 +1388,31 @@ color: #999;
 
 }
 
-#member-analytics-age{
-    top: 60px;
-    left: 100px;
-    width:100px;
+#member-analytics-info-line2{
+    top: 60%;
+    left: 12%;
+    width: 100%;
+    font-size: 25px;
     position: relative;
-
-}
-
-#member-analytics-courses{
-    top: 60px;
-    left: 130px;
-    width:100px;
-    position: relative;
-
-}
-
-#member-analytics-location{
-    top: 60px;
-    left: 200px;
-    width:100px;
-    position: relative;
-
-}
-
-#member-analytics-space{
-    top: 60px;
-    left: 280px;
-    position: absolute;
-
 }
 
 #member-stats-analytics{
     height: 100px;
     width: 400px;
-    left: 777px;
-    top: -104px;
+    left: 65%;
+    top: -100px;
     justify-content: space-between;
     position: relative;
     display:flex;
 }
 
 
-
 .member-stats-section{
     display: flex;
     flex-direction: column;
     align-items: center;
+    left: 65%;
+    top: -100px;
 }
 
 .member-stat{
@@ -1448,10 +1427,10 @@ color: #999;
     text-align: center;
     background-color: darkblue;
     height: 40px;
-    width: 130px;
+    width: 7.5%;
     position: absolute;
-    top:80px;
-    left: 850px;
+    top: 80px;
+    left: 70%;
 }
 
 #member-stats::before{
@@ -1479,10 +1458,11 @@ color: #999;
     text-align: center;
     background-color:#175C77;
     height: 40px;
-    width: 130px;
+    width: 7.5%;
     position: absolute;
-    left: 980px;
+    left: 77.5%;
     top:80px;
+    padding-left: 10px;
 }
 
 #member-past-rankings::after{
@@ -1505,8 +1485,8 @@ color: #999;
 
 #data-graphs-container{
     border: 2px solid black;
-    height: 460px;
-    width: 1100px;
+    height: 60%;
+    width: 80%;
     position: absolute;
     top:140px;
     left:50px;
@@ -1579,7 +1559,8 @@ color: #999;
     padding: 10px;
     height: 80%;
     width: 80%;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 150px;
     background: none;
     position: relative;
 }

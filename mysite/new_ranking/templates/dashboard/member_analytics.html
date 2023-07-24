@@ -128,12 +128,11 @@
         
         <div id="member-info-analytics">
             {% csrf_token %}
-            <div id="member-analytics-ranking">4.8</div>
-            <div id="member-analytics-profile-pic"></div>
             <div id="member-analytics-name">{{memberName}}</div>
-            <div id="member-analytics-courses">{{memberCourses}}</div>
-            <div id="member-analytics-location">{{memberLocation}}</div>
-            <div id="member-analytics-space">{{memberSpace}}</div>
+            <div id="member-analytics-ranking">4.8</div>
+            <div id="member-analytics-info-line2">
+                {{memberCourses}} | {{memberLocation}} | {{memberSpace}}
+            </div>
         </div>
         <div id="member-stats-analytics">
             <div class="member-stats-section">

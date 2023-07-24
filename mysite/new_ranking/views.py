@@ -387,7 +387,7 @@ def delete_collection(request, collection_id):
 @login_required
 def member_analytics(request):
     context = dict()
-    context["memberName"] = request.POST.get('member-name')
+    context["memberName"] = request.POST.get('member-first-name') + " " + request.POST.get('member-last-name')
     context["memberCourses"] = request.POST.get('member-courses')
     context["memberLocation"] = request.POST.get('member-location')
     context["memberSpace"] = request.POST.get('member-space')

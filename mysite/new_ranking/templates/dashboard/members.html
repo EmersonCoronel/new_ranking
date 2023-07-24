@@ -158,7 +158,8 @@
             <!--action="member_analytics/"-->
                 <div class="list-item">
                     {% csrf_token %}
-                    <input type="hidden" name="member-name" value="{{ member.first_name }}">
+                    <input type="hidden" name="member-first-name" value="{{ member.first_name }}">
+                    <input type="hidden" name="member-last-name" value="{{ member.last_name }}">
                     <input type="hidden" name="member-courses" value="{{ member.courses }}">
                     <input type="hidden" name="member-location" value="{{ member.location }}">
                     <input type="hidden" name="member-space" value="{{ member.space }}">
