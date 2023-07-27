@@ -25,36 +25,35 @@
     <div id="signup-container">
         <form method="post" id="signup-form">
             {% csrf_token %}
-            <div id="login-text-container">
-                <h2>Sign Up</h2>
-            </div>
+            <div id="signup-header-text">Sign Up</div>
             <!-- Full Name field -->
-            <div class="form-group">
-                <label for="{{ form.full_name.id_for_label }}">Full Name:</label>
-                <input type="text" id="{{ form.full_name.id_for_label }}" name="{{ form.full_name.html_name }}" class="form-group input">
+            <div class="signup-form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" id="full_name" name="full_name">
             </div>
             <!-- Email field -->
-            <div class="form-group">
-                <label for="{{ form.username.id_for_label }}">Email:</label>
-                <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" class="form-group input">
+            <div class="signup-form-group">
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="username">
             </div>
             <!-- Password field -->
-            <div class="form-group">
-                <label for="{{ form.password1.id_for_label }}">Password:</label>
-                <input type="password" id="{{ form.password1.id_for_label }}" name="{{ form.password1.html_name }}" class="form-group input">
+            <div class="signup-form-group">
+                <label for="password1">Password:</label>
+                <input type="password" id="password1" name="password1">
             </div>
             <!-- Password Confirmation field -->
-            <div class="form-group">
-                <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
-                <input type="password" id="{{ form.password2.id_for_label }}" name="{{ form.password2.html_name }}" class="form-group input">
+            <div class="signup-form-group">
+                <label for="password2">Confirm Password:</label>
+                <input type="password" id="password2" name="password2">
             </div>
             <div class="agreement-group">
-                <input type="checkbox" id="{{ form.agree_to_terms.id_for_label }}" name="{{ form.agree_to_terms.html_name }}" class="agreement-group input">
-                <label for="{{ form.agree_to_terms.id_for_label }}">I agree to the terms and conditions</label>
+                <input type="checkbox" id="agree_to_terms" name="agree_to_terms">
+                <label for="agree_to_terms">I agree to the terms and conditions</label>
             </div>
-            <div><button id="login-button" type="submit">Sign Up</button></div>
+            <button id="signup-button" type="submit">Sign Up</button>
         </form>
     </div>
-    <a href="{% url 'login' %}" id="login-page-signup"> Log in </a>
+    <a href="{% url 'login' %}" id="login-button-signup-page">Log in</a>
+   
 </body>
 </html>

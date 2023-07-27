@@ -6,81 +6,62 @@ body {
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-
     font-family: 'Poppins', sans-serif;
     margin: 0;
-  }
+    display: flex;
+}
 
+#logo-container{
+    margin:15px;
+}
 
-  /* Homepage */
+/** CSS for Homepage **/
 
-  /* css for the div box that holds the nr-logo and navbar */
- .topbar{
-
+.topbar {
     position: static;
     margin: auto;
     width: 70%;
     height: 200px;
-  
-   }
+}
 
-
- /* css for the navbar box positioning */
- .nav-buttons{
+.nav-buttons {
     position: static;
     display: inline-flex;
     float: right;
-    flex: 1; /*Distribute the available space evenly between the divs */
-    padding: 10px; /* Add padding for spacing */
-    /* border: 1px solid #ccc; Add borders for visual separation */
-    }
-  
-/* css for navbar buttons */
+    flex: 1;
+    padding: 10px;
+}
+
 ul.navbar {
-    
     position: static;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /* background-color: #f1f1f1; */
     justify-content: space-evenly;
-
     margin-right: 35px;
     margin-top: 60px;
+}
 
-    
-  }
-
-  /* spacing inbetween buttons */
-  ul.navbar li {
+ul.navbar li {
     position: static;
     float: right;
     margin-left: 35px;
-    /* border: 1px solid #ccc;
-    border-radius: 25px; */
-    
-  }
+}
 
-  /* css style for the buttons inside the navbar */
-  ul.navbar li a {
-
+ul.navbar li a {
     position: static;
-    /* display: block; */
     color: #ffffff;
     background-color: #175C77;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    /* border: 1px solid; */
     border-radius: 50px;
-
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.12px;
-
     display: flex;
     width: 125px;
     height: 50px;
@@ -89,31 +70,21 @@ ul.navbar {
     align-items: center;
     gap: 10px;
     transition: 150ms ease;
-  }
+}
 
-
-  a#gs-button{
-
-  
+a#gs-button {
     color: #ffffff;
     background-color: #175C77;
     text-align: center;
-    /* padding: 14px 16px; */
     text-decoration: none;
-    /* border: 1px solid; */
     border-radius: 50px;
-
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.12px;
-
     margin: 0px;
-
-
     display: flex;
-    /* flex-direction: column; */
     width: 125px;
     height: 50px;
     padding: 10px 15px;
@@ -121,17 +92,16 @@ ul.navbar {
     align-items: center;
     gap: 10px;
     transition: 150ms ease;
-  }
+}
 
-  ul.navbar li a:hover, a#gs-button:hover {
+ul.navbar li a:hover, a#gs-button:hover {
     background-color: #175C77;
     opacity: 50%;
     transition-delay: 150ms;
-    /* border: 1px solid; */
     border-radius: 50px;
-  }
+}
 
-  li a#signup{
+li a#signup {
     display: flex;
     color: #ffffff;
     background-color: black;
@@ -139,13 +109,10 @@ ul.navbar {
     padding: 5px 15px;
     text-decoration: none;
     border-radius: 50px;
+}
 
-
-  }
-
-  li a#signup:hover{
+li a#signup:hover {
     display: flex;
-    /* color: #ffffff; */
     background-color: black;
     transition-delay: 150ms;
     opacity: 50%;
@@ -153,91 +120,58 @@ ul.navbar {
     padding: 5px 15px;
     text-decoration: none;
     border-radius: 50px;
-
-
-  }
-
-
-  img.nr-logo{
-        
-    width: 131px;
-    height: 135px;
-
-    position: static;   
-    display: inline-flex;   
-    padding: 10px; /* Add padding for spacing */
-    margin-left: 35px;
-    margin-top: 35px;
-    /* border: 1px solid #ccc; Add borders for visual separation */
 }
 
+img.nr-logo {
+    width: 131px;
+    height: 135px;
+    position: static;
+    display: inline-flex;
+    padding: 10px;
+    margin-left: 35px;
+    margin-top: 35px;
+}
 
-#logo-login{
-
+#logo-login {
     width: 150px;
     height: 150px;
     margin-left: 45px;
     margin-top: 45px;
 }
 
-
-
-.top-body{
-
+.top-body {
     display: inline-flex;
-
     width: 1424px;
     height: 402px;
-    
-
 }
 
-.intro{
-
-    /* margin: auto; */
-
+.intro {
     width: 712px;
     height: 400px;
-    /* padding-right: 300px; */
-
-    /* margin-right: 100px; */
-
     text-align: center;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
 
-
-  }
-
-  .inner-div{
+.inner-div {
     flex: 1;
-  }
+}
 
-  .get-started{
-
+.get-started {
     padding-top: 250px;
-
     width: 712px;
-    
-
     text-align: center;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-
 }
 
 h2#analytics {
-
     margin: 0px;
-    /* margin-top: 200px; */
-    /* padding-left: 170px; */
     color: #ffffff;
-    
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
@@ -245,12 +179,9 @@ h2#analytics {
     letter-spacing: -5px;
 }
 
-
-h3#h3-intro{
-
+h3#h3-intro {
     margin: 0px;
     color: #ffffff;
-    
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -258,194 +189,124 @@ h3#h3-intro{
     letter-spacing: -1.12px;
 }
 
-h3{
-
+h3 {
     margin: 0px;
     color: #ffffff;
-    
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.12px;
-
     text-align: center;
 }
 
-h4#locTitle{
-
+h4#locTitle {
     margin: auto;
     padding-left: 40px;
     padding-top: 40px;
     color: #ffffff;
-
     position: static;
-    
-    
     font-size: 36px;
     font-style:normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.12px;
-
 }
 
-h2#gs{
-    /* display: flex;
-    flex-direction: column; */
-
+h2#gs {
     margin: 0px;
     margin-top:0px;
-    /* padding-right: 150px; */
-    margin-top: 0px;
-    /* float: right; */
     color: #ffffff;
-    
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.12px;
-
-
 }
-  
 
-h2#improv, h2{
-
+h2#improv, h2 {
     margin: 0px;
-    margin-top:0px;
-    /* padding-right: 150px; */
     margin-top: 200px;
-    /* float: right; */
     color: #ffffff;
-    
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.12px;
-
-
     text-align: center;
+}
 
-
-  }
-
-
-  .middle-body{
-
+.middle-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
+}
 
-  /* img#graphic-plholder{
-
-    margin: 0;
-
-  } */
-
-  .lower-body{
-
+.lower-body {
     width: 1424px;
-
-
     text-align: center;
-
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     gap: 81px;
+}
 
-
-
-
-
-
-  }
-
-  .sub-box{
-
+.sub-box {
     width: 1120px;
     height: 490px;
-
     display: flex;
     align-items: flex-start;
-    
     gap: 35px;
-  }
+}
 
-
-  .plan{
-
+.plan {
     width: 350px;
     height: 470px;
     flex-shrink: 0;
-
     border-radius: 35px;
     border: 10px solid #279CCA;
     background: rgba(23, 92, 119, 0.35);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    /* filter: blur(2px); */
-  }
+}
 
-  .inside-plan{
-
+.inside-plan {
     display: flex;
     width: 310px;
     padding: 45px 20px 89px 20px;
     flex-direction: column;
     align-items: center;
     gap: 70px;
-
     position: absolute;
-    /* right: 9px;
-    bottom: 9px; */
+}
 
-
-
-  }
-
-  h2#light{
-
+h2#light {
     margin: 0px;
     margin-top:0px;
     color: #ffffff;
-    
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.12px;
-
-
     text-align: center;
+}
 
-
-  }
-
-
-  ul.inside-plan-details{
-
-    /* list-style-type: none; */
+ul.inside-plan-details {
     font-size: 24px;
-  }
+}
 
+/** End of CSS for Homepage **/
 
-/** Login Page **/
+/** CSS for Login and Signup Pages **/
 
 #login-container {
     width: 420px;
     height: 420px;
     flex-shrink: 0;
-    margin: 100px auto 0; /* top margin set to 50px, right and left margins set to auto, bottom margin set to 0 */
-
+    margin: 100px auto 0;
     border-radius: 22.5px;
     background: rgba(23, 92, 119, 0.50);
-
-    /* Add the following properties to set up a flexbox container. */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -453,8 +314,7 @@ h2#improv, h2{
     padding: 20px;
 }
 
-
-#login-text-container {
+#login-header-text, #signup-header-text {
     color: #FFF;
     text-align: center;
     font-family: Poppins;
@@ -464,20 +324,18 @@ h2#improv, h2{
     line-height: normal;
     letter-spacing: -1.89px;
     margin-bottom: 15px;
+    font-size: 48px;
 }
 
-
-/* Style for each form group, including labels and inputs. */
-.form-group {
-    width: 100%; /* Full width within the container. */
-    margin-bottom: 10px; /* Some space between elements. */
+.login-form-group, .signup-form-group {
+    width: 100%;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: left;
 }
 
-/* Style for labels. */
-.form-group label {
+.login-form-group label, .signup-form-group {
     color: #FFF;
     text-align: left;
     font-family: Poppins;
@@ -488,8 +346,7 @@ h2#improv, h2{
     letter-spacing: -1.89px;
 }
 
-/* Style for input fields. */
-.form-group input {
+.login-form-group input, .signup-form-group input {
     width: 320px;
     height: 50px;
     flex-shrink: 0;
@@ -499,28 +356,20 @@ h2#improv, h2{
     background: rgba(38, 156, 202, 0.50);
 }
 
-/* Style for the login button. */
-#login-button {
-    /* display: block; */
+#login-button, #signup-button {
     color: #ffffff;
     background-color: #175C77;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     border-radius: 50px;
-
     font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     letter-spacing: -1.12px;
-
     display: flex;
     width: 125px;
     height: 50px;
     padding: 15px;
     justify-content: center;
-    align-items: center;
     gap: 10px;
     transition: 150ms ease;
     margin: auto;
@@ -528,32 +377,33 @@ h2#improv, h2{
     cursor: pointer;
 }
 
-#login-button:hover {
+#login-button-signup-page, #signup-button-login-page {
+    color: #ffffff;
+    background-color: #175C77;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 16px;
+    letter-spacing: -1.12px;
+    display: flex;
+    width: 90px;
+    height: 20px;
+    padding: 15px;
+    justify-content: center;
+    gap: 10px;
+    transition: 150ms ease;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+#login-button:hover, #login-button-signup-page:hover, #signup-button-login-page:hover {
     background-color: #175C77;
     opacity: 50%;
-    /* border: 1px solid; */
     border-radius: 50px;
 }
-
-
-/* Style for the forgot password link. */
-#forgot-password {
-    color: #FFF;
-    text-align: left;
-    font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -1.12px;
-    text-decoration: none; /* Remove underline */
-}
-
-#forgot-password:hover {
-    text-decoration: underline; /* Underline on hover. */
-}
-
-/** End of Login Page **/
 
 #signup-container {
     width: 420px;
@@ -561,16 +411,8 @@ h2#improv, h2{
     flex-shrink: 0;
     margin:auto;
     margin-left: 37.25%;
-    /* margin-top: 40px;
-    margin-bottom: 0;
-    margin-right: 540px;
-    margin-left: 690px; */
-
-
     border-radius: 22.5px;
     background: rgba(23, 92, 119, 0.50);
-
-    /* Add the following properties to set up a flexbox container. */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -588,19 +430,13 @@ h2#improv, h2{
     padding: 15px;
 }
 
-#logo-container{
-    margin:15px;
-}
-
-/* Style for each form group, including labels and inputs. */
 .agreement-group {
-    width: 100%; /* Full width within the container. */
-    margin-bottom: 10px; /* Some space between elements. */
+    width: 100%;
+    margin-bottom: 10px;
     display: flex;
     align-items: left;
 }
 
-/* Style for labels. */
 .agreement-group label {
     color: #FFF;
     text-align: left;
@@ -613,7 +449,6 @@ h2#improv, h2{
     letter-spacing: 1px;
 }
 
-/* Style for input fields. */
 .agreement-group input {
     width: 20px;
     height: 20px;
@@ -629,7 +464,6 @@ h2#improv, h2{
     margin-right: 150px;
     margin-top: 300px;
     flex-shrink: 0;
-    /* Add the following properties to set up a flexbox container. */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -637,7 +471,6 @@ h2#improv, h2{
     padding: 20px;
 }
 
-/* CSS for messages section */
 ul.messages {
     list-style-type: none;
     margin: 0;
@@ -652,23 +485,22 @@ ul.messages {
 ul.messages li.error {
     color: red;
     font-size: 18px;
-    margin: 5px; /* Adjust this value to change the spacing between messages */
+    margin: 5px;
     text-align: center;
 }
 
-
-/* CSS for error message */
 .error {
     color: red;
     margin-bottom: 5px;
     text-align: center;
 }
 
+/** End of Login and Signup Pages **/
 
-/** Dashboard Page **/
+
+/** CSS for Dashboard Page **/
 
 #logo-dashboard{
-
     width: 125px;
     height: 125px;
     margin: auto;
@@ -681,7 +513,7 @@ ul.messages li.error {
     justify-content: flex-start;
     float: left;
     width: 180px;
-    height: 100vh; /* Adjust the height to cover the entire viewport height */
+    height: 100vh;
     background: rgba(217, 217, 217, 0.05);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -722,85 +554,30 @@ ul.messages li.error {
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    /* line-height: normal; */
     letter-spacing: -1.44px;
     width: 180px;
     height: 50px;
     margin-bottom: 10px;
     background: none;
-    border: 1px solid transparent; /* Add a transparent border */
-    box-sizing: border-box; /* Add box-sizing */
+    border: 1px solid transparent;
+    box-sizing: border-box;
     text-decoration: none;
     vertical-align: center;
 }
 
 .nav-button:hover {
-    border-color: black; /* Change the color of the border on hover */
-    color: black;  
-    cursor: pointer;
-}
-
-.nav-button {
-    color: rgba(0, 0, 0, 0.50);
-    text-align: center;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    /* line-height: normal; */
-    letter-spacing: -1.44px;
-    width: 180px;
-    height: 50px;
-    margin-bottom: 10px;
-    background: none;
-    border: 1px solid transparent; /* Add a transparent border */
-    box-sizing: border-box; /* Add box-sizing */
-    text-decoration: none;
-    vertical-align: center;
-}
-
-
-
-
-.nav-button {
-    color: rgba(0, 0, 0, 0.50);
-    text-align: center;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    /* line-height: normal; */
-    letter-spacing: -1.44px;
-    width: 180px;
-    height: 50px;
-    margin-bottom: 10px;
-    background: none;
-    border: 1px solid transparent; /* Add a transparent border */
-    box-sizing: border-box; /* Add box-sizing */
-    text-decoration: none;
-    vertical-align: center;
-}
-
-.nav-button:hover {
-    border-color: black; /* Change the color of the border on hover */
+    border-color: black;
     color: black;  
     cursor: pointer;
 }
 
 .nav-button:active {
-    
     background: #175C77;
     box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    border-color: black; /* Change the color of the border on hover */
+    border-color: black;
     color: black;  
     cursor: pointer;
 }
-
-
-
-
-
-
 
 #dashboard-topbar {
     position:absolute;
@@ -811,14 +588,14 @@ ul.messages li.error {
     padding: 10px;
     top: 0;
     left: 180px;
-    width: calc(100% - 180px); /* occupy the entire width of the viewport minus the 180px for the nav bar --aviv, took out "-180px" b/c it altered the bar size when I fixed the content space*/
-    height: 75px; /* height of the top bar */
+    width: calc(100% - 180px);
+    height: 75px;
     color: #ffffff;
     background: rgba(217, 217, 217, 0.05);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-#dashboard-title-container h2 {
+#dashboard-title-container{
     margin: 0;
     color: #FFF;
     font-family: Poppins;
@@ -849,23 +626,54 @@ ul.messages li.error {
     background-color: #134A5C;
 }
 
-/* CSS for the profile page */
+.popup-menu {
+    position: relative;
+    display: none;
+}
+    
+.popup-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color:#034863;
+    color: #FFF;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+    position: absolute;
+    top: -60px;
+    left: 110px;
+    z-index: 100;
+}
+    
+.popup-menu ul li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+    
+.popup-menu ul li:hover {
+    background-color: #ccc;
+}
+    
+.popup-menu.show {
+    display: block;
+}
+
+/** End of CSS for Dashboard Page **/
+
+/** CSS for the profile page **/
+
 #profile-container {
     width: 500px;
     height: 600px;
     margin: auto;
-
-    /* Add the following properties to center the container vertically and horizontally. */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin-left: 5%;
-
     border-radius: 22.5px;
     background: rgba(23, 92, 119, 0.50);
-
-    /* Add the following properties to set up a flexbox container. */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -873,7 +681,7 @@ ul.messages li.error {
     padding: 20px;
 }
 
-#profile-name-text h2{
+#profile-name-text{
     color: #FFF;
     text-align: left;
     font-family: Poppins;
@@ -885,28 +693,39 @@ ul.messages li.error {
     margin: 0;
     margin-top: 25px;
 }
-/* Style for each form group, including labels and inputs. */
-/* Style for each form group, including labels and inputs. */
-.profile-info-group {
-    width: 75%; /* Full width within the container. */
-    margin-bottom: 10px; /* Some space between elements. */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally. */
-    justify-content: center; /* Center items vertically. */
+
+#profile-email-text{
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.89px;
+    margin: 0;
+    margin-top: 25px;
 }
 
-
-.profile-info-group form {
+.profile-password-change {
+    width: 75%;
+    margin-bottom: 10px;
     display: flex;
-    justify-content: center; /* This will put some space between the input and the button. */
-    align-items: center; /* This will align the items vertically. */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-password-change form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 30px;
     flex-direction: column;
     justify-content: center;
 }
 
-.profile-info-group input {
+.profile-password-change input {
     flex-shrink: 0;
     height: 70%;
 
@@ -915,9 +734,7 @@ ul.messages li.error {
     background: rgba(38, 156, 202, 0.50);
 }
 
-
-/* Style for labels. */
-.profile-info-group label {
+.profile-password-change label {
     color: #FFF;
     text-align: center;
     font-family: Poppins;
@@ -930,42 +747,11 @@ ul.messages li.error {
     margin-top: 15%;
 }
 
-/* Style for input fields. */
-.profile-info-group button {
+#profile-button {
     width: 316.5px;
     height: 48.75px;
+    align-items: center;
     flex-shrink: 0;
-
-    border-radius: 15px;
-    border: none;
-    background: rgba(38, 156, 202, 0.50);
-    color: #FFF;
-    align-items: center;
-    margin-top: 8%;
-}
-
-.profile-info-group button:hover {
-    background-color: #134A5C;
-    cursor: pointer;
-}
-
-#email-display {
-    color: #FFF;
-    text-align: left;
-    font-family: Poppins;
-    font-size: 27px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -1.89px;
-    align-items: center;
-}
-
-li.success {
-    color: rgb(12, 199, 12);
-}
-
-#profile-button {
     display: inline-block;
     background-color: rgba(38, 156, 202, 0.50);
     color: #FFF;
@@ -976,82 +762,52 @@ li.success {
     font-family: Poppins;
     font-size: 14px;
     transition: background-color 0.3s ease;
-    margin-top: 30px;
+    margin-top: 8%;
 }
 
 #profile-button:hover {
     background-color: #134A5C;
+    cursor: pointer;
 }
 
-/* dashboard create pop up menu */
-
-.popup-menu {
-position: relative;
-display: none;
+li.success {
+    color: rgb(12, 199, 12);
 }
 
-.popup-menu ul {
-list-style: none;
-padding: 0;
-margin: 0;
-background-color:#034863;
-color: #FFF;
-border: 1px solid #ccc;
-border-radius: 4px;
-width: 150px;
-position: absolute;
-top: -60px;
-left: 110px;
-z-index: 100;
-}
+/** End of CSS for Profile Page **/
 
-.popup-menu ul li {
-padding: 8px 12px;
-cursor: pointer;
-}
+/** CSS for Members/Trainers/Locations/Collections **/
 
-.popup-menu ul li:hover {
-background-color: #ccc;
-}
-
-.popup-menu.show {
-display: block;
-}
-
-/* members dashboard */
-
-#member-actions-container{
+#create-and-count-container{
     position: absolute;
     top: 100px;
     left: 230px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* You can adjust the width as needed */
     width: 175px;
     z-index: 10;
 }
 
-#member-create-button{
-  background-color: #175C77;
-  height: 45px;
-  width: 140px;
-  font-size: 15px;
-  color: white;
-  border-radius: 30px;
-  border: none;
-  z-index: 1;
+#page-create-button{
+    background-color: #175C77;
+    height: 45px;
+    width: 140px;
+    font-size: 15px;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    z-index: 1;
 }
 
-#member-create-button:hover{
+#page-create-button:hover{
     background-color: #175C77;
     opacity: 50%;
-    /* border: 1px solid; */
     border-radius: 50px;
     cursor: pointer;
 }
 
-#member-count{
+#object-count{
     color: #FFF;
     text-align: right;
     font-family: Poppins;
@@ -1060,11 +816,9 @@ display: block;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1.89px;
-    /* Removed align-items and margin-top */
 }
 
-
-#create-member-container, #create-trainer-container, #create-location-container{
+#create-member-container, #create-trainer-container{
     display:none;
     width: 800px;
     height: 400px;
@@ -1080,102 +834,62 @@ display: block;
     z-index: 100;
 }
 
-
-.member-create-fields, .trainer-create-fields{
-  border-radius: 15px;
-  width:170px;
-  height:25px;
-  border:none;
-  padding:10px;
-  background-color: #175C77;
-  margin:15px;
-  -webkit-text-fill-color:lightgray;
+#create-member-container.show, #create-trainer-container.show{
+    display: block;
 }
 
-#confirm-create-member, #confirm-create-trainer{
-  border-radius: 25px;
-  width:190px;
-  height:45px;
-  border:none;
-  background-color: #279CCA;
-  margin:15px;
-  color:white
-}
-
-
-#create-member-container.show, #create-trainer-container.show, #create-location-container.show{
-display: block;
-}
-
-.member-create-fields[type="text"] {
-padding: 10px;
-font-size: 16px;
-}
-
-.member-create-fields[type="text"]::placeholder {
-color: #999;
-}
-
-
-/* Location page CSS */
-
-.content{
-
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    }
-
-#main-content-container{
-
-    flex-grow: 1;
-    /* margin: auto; */
-
-}
-
-#add-location{
-
-    color: #FFF;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.96px;
-    display: flex;
-    width: 150px;
-    height: 40px;
-    /* padding: 5px 10px; */
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
+#create-location-container,  #create-collection-container{
+    display: none;
+    width: 220px;
+    height: 200px;
     flex-shrink: 0;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 40px;
-    border-radius: 25px;
-    background-color: #175C77;
-    border: none;
-
-
-}
-
-.center-container {
-    display: flex;
-    justify-content: center;
+    border-radius: 40px;
+    background: #1583ae;
+    position:fixed;
+    padding: 50px;
+    left:350px;
+    top:100px;
     align-items: center;
-    height: calc(100vh - 75px); /* account for your topbar height */
-    width: calc(100vw - 180px); /* account for your navbar width */
-    position: absolute;
-    top: 75px; /* position below the topbar */
-    left: 180px; /* position right to the navbar */
+    justify-content: center;
+    z-index: 10;
 }
 
-#trainers-main-container,  #members-main-container, #collections-main-container, #locations-main-container{
-    /* Remove the position: fixed */
-    /* width: 1128px; Remove this if you want the container width to adjust based on the content */
-    height: 70%; /* Adjust this if you want a fixed height */
+#create-location-container.show, #create-collection-container.show{
+    display: block;
+}
+
+.object-creation-field{
+    border-radius: 15px;
+    width:170px;
+    height:25px;
+    border:none;
+    padding:10px;
+    background-color: #175C77;
+    margin:15px;
+    -webkit-text-fill-color:lightgray;
+}
+
+.object-creation-field[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.object-creation-field[type="text"]::placeholder {
+    color: #999;
+}
+
+#confirm-create-object{
+    border-radius: 25px;
+    width:190px;
+    height:45px;
+    border:none;
+    background-color: #279CCA;
+    margin:15px;
+    color:white
+}
+
+#page-main-container{
+    height: 70%;
     width: 80%;
     border-radius: 15px;
     background: #175C77;
@@ -1183,115 +897,11 @@ color: #999;
 }
 
 .trainer-heading-container, .member-heading-container {
-    display: flex;  /* This makes the children of .heading-container align horizontally */
-    justify-content:space-between;  /* This spreads the children out evenly */
+    display: flex;
+    justify-content:space-between;
     padding: 15px;
     background-color:#134A5C;
 }
-
-
-.trainers-main-heading, .members-main-heading{
-    color: #FFF;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.96px;
-    
-}
-#trainers-name-heading{
-    position: relative;
-    left:40px;
-}
-#trainers-locations-heading{
-    position: relative;
-    left:150px;
-}
-#trainers-space-heading{
-    position: relative;
-    left:60px;
-}
-#new-rank-heading{
-    position: relative;
-    left:-15px;
-}
-
-#trainer-name-name{
-    font-size: 23px;
-    font-weight: bold;
-    margin: 0;
-    margin-left: 46px;
-    padding: 0;
-}
-
-#trainer-location-name{
-    position: absolute;
-    font-size: 23px;
-    font-weight: bold;
-    margin: 0;
-    margin-left: 485px;
-    padding: 0;  /* Add this line to remove any padding */
-}
-#trainer-space-name{
-    position: absolute;
-    font-size: 23px;
-    font-weight: bold;
-    margin: 0;
-    margin-left: 750px;
-    padding: 0;  /* Add this line to remove any padding */
-}
-
-.trainer-item-name {
-    font-size: 25px;
-    font-weight: bold;
-    margin: 0;
-    margin-left: 120px;
-    padding: 0;  /* Add this line to remove any padding */
-}
-
-
-.trainer-item-description {
-    font-size: 16px;
-}
-
-#login-page-signup {
-    /* display: block; */
-    color: #ffffff;
-    background-color: #175C77;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-radius: 50px;
-
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -1.12px;
-
-    display: flex;
-    width: 90px;
-    height: 25px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: auto;
-    margin-top: 50px;
-    border: none;
-    cursor: pointer;
-}
-
-#login-page-signup:hover {
-    background-color: #175C77;
-    opacity: 50%;
-    /* border: 1px solid; */
-    border-radius: 50px;
-}
-
-/* member dashboard list */
-
 
 #member-list-container, #trainer-list-container{
     height: 70%;
@@ -1304,47 +914,121 @@ color: #999;
     left:230px;
 }
 
-
-.member-list-member{
-  background-color: red;
-  width: 200px;
-  height: 10px;
-  margin: 10px;
-}
-
-
-.list-item {
+.member-list-item, .trainer-list-item{
     display: flex;
     flex-direction: row;
-    align-items: start; /* Align items to the start of the flex container */
+    align-items: start;
     justify-content: space-between;
     padding: 10px;
     margin-bottom: 10px;
     height: 30px;
-    border-top: 3px solid #034863;  /* Only top border */
-    border-right: none;  /* No right border */
-    border-bottom: none;  /* No bottom border */
-    border-left: none;  /* No left border */
+    border-top: 3px solid #034863;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
     width: 98%;
 }
 
-#member-name-name{
-    
-    font-size: 25px;
-    font-weight: bold;
-    margin: 0;
-    margin-left: 55px;
-    padding: 0;
-    background-color: transparent;
-    border:none;
-    color:white;
+.member-item-text, .trainer-item-text{
+    color: #FFF;
+    text-align: center;
     font-family: Poppins;
+    font-size: 25px;
+    letter-spacing: -0.96px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-#member-name-name:hover{
-    color: #bcbcbc;
-    cursor:pointer
+.locations-grid-container, .collections-grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 80px;
+    padding: 20px;
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    margin-top: 150px;
+    background: none;
+    position: relative;
 }
+
+.location-list-item, .collection-list-item {
+    padding: 20px;
+    height: 300px; 
+    width: 300px;
+    overflow: auto; 
+    border-radius: 15px;
+    background: #175C77;
+    box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+
+#location-item-title, #collection-item-title {
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -2.16px;
+}
+
+#location-item-space, #collection-item-level {
+    color: #FFF;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -2.16px;
+    margin-top: 5%;
+    margin-left: 15%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#trash-space, #trash-level {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+#add-button {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 25px;
+    padding: 0;
+    color: white;
+    background-color: rgba(38, 156, 202, 0.50);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.12px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+#add-button:hover {
+    opacity: 0.5;
+}
+
+/** End of CSS for Members/Trainers/Locations/Collections **/
+
+/** CSS for Member Analytics Page **/
 
 #member-analytics-container{
     width: 95%;
@@ -1434,13 +1118,13 @@ color: #999;
 }
 
 #member-stats::before{
-    content: ""; /* Required for pseudo-elements */
+    content: "";
     position: absolute;
     top: 0;
     left: -20px;
-    width: 40px; /* Adjust the width and height to control the size of the rounded corner */
+    width: 40px;
     height: 40px;
-    background-color: darkblue; /* Adjust the color as needed */
+    background-color: darkblue;
     border-radius: 30%
 
 }
@@ -1449,7 +1133,6 @@ color: #999;
     color: #bcbcbc;
     cursor:pointer;
 }
-
 
 #member-past-rankings{
     align-items: center;
@@ -1466,13 +1149,13 @@ color: #999;
 }
 
 #member-past-rankings::after{
-    content: ""; /* Required for pseudo-elements */
+    content: "";
     position: absolute;
     top: 0px;
     right: -20px;
-    width: 40px; /* Adjust the width and height to control the size of the rounded corner */
+    width: 40px;
     height: 40px;
-    background-color:#175C77; /* Adjust the color as needed */
+    background-color:#175C77;
     border-radius: 30%;
     z-index:-100;
 }
@@ -1481,7 +1164,6 @@ color: #999;
     color: #bcbcbc;
     cursor:pointer;
 }
-
 
 #data-graphs-container{
     border: 2px solid black;
@@ -1492,23 +1174,13 @@ color: #999;
     left:50px;
 }
 
-
-#member-trainer-name{
-    position: absolute;
-    font-size: 25px;
-    font-weight: bold;
-    margin: 0;
-    margin-left: 600px;
-    padding: 0;  /* Add this line to remove any padding */
-}
-
 #member-ranking-name{
     position: absolute;
     font-size: 25px;
     font-weight: bold;
     margin: 0;
     margin-left: 830px;
-    padding: 0;  /* Add this line to remove any padding */
+    padding: 0;
 }
 
 #trainer-new-rank-name, #member-new-rank-name{
@@ -1518,13 +1190,13 @@ color: #999;
     font-weight: bold;
     margin: 0;
     margin-left: 1050px;
-    padding: 0;  /* Add this line to remove any padding */
+    padding: 0;
 }
+
 #trainer-new-rank-name:hover, #member-new-rank-name:hover{
     color: #bcbcbc;
     cursor:pointer
 }
-
 
 .member-main-heading{
     color: #FFF;
@@ -1551,68 +1223,6 @@ color: #999;
     left:488px;
 }
 
-
-.location-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    padding: 10px;
-    height: 80%;
-    width: 80%;
-    margin: auto;
-    margin-top: 150px;
-    background: none;
-    position: relative;
-}
-
-.location-item {
-    padding: 20px;
-    height: 300px; 
-    width: 300px;
-    overflow: auto; 
-    border-radius: 15px;
-    background: #175C77;
-    box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    position: relative;
-}
-
-#location-title {
-    color: #FFF;
-    text-align: left;
-    font-family: Poppins;
-    font-size: 42px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -2.16px;
-}
-
-#location-space {
-    color: #FFF;
-    text-align: left;
-    font-family: Poppins;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -2.16px;
-    margin-top: 5%;
-    margin-left: 15%;
-}
-
-#collection-level {
-    color: #FFF;
-    text-align: left;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -2.16px;
-    margin-top: 5%;
-    margin-left: 15%;
-}
-
 #trash {
     background: none;
     border: none;
@@ -1621,18 +1231,6 @@ color: #999;
     top: 20px;
     right: 20px;
 }
-
-#trash-space {
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    /* float: right; */
-    left:150px;
-    
-    
-}
-
 
 #trash:hover {
     background-color: #175C77;
@@ -1677,7 +1275,7 @@ color: #999;
     border-radius: 15px;
     border: none;
     background: rgba(38, 156, 202, 0.50);
-    color: white; /* This will change the color of the text */
+    color: white;
     padding-left: 10px;
 }
 
@@ -1685,49 +1283,4 @@ color: #999;
     color: white;
 }
 
-/* Style for the login button. */
-#add-button {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 25px;
-    padding: 0;
-    color: white;
-    background-color: rgba(38, 156, 202, 0.50);
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -1.12px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-#add-button:hover {
-    opacity: 0.5;
-}
-
-#create-collection-container{
-    display: none;
-    width: 220px;
-    height: 150px;
-    flex-shrink: 0;
-    border-radius: 40px;
-    background: #1583ae;
-    position:fixed;
-    padding: 50px;
-    left:350px;
-    top:100px;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-
-#create-collection-container.show{
-    display: block;
-}
+/** End of CSS for Member Analytics **/

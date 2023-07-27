@@ -9,69 +9,50 @@
     <!-- Top Bar -->
     <div id="dashboard-topbar">
         <!-- Dashboard title -->
-        <div id="dashboard-title-container">
-            <h2>Dashboard</h2>
-        </div>
+        <div id="dashboard-title-container">Dashboard</div>
         
         <!-- User info -->
         <div id="user-info-container">
-            <a href="{% url 'profile' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button id="user-info-button">
-                    {{ user.first_name }} {{ user.last_name|slice:"1" }}
-                </button>
+            <a href="{% url 'profile' %}">
+                <button id="user-info-button">{{ user.first_name }} {{ user.last_name|slice:"1" }}</button>
             </a>
         </div>
     </div>
-    <!-- Navigation -->
+    
+    <!-- Nav Bar -->
     <div id="dashboard-navbar">
         <!-- Logo -->
         <div id="logo-container">
-            <!-- <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard"> -->
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
         </div>
-            <!-- {% csrf_token %} -->
-            <script>
-                function toggleMenu(){
-                    var popupMenu = document.querySelector(".popup-menu");
-                    popupMenu.classList.toggle("show");
-                }
-            </script>
-            <button id="create-button" onclick="toggleMenu()" type="button">+ Create</button>
-            
-            <div class="popup-menu">
-                <ul>
-                  <li onclick="toggleCreateMember()">Member</li>
-                  <li onclick="toggleCreateTrainer()">Trainer</li>
-                  <li onclick="toggleCreateLocation()">Location</li>
-                  <li>Collection</li>
-                </ul>
-            </div>
+        <!-- Create Button -->
+        {% csrf_token %}
+        <button id="create-button" onclick="toggleCreateMenu()" type="button">+ Create</button>
+        <div class="popup-menu">
+            <ul>
+                <li onclick="toggleCreateMember()">Member</li>
+                <li onclick="toggleCreateTrainer()">Trainer</li>
+                <li onclick="toggleCreateLocation()">Location</li>
+                <li>Collection</li>
+            </ul>
+        </div>
 
-            <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="dashboard-button">
-                    Dashboard
-                </button>
-            </a>
-            <a href="{% url 'members' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
-                    Members
-                </button>
-            </a>
-            <a href="{% url 'trainers' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="trainers-dashboard-button">
-                     Trainers
-                </button>
-            </a>
-            <a href="{% url 'locations' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="locations-dashboard-button">
-                    Locations
-                </button>
-            </a>
-            <a href="{% url 'collections' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="collections-dashboard-button">
-                    Collections
-                </button>
-            </a>
+        <!-- Nav Buttons -->
+        <a href="{% url 'dashboard' %}">
+            <button class="nav-button">Dashboard</button>
+        </a>
+        <a href="{% url 'members' %}">
+            <button class="nav-button">Members</button>
+        </a>
+        <a href="{% url 'trainers' %}">
+            <button class="nav-button">Trainers</button>
+        </a>
+        <a href="{% url 'locations' %}">
+            <button class="nav-button">Locations</button>
+        </a>
+        <a href="{% url 'collections' %}">
+            <button class="nav-button">Collections</button>
+        </a>
     </div>
 
     <!-- Main Content -->
@@ -126,25 +107,26 @@
 
 </html>
 <script>
+    function toggleCreateMenu(){
+        var popupMenu = document.querySelector(".popup-menu");
+        popupMenu.classList.toggle("show");
+    }
     function toggleCreateMember(){
-                var createMemberMenu = document.querySelector("#create-member-container");
-                createMemberMenu.classList.toggle("show");
-            }
-</script>
-<script>
+        var createMemberMenu = document.querySelector("#create-member-container");
+        createMemberMenu.classList.toggle("show");
+    }
     function toggleCreateTrainer(){
-                var createTrainerMenu = document.querySelector("#create-trainer-container");
-                createTrainerMenu.classList.toggle("show");
-            }
-</script>
-<script>
+        var createTrainerMenu = document.querySelector("#create-trainer-container");
+        createTrainerMenu.classList.toggle("show");
+    }
     function toggleCreateLocation(){
-                var createLocationsMenu = document.querySelector("#create-location-container");
-                createLocationsMenu.classList.toggle("show");
-            }
-</script>
-
-<script>
+        var createLocationsMenu = document.querySelector("#create-location-container");
+        createLocationsMenu.classList.toggle("show");
+    }
+    function toggleCreateCollection(){
+        var createCollectionsMenu = document.querySelector("#create-collction-container");
+        createCollectionsMenu.classList.toggle("show");
+    }
     document.addEventListener("click", function(event) {
         var popupMenu = document.querySelector(".popup-menu");
         var style = window.getComputedStyle(popupMenu);
@@ -155,6 +137,5 @@
                 popupMenu.classList.toggle("show");
             }
         }
-        
-  });
+    });
 </script>

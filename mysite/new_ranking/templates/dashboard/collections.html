@@ -5,99 +5,92 @@
     <title>Collections</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
+
 <body>
-    <!-- Navigation -->
+    <!-- Top Bar -->
+    <div id="dashboard-topbar">
+        <!-- Dashboard title -->
+        <div id="dashboard-title-container">Collections</div>
+        
+        <!-- User info -->
+        <div id="user-info-container">
+            <a href="{% url 'profile' %}">
+                <button id="user-info-button">{{ user.first_name }} {{ user.last_name|slice:"1" }}</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Nav Bar -->
     <div id="dashboard-navbar">
         <!-- Logo -->
         <div id="logo-container">
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
-            <!-- <img src="/mysite/new_ranking/static/images/NR_logo.svg" alt="Logo" id="logo-dashboard"> -->
         </div>
-            {% csrf_token %}
-            <script>
-                function toggleMenu(){
-                    var popupMenu = document.querySelector(".popup-menu");
-                    popupMenu.classList.toggle("show");
-                }
-            </script>
-            <button id="create-button" onclick="toggleMenu()" type="button">+ Create</button>
-            
-            <div class="popup-menu">
-                <ul>
-                  <li>Member</li>
-                  <li>Trainer</li>
-                  <li>Location</li>
-                  <li>Collection</li>
-                </ul>
-            </div>
+        <!-- Create Button -->
+        {% csrf_token %}
+        <button id="create-button" onclick="toggleCreateMenu()" type="button">+ Create</button>
+        <div class="popup-menu">
+            <ul>
+                <li>Member</li>
+                <li>Trainer</li>
+                <li>Location</li>
+                <li>Collection</li>
+            </ul>
+        </div>
 
-            <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="dashboard-button">
-                    Dashboard
-                </button>
-            </a>
-            <a href="{% url 'members' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
-                    Members
-                </button>
-            </a>
-            <a href="{% url 'trainers' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="trainers-dashboard-button">
-                    Trainers
-                </button>
-            </a>
-            <a href="{% url 'locations' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="locations-dashboard-button">
-                    Locations
-                </button>
-            </a>
-            <a href="{% url 'collections' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="collections-dashboard-button">
-                    Collections
-                </button>
-            </a>
+        <!-- Nav Buttons -->
+        <a href="{% url 'dashboard' %}">
+            <button class="nav-button">Dashboard</button>
+        </a>
+        <a href="{% url 'members' %}">
+            <button class="nav-button">Members</button>
+        </a>
+        <a href="{% url 'trainers' %}">
+            <button class="nav-button">Trainers</button>
+        </a>
+        <a href="{% url 'locations' %}">
+            <button class="nav-button">Locations</button>
+        </a>
+        <a href="{% url 'collections' %}">
+            <button class="nav-button">Collections</button>
+        </a>
     </div>  
-    
-    <div class="content">
 
-        <!-- Top Bar -->
-     <div id="dashboard-topbar">
-        <!-- Dashboard title -->
-        <div id="dashboard-title-container">
-            <h2>Collections</h2>
-        </div>
-        
-        <!-- User info -->
-        <div id="user-info-container">
-            <a href="{% url 'profile' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button id="user-info-button">
-                    {{ user.first_name }} {{ user.last_name|slice:"1" }}
-                </button>
-            </a>
-        </div>
-    </div>
     <!-- Main Content -->
-    <div class="collections-main-container">
-        <div id="member-actions-container">
-            <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Collection</button>
+    <div class="page-main-container">
+        <div id="create-and-count-container">
+            <button id="page-create-button" onclick="toggleCreateMember()" type='button'>+ Add Collection</button>
             {% csrf_token %}
-                <div id="member-count">({{ count }})</div>
-            <!--</a>-->
+            <div id="object-count">({{ count }})</div>
         </div>
+
+        <!-- Create Collection form -->
         <form method="POST" action="create_course/">
             <div id="create-collection-container">
                 {% csrf_token %}
-                <input class='member-create-fields' name='collection-name' type="text" placeholder="Collection Name">
-                <button id='confirm-create-member' type="submit">Create Collection</button>
+                <input class='object-creation-field' name='collection' type="text" placeholder="Collection Name">
+                <button id='confirm-create-object' type="submit">Create Collection</button>
             </div>
         </form>
-        <div class="location-container">
+
+        <div class="collections-grid-container">
+            <!-- Display each Collection -->
             {% for collection in collections %}
-                <div class="location-item">
-                    <div id="location-title">{{ collection.name }}</div>
+                <div class="collection-list-item">
+                    <div id="collection-item-title">{{ collection.name }}</div>
+                    <!-- Display each Level -->
                     {% for level in collection.levels.all %}
-                        <div id= "collection-level">{{ level.level }}</div>
+                        <!-- Delete Level button -->
+                        <form method="POST" action="{% url 'delete_level' level.id %}">
+                            {% csrf_token %}
+                            <!-- Display Level inside delete form so items appear adjacent -->
+                            <div id="collection-item-level">{{ level.level }}</div>
+                            <button id="trash-level" onclick="return confirmDeleteSpace();">
+                                <img src="{% static 'images/small_trash_icon.svg' %}" alt="Delete">
+                            </button>
+                        </form>
                     {% endfor %}
+                    
                     <!-- Add Level Form -->
                     <div id="addLevelForm{{ collection.id }}" style="display: none;">
                         <form method="POST" action="{% url 'add_level' collection.id %}">
@@ -125,23 +118,28 @@
 </html>
 
 <script>
-    function toggleCreateMember(){
-            var createMemberMenu = document.querySelector("#create-collection-container");
-            createMemberMenu.classList.toggle("show");
-        }
-</script>
 
-<script>
+    function toggleCreateMenu(){
+        var popupMenu = document.querySelector(".popup-menu");
+        popupMenu.classList.toggle("show");
+    }
+
+    function toggleCreateMember(){
+        var createMemberMenu = document.querySelector("#create-collection-container");
+        createMemberMenu.classList.toggle("show");
+    }
+
     function confirmDelete() {
         return confirm('Are you sure you want to delete this collection?');
     }
     
     function showAddLevelForm(collectionId) {
-    var form = document.getElementById('addLevelForm' + collectionId);
-    if(form.style.display === 'block') {
-        form.style.display = 'none';
-    } else {
-        form.style.display = 'block';
+        var form = document.getElementById('addLevelForm' + collectionId);
+        if(form.style.display === 'block') {
+            form.style.display = 'none';
+        } else {
+            form.style.display = 'block';
+        }
     }
-}
+
 </script>

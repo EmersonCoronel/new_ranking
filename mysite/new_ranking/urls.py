@@ -43,6 +43,7 @@ urlpatterns = [
     path('delete_collection/<int:collection_id>/', views.delete_collection, name='delete_collection'),
     path('delete_location/<int:location_id>/', views.delete_location, name='delete_location'),
     path('delete_space/<int:space_id>/', views.delete_space, name='delete_space'),
+    path('delete_level/<int:level_id>/', views.delete_level, name='delete_level'),
     path('change_password/', views.change_password, name='change_password'),
     path('logout/', views.logout_view, name='logout'),
     path('locations/', views.locations, name='locations'),

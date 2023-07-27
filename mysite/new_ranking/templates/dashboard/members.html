@@ -5,210 +5,118 @@
     <title>Members</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
+
 <body>
     <!-- Top Bar -->
     <div id="dashboard-topbar">
         <!-- Dashboard title -->
-        <div id="dashboard-title-container">
-            <h2>Members</h2>
-        </div>
+        <div id="dashboard-title-container">Members</div>
         
         <!-- User info -->
         <div id="user-info-container">
-            <a href="{% url 'profile' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button id="user-info-button">
-                    {{ user.first_name }} {{ user.last_name|slice:"1" }}
-                </button>
+            <a href="{% url 'profile' %}">
+                <button id="user-info-button">{{ user.first_name }} {{ user.last_name|slice:"1" }}</button>
             </a>
         </div>
     </div>
     
-    <script>
-        function toggleCreateMember(){
-                    var createMemberMenu = document.querySelector("#create-member-container");
-                    createMemberMenu.classList.toggle("show");
-                }
-    </script>
-    <!-- Navigation -->
+    <!-- Nav Bar -->
     <div id="dashboard-navbar">
         <!-- Logo -->
         <div id="logo-container">
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
         </div>
-            {% csrf_token %}
-            <script>
-                function toggleMenu(){
-                    var popupMenu = document.querySelector(".popup-menu");
-                    popupMenu.classList.toggle("show");
-                }
-            </script>
-            <button id="create-button" onclick="toggleMenu()" type="button">+ Create</button>
-            
-            <div class="popup-menu">
-                <ul>
-                    <li onclick="toggleCreateMember()">Member</li>
-                    <li onclick="toggleCreateTrainer()">Trainer</li>
-                    <li onclick="toggleCreateLocation()">Location</li>
-                    <li>Collection</li>
-                </ul>
-            </div>
+        <!-- Create Button -->
+        {% csrf_token %}
+        <button id="create-button" onclick="toggleCreateMenu()" type="button">+ Create</button>
+        <div class="popup-menu">
+            <ul>
+                <li onclick="toggleCreateMember()">Member</li>
+                <li onclick="toggleCreateTrainer()">Trainer</li>
+                <li onclick="toggleCreateLocation()">Location</li>
+                <li>Collection</li>
+            </ul>
+        </div>
 
-            <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="dashboard-button">
-                    Dashboard
-                </button>
-            </a>
-            <a href="{% url 'members' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
-                    Members
-                </button>
-            </a>
-            <a href="{% url 'trainers' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="trainers-dashboard-button">
-                    Trainers
-                </button>
-            </a>
-            <a href="{% url 'locations' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="locations-dashboard-button">
-                    Locations
-                </button>
-            </a>
-            <a href="{% url 'collections' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="collections-dashboard-button">
-                    Collections
-                </button>
-            </a>
+        <!-- Nav Buttons -->
+        <a href="{% url 'dashboard' %}">
+            <button class="nav-button">Dashboard</button>
+        </a>
+        <a href="{% url 'members' %}">
+            <button class="nav-button">Members</button>
+        </a>
+        <a href="{% url 'trainers' %}">
+            <button class="nav-button">Trainers</button>
+        </a>
+        <a href="{% url 'locations' %}">
+            <button class="nav-button">Locations</button>
+        </a>
+        <a href="{% url 'collections' %}">
+            <button class="nav-button">Collections</button>
+        </a>
     </div>
+    
     <!-- Main Content -->
-    <div id="members-main-container">
+    <div class="page-main-container">
+        <div id="create-and-count-container">
+            <button id="page-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
+            {% csrf_token %}
+            <div id="object-count">({{ count }})</div>
+        </div>
+        
+        <!-- Create Member form -->
         <form method="POST" action="create_member/">
             <div id="create-member-container">
                 {% csrf_token %}
-                <input class='member-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
-                <input class='member-create-fields' name='last-name' type="text" placeholder="Last Name">
-                <input class='member-create-fields' name='location' type="text" placeholder="Location">
-                <input class='member-create-fields' name='phone-number' type="text" placeholder="Phone Number">
-                <input class='member-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
-                <input class='member-create-fields' name='space' type="text" placeholder="Space">
-                <input class='member-create-fields' name='gender' type="text" placeholder="Gender">
-                <input class='member-create-fields' name='date-joined' type="text" placeholder="Date Joined (YYYY-MM-DD)">
-                <input class='member-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth (YYYY-MM-DD)">
-                <input class='member-create-fields' name='package' type="text" placeholder="Package">
-                <input class='member-create-fields' name='courses' type="text" placeholder="Courses">
-                <input class='member-create-fields' name='trainer' type="text" placeholder="Trainer">
-                <input class='member-create-fields' name='password' type="text" placeholder="Password">
-                <button id='confirm-create-member' type="submit">Create Member</button>
-            </div>
-        </form>
-        <form method="POST" action="create_trainer/">
-            <div id="create-trainer-container">
-                {% csrf_token %}
-                <input class='trainer-create-fields' name='first-name' autocomplete=" " type="text" placeholder="First Name">
-                <input class='trainer-create-fields' name='last-name' type="text" placeholder="Last Name">
-                <input class='trainer-create-fields' name='location' type="text" placeholder="Location">
-                <input class='trainer-create-fields' name='phone-number' type="text" placeholder="Phone Number">
-                <input class='trainer-create-fields' name='email' autocomplete=" " type="text" placeholder="Email">
-                <input class='trainer-create-fields' name='space' type="text" placeholder="Space">
-                <input class='trainer-create-fields' name='gender' type="text" placeholder="Gender">
-                <input class='trainer-create-fields' name='date-joined' type="text" placeholder="Date Joined (YYYY-MM-DD)">
-                <input class='trainer-create-fields' name='date-of-birth' type="text" placeholder="Date of Birth (YYYY-MM-DD)">
-                <input class='trainer-create-fields' name='courses' type="text" placeholder="Courses">
-                <input class='trainer-create-fields' name='password' type="text" placeholder="Password">
-                <button id='confirm-create-trainer' type="submit">Create Trainer</button>
-            </div>
-        </form>
-        <form method="POST" action="create_location/">
-            <div id="create-location-container">
-                {% csrf_token %}
-                <input class='member-create-fields' name='location-name' type="text" placeholder="Location">
-                <input class='member-create-fields' name='space-num' type="text" placeholder="Space">
-                <button id='confirm-create-member' type="submit">Create Location</button>
+                <input class='object-creation-field' name='first-name' autocomplete=" " type="text" placeholder="First Name">
+                <input class='object-creation-field' name='last-name' type="text" placeholder="Last Name">
+                <input class='object-creation-field' name='location' type="text" placeholder="Location">
+                <input class='object-creation-field' name='phone-number' type="text" placeholder="Phone Number">
+                <input class='object-creation-field' name='email' autocomplete=" " type="text" placeholder="Email">
+                <input class='object-creation-field' name='space' type="text" placeholder="Space">
+                <input class='object-creation-field' name='gender' type="text" placeholder="Gender">
+                <input class='object-creation-field' name='date-joined' type="text" placeholder="Date Joined (YYYY-MM-DD)">
+                <input class='object-creation-field' name='date-of-birth' type="text" placeholder="Date of Birth (YYYY-MM-DD)">
+                <input class='object-creation-field' name='package' type="text" placeholder="Package">
+                <input class='object-creation-field' name='courses' type="text" placeholder="Courses">
+                <input class='object-creation-field' name='trainer' type="text" placeholder="Trainer">
+                <input class='object-creation-field' name='password' type="text" placeholder="Password">
+                <button id='confirm-create-object' type="submit">Create Member</button>
             </div>
         </form>
 
-
-        <!-- Content goes here -->
-        <div id="member-actions-container">
-
-            <button id="member-create-button" onclick="toggleCreateMember()" type='button'>+ Add Member</button>
-        
-            {% csrf_token %}
-                <div id="member-count">({{count}})</div>
-            <!--</a>-->
-        
-        </div>
         <div id="member-list-container">
+            <!-- Heading above Members List -->
             <div class="member-heading-container">
-                <!-- Your content here -->
-                <div class="members-main-heading" id ='members-name-heading'>
-                    Name
-                </div>
-                <div class="members-main-heading" id ='members-trainer-heading'>
-                    Trainer
-                </div>
-                <div class="members-main-heading" id ='members-ranking-heading'>
-                    Ranking
-                </div>
-                <div class="members-main-heading" id ='new-rank-heading'>
-                    New Rank
-                </div>
+                <div class="member-item-text">Name</div>
+                <div class="member-item-text">Location</div>
+                <div class="member-item-text">Space</div>
+                <div class="member-item-text">New Rank</div>
             </div>
-            {% for member in data %}
-            <form method="POST" action="{% url 'member_analytics' %}">
-            <!--action="member_analytics/"-->
-                <div class="list-item">
-                    {% csrf_token %}
-                    <input type="hidden" name="member-first-name" value="{{ member.first_name }}">
-                    <input type="hidden" name="member-last-name" value="{{ member.last_name }}">
-                    <input type="hidden" name="member-courses" value="{{ member.courses }}">
-                    <input type="hidden" name="member-location" value="{{ member.location }}">
-                    <input type="hidden" name="member-space" value="{{ member.space }}">
-                    <button id="member-name-name" type="submit">{{ member.first_name }} {{ member.last_name }}</button>
-                    <h2 id="member-trainer-name">{{ member.trainer }}</h2>
-                    <h2 id="member-ranking-name">{{ member.ranking }}</h2>
-                    <h2 id="member-new-rank-name">+</h2>
+
+            <!-- Members list -->
+            {% for member in members %}
+                <div class="member-list-item">
+                    <div class="member-item-text">{{ member.first_name }} {{ member.last_name }}</div>
+                    <div class="member-item-text">{{ member.location }}</div>
+                    <div class="member-item-text">{{ member.space }}</div>
+                    <div class="member-item-text">+</div>
                 </div>
-            </form>
             {% endfor %}
         </div>
     </div>
 </body>
 </html>
+
+<!-- Javascript -->
 <script>
-    function firstLetter(name){
-        strName = String(name)
-        return strName[0]
-    }
-</script>
-<script>
-    function toggleCreateMember(){
-                var createMemberMenu = document.querySelector("#create-member-container");
-                createMemberMenu.classList.toggle("show");
-            }
-</script>
-<script>
-    function toggleCreateTrainer(){
-                var createTrainerMenu = document.querySelector("#create-trainer-container");
-                createTrainerMenu.classList.toggle("show");
-            }
-</script>
-<script>
-    function toggleCreateLocation(){
-                var createLocationsMenu = document.querySelector("#create-location-container");
-                createLocationsMenu.classList.toggle("show");
-            }
-</script>
-<script>
-    document.addEventListener("click", function(event) {
+    function toggleCreateMenu(){
         var popupMenu = document.querySelector(".popup-menu");
-        var style = window.getComputedStyle(popupMenu);
-        var display = style.getPropertyValue("display");
-        if (display != "none"){
-            var popupButton = document.querySelector("#create-button");
-            if (!popupMenu.contains(event.target) && event.target !== popupButton) {
-                popupMenu.classList.toggle("show");
-            }
-        }
-        
-  });
+        popupMenu.classList.toggle("show");
+    }
+
+    function toggleCreateMember(){
+        var createMemberMenu = document.querySelector("#create-member-container");
+        createMemberMenu.classList.toggle("show");
+    }
 </script>

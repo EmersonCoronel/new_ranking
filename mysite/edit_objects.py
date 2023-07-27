@@ -222,16 +222,11 @@ class LocationFunctions:
         location.name = newLocationName
         location.save()
         return location
-    
-    # def editLocationSpace(location, newSpace):
-    #     location.space = newSpace
-    #     location.save()
-    #     return location
 
 
 class SpaceFunctions:
 
-    def createSpace(location, spaceNumber = "Default Space Number"):
+    def createSpace(location, spaceNumber):
         newSpace = Space(location = location, name=spaceNumber)
         newSpace.save()
         return newSpace

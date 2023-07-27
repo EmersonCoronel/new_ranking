@@ -18,13 +18,8 @@ class Location(models.Model):
     name = models.CharField(max_length=200, default="Default Location Name")
 
 class Space(models.Model):
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name= "spaces")
-    name = models.CharField(max_length=100,default="Default Space Number")
-    description = models.TextField()
-    # Add more fields as per your requirements
-
-    def __str__(self):
-        return self.name
+    location = models.ForeignKey(Location, related_name= "spaces", on_delete=models.CASCADE)
+    name = models.CharField(max_length=200,default="Default Space Number")
     
 class User(AbstractUser):
     is_admin = models.BooleanField(default=False)

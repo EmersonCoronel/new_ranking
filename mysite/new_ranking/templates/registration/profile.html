@@ -9,64 +9,60 @@
     <!-- Top Bar -->
     <div id="dashboard-topbar">
         <!-- Dashboard title -->
-        <div id="dashboard-title-container">
-            <h2>Profile</h2>
-        </div>
+        <div id="dashboard-title-container">Profile</div>
         
         <!-- User info -->
         <div id="user-info-container">
-            <button id="user-info-button" href="{% url 'profile' %}">
-                {{ user.first_name }} {{ user.last_name|slice:"1" }}
-            </button>
+            <a href="{% url 'profile' %}">
+                <button id="user-info-button">{{ user.first_name }} {{ user.last_name|slice:"1" }}</button>
+            </a>
         </div>
     </div>
-    <!-- Navigation -->
+    
+    <!-- Nav Bar -->
     <div id="dashboard-navbar">
         <!-- Logo -->
         <div id="logo-container">
             <img src="{% static 'images/NR_logo.svg' %}" alt="Logo" id="logo-dashboard">
         </div>
-            {% csrf_token %}
-            <button id="create-button" type="button">+ Create</button>
-            <a href="{% url 'dashboard' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
-                    Dashboard
-                </button>
-            </a>
-            <a href="{% url 'members' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="members-dashboard-button">
-                    Members
-                </button>
-            </a>
-            <a href="{% url 'trainers' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="trainers-dashboard-button">
-                    Trainers
-                </button>
-            </a>
-            <a href="{% url 'locations' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="locations-dashboard-button">
-                    Locations
-                </button>
-            </a>
-            <a href="{% url 'collections' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
-                <button class="nav-button" id="collections-dashboard-button">
-                    Collections
-                </button>
-            </a>
-    </div>
-    <!-- Main Content -->
-    <div id="profile-container">
-        <!-- Content goes here -->
-        <div id="profile-name-text">
-            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
-        </div>
-        <!-- Email info -->
-        <div class="profile-info-group">
-            <label for="email-display">Email: {{ user.username }}</label>
+        <!-- Create Button -->
+        {% csrf_token %}
+        <button id="create-button" onclick="toggleCreateMenu()" type="button">+ Create</button>
+        <div class="popup-menu">
+            <ul>
+                <li onclick="toggleCreateMember()">Member</li>
+                <li onclick="toggleCreateTrainer()">Trainer</li>
+                <li onclick="toggleCreateLocation()">Location</li>
+                <li>Collection</li>
+            </ul>
         </div>
 
+        <!-- Nav Buttons -->
+        <a href="{% url 'dashboard' %}">
+            <button class="nav-button">Dashboard</button>
+        </a>
+        <a href="{% url 'members' %}">
+            <button class="nav-button">Members</button>
+        </a>
+        <a href="{% url 'trainers' %}">
+            <button class="nav-button">Trainers</button>
+        </a>
+        <a href="{% url 'locations' %}">
+            <button class="nav-button">Locations</button>
+        </a>
+        <a href="{% url 'collections' %}">
+            <button class="nav-button">Collections</button>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div id="profile-container">
+        <!-- Name -->
+        <div id="profile-name-text">{{ user.first_name }} {{ user.last_name }}</div>
+        <!-- Email -->
+        <div id="profile-email-text">Email: {{ user.username }}</div>
         <!-- Password change -->
-        <div class="profile-info-group">
+        <div class="profile-password-change">
             <label for="password-change">Change password</label>
             <!-- Form for changing the password -->
             <form id="password-change-form" action="{% url 'change_password' %}" method="POST">
@@ -96,7 +92,7 @@
                     {% endfor %}
                 </ul>
             {% endif %}
-            <a href="{% url 'logout' %}"> <!-- Replace "/profile/" with the actual URL of the profile page -->
+            <a href="{% url 'logout' %}">
                 <button id="profile-button">
                     Logout Account
                 </button>

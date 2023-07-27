@@ -15,22 +15,16 @@
     <div id="login-container">
         <form method="post" id="login-form">
             {% csrf_token %}
-            <div id="login-text-container">
-                <h2>Login</h2>
-            </div>
+            <div id="login-header-text">Login</div>
             <!-- Username/Email field -->
-            <div class="form-group">
+            <div class="login-form-group">
                 <label for="username">Email:</label>
                 <input type="text" id="username" name="username">
             </div>
             <!-- Password field -->
-            <div class="form-group">
+            <div class="login-form-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
-            </div>
-            <!-- Forgot password link -->
-            <div class="form-group">
-                <a href="path_to_forgot_password_page" id="forgot-password">Forgot password?</a>
             </div>
             <!-- Login button -->
             <div class="form-group">
@@ -45,6 +39,6 @@
             {% endif %}
         </form>
     </div>
-    <a href="{% url 'signup' %}" id="login-page-signup"> Sign up </a>
+    <a href="{% url 'signup' %}" id="signup-button-login-page"> Sign up </a>
 </body>
 </html>
