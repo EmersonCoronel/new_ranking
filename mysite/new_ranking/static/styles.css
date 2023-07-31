@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
-body {
+
+/* Want to have one body for the home page without display: flex and one body
+for the rest of the pages that does have display: flex */
+
+body.default {
     background-image: url("images/bg.png");
     height: 100%;
     width: 100%;
@@ -9,6 +13,16 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     display: flex;
+}
+
+body.home-page {
+    background-image: url("images/bg.png");
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 
 #logo-container{
@@ -318,7 +332,6 @@ ul.inside-plan-details {
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -394,6 +407,7 @@ ul.inside-plan-details {
     gap: 10px;
     transition: 150ms ease;
     margin: auto;
+    margin-left: (100% - 90px) / 2;
     border: none;
     cursor: pointer;
     margin-top: 25px;
@@ -410,7 +424,7 @@ ul.inside-plan-details {
     height: 650px;
     flex-shrink: 0;
     margin:auto;
-    margin-left: 37.25%;
+    left: ((100% - 420px) / 2);
     border-radius: 22.5px;
     background: rgba(23, 92, 119, 0.50);
     display: flex;
@@ -457,13 +471,12 @@ ul.inside-plan-details {
     margin-right: 5px
 }
 
-#error-container{
+#error-container {
     width: 200px;
     height: 200px;
-    float: right;
-    margin-right: 150px;
-    margin-top: 300px;
-    flex-shrink: 0;
+    position: absolute;
+    top: 300px;
+    right: 150px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
