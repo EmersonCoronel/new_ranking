@@ -31,10 +31,10 @@
         <button id="create-button" onclick="toggleCreateMenu()" type="button">+ Create</button>
         <div class="popup-menu">
             <ul>
-                <li>Member</li>
-                <li>Trainer</li>
-                <li>Location</li>
-                <li>Collection</li>
+                <li onclick="toggleCreateMember()">Member</li>
+                <li onclick="toggleCreateTrainer()">Trainer</li>
+                <li onclick="toggleCreateLocation()">Location</li>
+                <li onclick="toggleCreateCollection()">Collection</li>
             </ul>
         </div>
 
@@ -63,16 +63,6 @@
             {% csrf_token %}
             <div id="object-count">({{ count }})</div>
         </div>
-
-        <!-- Create Location form -->
-        <form method="POST" action="create_location/">
-            <div id="create-location-container">
-                {% csrf_token %}
-                <input class='object-creation-field' name='location' type="text" placeholder="Location">
-                <input class='object-creation-field' name='space' type="text" placeholder="Space">
-                <button id='confirm-create-object' type="submit">Create Location</button>
-            </div>
-        </form>
 
         <div class="locations-grid-container">
             <!-- Display each Location -->
@@ -116,6 +106,61 @@
         </div>
     </div>
 </body>
+
+<!-- Create Button -->
+<form method="POST" action="create_member/">
+    <div id="create-member-container">
+        {% csrf_token %}
+        <input class='object-creation-field' name='first-name' autocomplete=" " type="text" placeholder="First Name">
+        <input class='object-creation-field' name='last-name' type="text" placeholder="Last Name">
+        <input class='object-creation-field' name='location' type="text" placeholder="Location">
+        <input class='object-creation-field' name='phone-number' type="text" placeholder="Phone Number">
+        <input class='object-creation-field' name='email' autocomplete=" " type="text" placeholder="Email">
+        <input class='object-creation-field' name='space' type="text" placeholder="Space">
+        <input class='object-creation-field' name='gender' type="text" placeholder="Gender">
+        <input class='object-creation-field' name='date-joined' type="text" placeholder="Date Joined">
+        <input class='object-creation-field' name='date-of-birth' type="text" placeholder="Date of Birth">
+        <input class='object-creation-field' name='package' type="text" placeholder="Package">
+        <input class='object-creation-field' name='courses' type="text" placeholder="Courses">
+        <input class='object-creation-field' name='trainer' type="text" placeholder="Trainer">
+        <input class='object-creation-field' name='password' type="text" placeholder="Password">
+        <button id='confirm-create-object' type="submit">Create Member</button>
+    </div>
+</form>
+<form method="POST" action="create_trainer/">
+    <div id="create-trainer-container">
+        {% csrf_token %}
+        <input class='object-creation-field' name='first-name' autocomplete=" " type="text" placeholder="First Name">
+        <input class='object-creation-field' name='last-name' type="text" placeholder="Last Name">
+        <input class='object-creation-field' name='location' type="text" placeholder="Location">
+        <input class='object-creation-field' name='phone-number' type="text" placeholder="Phone Number">
+        <input class='object-creation-field' name='email' autocomplete=" " type="text" placeholder="Email">
+        <input class='object-creation-field' name='space' type="text" placeholder="Space">
+        <input class='object-creation-field' name='gender' type="text" placeholder="Gender">
+        <input class='object-creation-field' name='date-joined' type="text" placeholder="Date Joined">
+        <input class='object-creation-field' name='date-of-birth' type="text" placeholder="Date of Birth">
+        <input class='object-creation-field' name='courses' type="text" placeholder="Courses">
+        <input class='object-creation-field' name='password' type="text" placeholder="Password">
+        <button id='confirm-create-object' type="submit">Create Trainer</button>
+    </div>
+</form>
+<form method="POST" action="create_location/">
+    <div id="create-location-container">
+        {% csrf_token %}
+        <input class='object-creation-field' name='location-name' type="text" placeholder="Location">
+        <input class='object-creation-field' name='space-num' type="text" placeholder="Space">
+        <button id='confirm-create-object' type="submit">Create Location</button>
+    </div>
+</form>
+<form method="POST" action="create_course/">
+    <div id="create-collection-container">
+        {% csrf_token %}
+        <input class='object-creation-field' name='collection' type="text" placeholder="Collection Name">
+        <button id='confirm-create-object' type="submit">Create Collection</button>
+    </div>
+</form>
+<!-- End of create button -->
+
 </html>
 
 <!-- Javascript -->
@@ -124,22 +169,34 @@
         var popupMenu = document.querySelector(".popup-menu");
         popupMenu.classList.toggle("show");
     }
-
-    function toggleCreateLocation(){
-        var createLocationMenu = document.querySelector("#create-location-container");
-        createLocationMenu.classList.toggle("show");
+    function toggleCreateMember(){
+        var createMemberMenu = document.querySelector("#create-member-container");
+        createMemberMenu.classList.toggle("show");
     }
-
+    function toggleCreateTrainer(){
+        var createTrainerMenu = document.querySelector("#create-trainer-container");
+        createTrainerMenu.classList.toggle("show");
+    }
+    function toggleCreateLocation(){
+        var createLocationsMenu = document.querySelector("#create-location-container");
+        createLocationsMenu.classList.toggle("show");
+    }
+    function toggleCreateCollection(){
+        var createCollectionsMenu = document.querySelector("#create-collection-container");
+        createCollectionsMenu.classList.toggle("show");
+    }
     function confirmDelete() {
         return confirm('Are you sure you want to delete this location?');
     }
-
-    function showAddSpaceForm(locationId) {
-        var form = document.getElementById('addSpaceForm' + locationId);
-        if(form.style.display === 'block') {
-            form.style.display = 'none';
-        } else {
-            form.style.display = 'block';
+    document.addEventListener("click", function(event) {
+        var popupMenu = document.querySelector(".popup-menu");
+        var style = window.getComputedStyle(popupMenu);
+        var display = style.getPropertyValue("display");
+        if (display != "none"){
+            var popupButton = document.querySelector("#create-button");
+            if (!popupMenu.contains(event.target) && event.target !== popupButton) {
+                popupMenu.classList.toggle("show");
+            }
         }
-    }
+    });
 </script>

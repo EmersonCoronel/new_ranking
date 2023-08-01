@@ -844,7 +844,7 @@ li.success {
     top:150px;
     align-items: center;
     justify-content: center;
-    z-index: 100;
+    z-index: 10;
 }
 
 #create-member-container.show, #create-trainer-container.show{
